@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'millimetre_bold';
+    src:
+        local('millimetre_boldbold'), 
+        url("/src/assets/fonts/bold/millimetre-bold-webfont.woff2") format('woff2'),
+        url("/src/assets/fonts/bold/millimetre-bold-webfont.woff") format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+$primaryFontBold: 'millimetre_bold';
+
+
+@font-face {
+    font-family: 'millimetre_extrablack';
+    src:
+        local('millimetre_boldbold'), 
+        url("/src/assets/fonts/extrablack/millimetre-extrablack-webfont.woff2") format('woff2'),
+        url("/src/assets/fonts/extrablack/millimetre-extrablack-webfont.woff") format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+$primaryFontExtraBlack: 'millimetre_extrablack';
+
+
+@font-face {
+    font-family: 'millimetre_light';
+    src:
+        local('millimetre_boldbold'), 
+        url("/src/assets/fonts/light/millimetre-light-webfont.woff2") format('woff2'),
+        url("/src/assets/fonts/light/millimetre-light-webfont.woff") format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+$primaryFontLight: 'millimetre_light';
+
+
+@font-face {
+    font-family: 'millimetre_regular';
+    src:
+        local('millimetre_regular'), 
+        url("/src/assets/fonts/regular/millimetre-regular-webfont.woff2") format('woff2'),
+        url("/src/assets/fonts/regular/millimetre-regular-webfont.woff") format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+$primaryFontRegular: 'millimetre_regular';
+
