@@ -1,0 +1,19 @@
+@mixin box-shadow {
+    box-shadow: #3E3E3E -2px -2px 0px 1px;
+}
+
+@mixin button {
+    border: 1px solid #3E3E3E;
+    border-radius: 5px;
+    box-shadow: #3E3E3E -2px -2px 0px 1px;
+    padding: 5px 0;
+    margin: 0 1rem;
+    &:hover {
+        animation: 0.25s infinite alternate shadowButton;
+    }
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}

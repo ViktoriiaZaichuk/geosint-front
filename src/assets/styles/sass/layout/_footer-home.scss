@@ -6,12 +6,12 @@
     width: 100%;
     h1 {
         color: black;
-        font-size: 1.5rem;
+        font-size: $fontSize;
         margin-bottom: 1rem;
     }
     p {
-        font-size: 0.7rem;
-        margin-bottom: 1rem;
+        font-size: 1rem;
+        margin-bottom: 2rem;
     }
     &--top {
         margin: 2rem 2rem;
@@ -24,11 +24,13 @@
             display: flex;
             width: 40%;
             justify-content: space-around;
+            & h2 {
+                font-size: $fontSize;
+            }
         }
     }
     &--links {
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
     }
     &--link {
         margin: 1rem 1rem;
@@ -37,8 +39,7 @@
     }
     &--socials {
         margin: 1rem 1rem;
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
         align-items: center;
         &__title {
             margin-bottom: 1rem;

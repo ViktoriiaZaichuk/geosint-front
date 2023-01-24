@@ -35,7 +35,7 @@ html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockq
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
+  font-size: 62.5%;
   font-family: "millimetre_regular";
   vertical-align: baseline;
   text-rendering: optimizeLegibility;
@@ -76,7 +76,8 @@ input {
   border: 1px solid #3E3E3E;
   border-radius: 5px;
   box-shadow: #3E3E3E -2px -2px 0px 1px;
-  padding: 5px 0; }
+  padding: 5px 0;
+  margin: 0 1rem; }
   .button:hover {
     animation: 0.25s infinite alternate shadowButton; }
 
@@ -85,7 +86,8 @@ input {
   border: 1px solid #3E3E3E;
   border-radius: 5px;
   box-shadow: #3E3E3E -2px -2px 0px 1px;
-  padding: 5px 0; }
+  padding: 5px 0;
+  margin: 0 1rem; }
   .button-purple:hover {
     animation: 0.25s infinite alternate shadowButton; }
 
@@ -117,7 +119,8 @@ input {
 .link {
   margin: 0 1rem;
   text-decoration: none;
-  color: #000; }
+  color: #000;
+  font-size: 1.5rem; }
 
 .icon {
   margin: 0 0.5rem; }
@@ -133,8 +136,8 @@ input {
     font-size: 1.5rem;
     margin-bottom: 1rem; }
   .footer p {
-    font-size: 0.7rem;
-    margin-bottom: 1rem; }
+    font-size: 1rem;
+    margin-bottom: 2rem; }
   .footer--top {
     margin: 2rem 2rem;
     display: flex;
@@ -145,6 +148,8 @@ input {
       display: flex;
       width: 40%;
       justify-content: space-around; }
+      .footer--top__right h2 {
+        font-size: 1.5rem; }
   .footer--links {
     display: flex;
     flex-direction: column; }
@@ -173,7 +178,7 @@ input {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 50vh; }
+  height: 60vh; }
 
 .login--header {
   display: flex;
@@ -189,6 +194,8 @@ input {
     color: #3E3E3E;
     text-decoration: none;
     font-size: 1.5rem; }
+  .login--header h2 {
+    font-size: 2.5rem; }
 
 .login--form {
   display: flex;
@@ -196,8 +203,9 @@ input {
   justify-content: space-around;
   align-items: center;
   width: 25vw;
+  height: 40vh;
   border: 1px solid black;
-  padding: 2rem;
+  padding: 4rem;
   border-radius: 20px;
   box-shadow: #BFFFD6 -6px -6px 0px 1px, -7px -7px 0 1px black; }
   .login--form__input {
@@ -205,12 +213,17 @@ input {
     flex-direction: column;
     margin: 1rem 0;
     width: 100%; }
+    .login--form__input label {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem; }
     .login--form__input input {
       border: 1px solid black;
       border-radius: 5px;
       padding: 0.5rem;
       margin: 0.5rem 0;
       box-shadow: #3E3E3E -2px -2px 0px 1px; }
+  .login--form a {
+    font-size: 1.5rem; }
   .login--form__link {
     color: #3E3E3E;
     text-decoration: none;
@@ -219,13 +232,15 @@ input {
   .login--form button {
     margin: 1rem 0;
     width: 100%;
-    height: 2rem;
     font-family: "millimetre_regular"; }
   .login--form__register {
     display: flex;
     justify-content: space-between;
     width: 100%;
     margin: 1rem 0; }
+    .login--form__register p {
+      font-size: 1.5rem; }
     .login--form__register a {
       color: #CDB4FF;
-      text-decoration: none; }
+      text-decoration: none;
+      font-size: 1.5rem; }
