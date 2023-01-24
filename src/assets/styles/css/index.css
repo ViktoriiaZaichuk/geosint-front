@@ -22,6 +22,12 @@
   font-weight: normal;
   font-style: normal; }
 
+@keyframes shadowButton {
+  from {
+    box-shadow: #3E3E3E 0px 0px 0px 0px; }
+  to {
+    translate: 2px 2px; } }
+
 *, *:before, *:after {
   box-sizing: border-box; }
 
@@ -36,11 +42,16 @@ html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockq
   -webkit-font-smoothing: antialiased;
   text-size-adjust: none; }
 
+html {
+  height: 100vh; }
+
 footer, header, nav, section, main {
   display: block; }
 
 body {
-  line-height: 1; }
+  line-height: 1;
+  min-height: 100vh;
+  position: relative; }
 
 ol, ul {
   list-style: none; }
@@ -59,3 +70,162 @@ table {
 input {
   -webkit-appearance: none;
   border-radius: 0; }
+
+.button {
+  background-color: #BFFFD6;
+  border: 1px solid #3E3E3E;
+  border-radius: 5px;
+  box-shadow: #3E3E3E -2px -2px 0px 1px;
+  padding: 5px 0; }
+  .button:hover {
+    animation: 0.25s infinite alternate shadowButton; }
+
+.button-purple {
+  background-color: #CDB4FF;
+  border: 1px solid #3E3E3E;
+  border-radius: 5px;
+  box-shadow: #3E3E3E -2px -2px 0px 1px;
+  padding: 5px 0; }
+  .button-purple:hover {
+    animation: 0.25s infinite alternate shadowButton; }
+
+.nav {
+  padding: 1rem 2rem 2rem 2rem; }
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; }
+
+.header--right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center; }
+
+.header--right__links {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center; }
+
+.header--right__social {
+  margin-left: 1rem; }
+
+.link {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #000; }
+
+.icon {
+  margin: 0 0.5rem; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  background-color: #CDB4FF;
+  color: #3E3E3E;
+  width: 100%; }
+  .footer h1 {
+    color: black;
+    font-size: 1.5rem;
+    margin-bottom: 1rem; }
+  .footer p {
+    font-size: 0.7rem;
+    margin-bottom: 1rem; }
+  .footer--top {
+    margin: 2rem 2rem;
+    display: flex;
+    justify-content: space-between; }
+    .footer--top__left {
+      width: 30%; }
+    .footer--top__right {
+      display: flex;
+      width: 40%;
+      justify-content: space-around; }
+  .footer--links {
+    display: flex;
+    flex-direction: column; }
+  .footer--link {
+    margin: 1rem 1rem;
+    text-decoration: none;
+    color: #3E3E3E; }
+  .footer--socials {
+    margin: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .footer--socials__title {
+      margin-bottom: 1rem; }
+    .footer--socials__icons {
+      margin-top: 0.3rem;
+      display: flex;
+      align-items: center; }
+  .footer--bottom {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2rem; }
+
+.login--page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 50vh; }
+
+.login--header {
+  display: flex;
+  width: 25vw;
+  justify-content: space-around;
+  margin: 2rem 0; }
+  .login--header__underline {
+    width: 100%;
+    height: 0.2rem;
+    background-color: #CDB4FF;
+    margin-top: 0.5rem; }
+  .login--header a {
+    color: #3E3E3E;
+    text-decoration: none;
+    font-size: 1.5rem; }
+
+.login--form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 25vw;
+  border: 1px solid black;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: #BFFFD6 -6px -6px 0px 1px, -7px -7px 0 1px black; }
+  .login--form__input {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+    width: 100%; }
+    .login--form__input input {
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      box-shadow: #3E3E3E -2px -2px 0px 1px; }
+  .login--form__link {
+    color: #3E3E3E;
+    text-decoration: none;
+    align-items: flex-start;
+    width: 100%; }
+  .login--form button {
+    margin: 1rem 0;
+    width: 100%;
+    height: 2rem;
+    font-family: "millimetre_regular"; }
+  .login--form__register {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 1rem 0; }
+    .login--form__register a {
+      color: #CDB4FF;
+      text-decoration: none; }
