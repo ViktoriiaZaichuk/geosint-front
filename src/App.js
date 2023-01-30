@@ -2,20 +2,20 @@ import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Home from './pages/Home'
-import About from './pages/About'
+// import About from './pages/About'
 import Login from './pages/Login'
 import Register from './pages/Register'
-import ForgottenPassword from './pages/ForgottenPassword'
+// import ForgottenPassword from './pages/ForgottenPassword'
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Home />,
     },
-    {
-        path: '/about',
-        element: <About />,
-    },
+    // {
+    //     path: '/about',
+    //     element: <About />,
+    // },
     {
         path: '/login',
         element: <Login />,
@@ -24,10 +24,10 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register />,
     },
-    {
-        path: '/forgotten_password',
-        element: <ForgottenPassword />,
-    },
+    // {
+    //     path: '/forgotten_password',
+    //     element: <ForgottenPassword />,
+    // },
 ])
 
 function App() {

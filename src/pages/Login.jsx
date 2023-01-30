@@ -1,30 +1,53 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 import Layout from "./LayoutHome";
+import Input from "../components/textInput";
 
 const Login = () => {
+    const { 
+        control,
+        handleSubmit, 
+        formState: { errors, isValid } 
+    } = useForm({
+        mode: "onBlur",
+        reValidateMode: "onChange"
+    });
+
+    const onSubmit = (data) => {
+        isValid && console.log(data);
+    }
+
     return (
         <Layout>
             <div className="login--page">
                 <div className="login--header">
                     <div>
-                        <Link><h2>Connexion</h2></Link>
+                        <Link to={"/login"}>Connexion</Link>
                         <div className="login--header__underline" />
                     </div>
-                    <Link><h2>Inscription</h2></Link>
+                    <Link to={"/register"}>Inscription</Link>
                 </div>
                 <form className="login--form">
-                    <div className="login--form__input">
-                        <label htmlFor="email">Email</label>
-                        <input type="email" name="email" id="email" />
-                    </div>
-                    <div className="login--form__input">
-                        <label htmlFor="password">Mot de passe</label>
-                        <input type="password" name="password" id="password" />
-                    </div>
+                    <Input 
+                        control={control}
+                        name="email"
+                        type="email"
+                        label="Email"
+                        placeholder="Email"
+                        error={errors.email?.message}
+                    />
+                    <Input
+                        control={control}
+                        name="password"
+                        type="password"
+                        label="Mot de passe"
+                        placeholder="Mot de passe"
+                        error={errors.password?.message}
+                    />
                     <Link to={"/forgotten_password"} className="login--form__link">Mot de passe oublié ?</Link>
-                    <button type="submit" className="button-purple">Connexion</button>
+                    <button onClick={handleSubmit(onSubmit)} className="button-purple">Connexion</button>
                     <div className="login--form__register">
                         <p>Tu n'as pas de compte ?</p>
                         <Link to={"/register"}>Inscris-toi</Link>

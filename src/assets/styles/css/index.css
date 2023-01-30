@@ -177,14 +177,13 @@ input {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
-  height: 60vh; }
+  align-items: center; }
 
 .login--header {
   display: flex;
   width: 25vw;
   justify-content: space-around;
-  margin: 2rem 0; }
+  margin: 2rem 0 4rem 0; }
   .login--header__underline {
     width: 100%;
     height: 0.2rem;
@@ -193,8 +192,6 @@ input {
   .login--header a {
     color: #3E3E3E;
     text-decoration: none;
-    font-size: 1.5rem; }
-  .login--header h2 {
     font-size: 2.5rem; }
 
 .login--form {
@@ -203,7 +200,7 @@ input {
   justify-content: space-around;
   align-items: center;
   width: 25vw;
-  height: 40vh;
+  height: auto;
   border: 1px solid black;
   padding: 4rem;
   border-radius: 20px;
@@ -230,7 +227,7 @@ input {
     align-items: flex-start;
     width: 100%; }
   .login--form button {
-    margin: 1rem 0;
+    margin: 2rem 0;
     width: 100%;
     font-family: "millimetre_regular"; }
   .login--form__register {
@@ -244,3 +241,8 @@ input {
       color: #CDB4FF;
       text-decoration: none;
       font-size: 1.5rem; }
+  .login--form__avatar {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 1rem 0; }
