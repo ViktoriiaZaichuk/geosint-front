@@ -6,7 +6,6 @@ html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockq
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 62.5%;
     font-family: $primaryFontRegular;
     vertical-align: baseline;
     text-rendering: optimizeLegibility;
@@ -15,24 +14,27 @@ html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 html {
-    height: 100vh;
+     height: 100vh; 
+    font-size: 62.5%;
 }
 
 footer, header, nav, section, main{
     display: block;
 }
 
-body{
+body {
     line-height: 1;
     min-height: 100vh;
     position: relative;
+    font-size: $fontSize;
+    color: $black;
 }
 
 ol, ul{
     list-style: none;
 }
 
-blockquote, q{
+blockquote, q {
     quotes: none;
 }
 
@@ -49,4 +51,22 @@ table{
 input{
     -webkit-appearance: none;
     border-radius: 0;
+}
+
+button {
+    font-family: $primaryFontRegular;
+    font-size: $fontSize;
+}
+
+a {
+    text-decoration: none;
+    color: $black;
+    cursor: pointer;
+}
+
+.main-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

@@ -1,0 +1,109 @@
+.home {
+    &--page {
+        @include container-wrapper;
+        h1, h2, p {
+            max-width: 500px;
+        }
+        p {
+            display: inline-block;
+        }
+        h1, h2 {
+            text-transform: uppercase;
+            font-size: 3rem;
+        }
+    }
+    &--hero {
+        display: flex;
+        min-height: 70vh;
+        align-items: center;
+        justify-content: space-between;
+        &__txt {
+            & p {
+                margin: 1.5rem 0;
+            }
+        }
+        &__img {
+
+        }
+
+    }
+    &--intro {
+        @include flex-column;
+        margin: 10rem 0;
+        align-items: center;
+        & p {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        &__title {
+            display: flex;
+            align-items: center;
+            & .logo {
+                margin: 0 1rem;
+            }
+        }
+        &__func {
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            & p {
+                max-width: 300px;
+                text-align: left;
+            }
+        }
+
+    }
+    &--challenge {
+        margin: 10rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &__img {
+            flex: 1 1 0px;
+            margin: 0 2rem 0 2rem;
+            & img {
+                object-fit: cover;
+            }
+        }
+        &__content {
+            @include flex-column;
+            flex: 2 1 0px;
+            & .card-list {
+                margin: 3rem 0;
+                display: flex;
+                justify-content: space-between;
+                > * {
+                    margin: 0 2rem;
+                }
+            }
+
+            & .link {
+                align-self: flex-end;
+                & a {
+                    display: flex;
+                    align-items: center;
+                    font-size: 3rem;
+                    & .arrow-right {
+                        margin-left: 1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    &--discord {
+        @include flex-column;
+        margin: 10rem 0;
+        align-items: center;
+        & h2 {
+            text-align: center;
+        }
+        & p {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+    }
+
+}
