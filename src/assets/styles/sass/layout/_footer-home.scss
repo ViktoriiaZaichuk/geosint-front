@@ -1,20 +1,15 @@
 .footer {
-    position: absolute;
-    bottom: 0;
-    background-color: #CDB4FF;
-    color: #3E3E3E;
+    background-color: $purple;
+    color: $black;
     width: 100%;
     h1 {
-        color: black;
+        color: $black;
         font-size: $fontSize;
         margin-bottom: 1rem;
     }
-    p {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-    }
     &--top {
         margin: 2rem 2rem;
+        padding: 2rem 0;
         display: flex;
         justify-content: space-between;
         &__left {
@@ -27,6 +22,11 @@
             & h2 {
                 font-size: $fontSize;
             }
+        }
+        & p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 400px;
         }
     }
     &--links {
@@ -54,5 +54,9 @@
         display: flex;
         justify-content: space-between;
         margin: 0 2rem;
+        & p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
     }
 }

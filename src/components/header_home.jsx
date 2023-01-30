@@ -9,7 +9,7 @@ import { ReactComponent as Logo } from '../assets/icons/logo_purple_shadow.svg'
 
 const HeaderHome = () => {
     return (
-        <nav className='nav'>
+        <nav className='nav'> 
             <div className='header'>
                 <Logo />
                 <div className='header--right'>
