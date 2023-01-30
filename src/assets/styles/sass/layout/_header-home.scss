@@ -1,5 +1,10 @@
 .nav {
     padding: 1rem 2rem 2rem 2rem;
+    @include screen768 {
+        @include container-wrapper;
+        padding: 2rem 0;
+        width: 100%;
+    }
 }
 
 .header {
@@ -8,6 +13,9 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    @include screen768 {
+        display: none;
+    }
 }
 
 .header--right {
@@ -31,10 +39,62 @@
 .link {
     margin: 0 1rem;
     text-decoration: none;
-    color: #000;
+    color: $black;
     font-size: $fontSize;
+    font-family: $primaryFontBold;
 }
 
 .icon {
     margin: 0 0.5rem;
+}
+
+
+.mobile-menu-home {
+    display: none;
+    position: relative;
+    &--btn {
+        @include burger-menu-btn;
+        right: 0;
+    }
+    @include screen768 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.mobile-menu-overlay {
+    visibility: hidden;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: $white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.expanded {
+        visibility: visible;
+    }
+    & ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        > * {
+            margin: 1.5rem;
+        }
+        & a {
+            font-family: $primaryFontBold;
+            font-size: 2rem; 
+            transition: .2s;
+        }
+        & li {
+            &:hover {
+                a {
+                    text-shadow: $purple 2px 2px;
+                }
+            }
+        }
+    }
 }

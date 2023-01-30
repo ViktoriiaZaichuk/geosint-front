@@ -10,7 +10,7 @@ import { ReactComponent as Globe } from '../assets/img/globe.svg'
 
 const Home = () => {
     return (
-        <Layout>
+        <Layout> 
             <div className="home--page">
                 <div className="home--hero">
                     <div className="home--hero__txt">

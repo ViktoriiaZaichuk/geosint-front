@@ -184,6 +184,18 @@ a {
 
 .nav {
   padding: 1rem 2rem 2rem 2rem; }
+  @media (max-width: 768px) {
+    .nav {
+      max-width: 140rem;
+      margin: 0 auto;
+      padding: 2rem 0;
+      width: 100%; } }
+  @media (max-width: 768px) and (max-width: 1024px) {
+    .nav {
+      max-width: 90vw; } }
+  @media (max-width: 768px) and (max-width: 768px) {
+    .nav {
+      max-width: 90vw; } }
 
 .header {
   width: 100%;
@@ -191,6 +203,9 @@ a {
   flex-direction: row;
   justify-content: space-between;
   align-items: center; }
+  @media (max-width: 768px) {
+    .header {
+      display: none; } }
 
 .header--right {
   display: flex;
@@ -210,11 +225,93 @@ a {
 .link {
   margin: 0 1rem;
   text-decoration: none;
-  color: #000;
-  font-size: 1.6rem; }
+  color: #3E3E3E;
+  font-size: 1.6rem;
+  font-family: "millimetre_bold"; }
 
 .icon {
   margin: 0 0.5rem; }
+
+.mobile-menu-home {
+  display: none;
+  position: relative; }
+  .mobile-menu-home--btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    z-index: 5;
+    height: 40px;
+    width: 40px;
+    border: 2px solid #3E3E3E;
+    background-color: #F6F6F6;
+    border-radius: 50%;
+    box-shadow: #CDB4FF 1px 1px 0px 1px, 2px 2px 0 1px #3E3E3E;
+    user-select: none;
+    right: 0; }
+    .mobile-menu-home--btn > span {
+      background-color: #3E3E3E;
+      border-radius: 2px;
+      height: 2px;
+      width: 23px;
+      position: relative;
+      display: block;
+      transition: all .2s ease-in-out; }
+      .mobile-menu-home--btn > span.expanded {
+        background-color: transparent; }
+      .mobile-menu-home--btn > span:after, .mobile-menu-home--btn > span:before {
+        content: "";
+        height: 2px;
+        width: 25px;
+        border-radius: 2px;
+        background-color: #3E3E3E;
+        position: absolute;
+        transition: all .2s ease-in-out; }
+      .mobile-menu-home--btn > span:before {
+        top: -5px;
+        height: 2.5px; }
+      .mobile-menu-home--btn > span.expanded:before {
+        transform: rotate(45deg) translate(5px, 2px);
+        width: 20px;
+        opacity: 1; }
+      .mobile-menu-home--btn > span:after {
+        top: 5px;
+        height: 2px; }
+      .mobile-menu-home--btn > span.expanded::after {
+        width: 20px;
+        transform: rotate(-45deg) translate(5px, -2px); }
+  @media (max-width: 768px) {
+    .mobile-menu-home {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; } }
+
+.mobile-menu-overlay {
+  visibility: hidden;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #F6F6F6;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .mobile-menu-overlay.expanded {
+    visibility: visible; }
+  .mobile-menu-overlay ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .mobile-menu-overlay ul > * {
+      margin: 1.5rem; }
+    .mobile-menu-overlay ul a {
+      font-family: "millimetre_bold";
+      font-size: 2rem;
+      transition: .2s; }
+    .mobile-menu-overlay ul li:hover a {
+      text-shadow: #CDB4FF 2px 2px; }
 
 .footer {
   background-color: #CDB4FF;
@@ -270,6 +367,12 @@ a {
 .home--page {
   max-width: 140rem;
   margin: 0 auto; }
+  @media (max-width: 1024px) {
+    .home--page {
+      max-width: 90vw; } }
+  @media (max-width: 768px) {
+    .home--page {
+      max-width: 90vw; } }
   .home--page h1, .home--page h2, .home--page p {
     max-width: 500px; }
   .home--page p {
@@ -368,11 +471,6 @@ a {
   .login--header a {
     color: #3E3E3E;
     text-decoration: none;
-<<<<<<< HEAD
-=======
-    font-size: 1.6rem; }
-  .login--header h2 {
->>>>>>> home-page
     font-size: 2.5rem; }
 
 .login--form {
@@ -422,8 +520,7 @@ a {
     .login--form__register a {
       color: #CDB4FF;
       text-decoration: none;
-<<<<<<< HEAD
-      font-size: 1.5rem; }
+      font-size: 1.6rem; }
   .login--form__avatar {
     display: flex;
     justify-content: space-around;
@@ -447,8 +544,5 @@ a {
     font-size: 2.5rem; }
 
 .login--form p {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin: 1rem 0; }
-=======
-      font-size: 1.6rem; }
->>>>>>> home-page
