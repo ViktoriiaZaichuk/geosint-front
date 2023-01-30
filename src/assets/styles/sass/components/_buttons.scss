@@ -1,9 +1,19 @@
 .button {
-    background-color: #BFFFD6;
+    background-color: $green;
+    @include button;
+}
+
+.button-green {
+    background-color: $green;
     @include button;
 }
 
 .button-purple {
-    background-color: #CDB4FF;
+    background-color: $purple;
+    @include button;
+}
+
+.button-gray {
+    background-color: $white;
     @include button;
 }

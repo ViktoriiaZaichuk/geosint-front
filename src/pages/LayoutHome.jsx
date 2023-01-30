@@ -4,7 +4,7 @@ import FooterHome from '../components/footer_home'
 
 const Layout = ({ children }) => {
     return (
-        <div>
+        <div className='main-container'>
             <HeaderHome />
             {children}
             <FooterHome />

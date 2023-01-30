@@ -13,7 +13,7 @@ const FooterHome = () => {
             <div className='footer--top'>
                 <div className='footer--top__left'>
                     <Logo />
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur obcaecati perferendis temporibus odit aut amet, provident veniam adipisci iste nobis vel iure molestiae, quibusdam minus ducimus repellat incidunt magnam voluptatem!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur obcaecati perferendis temporibus odit aut amet, provident veniam adipisci iste nobis vel iure molestiae!</p>
                     <Button className={'button'}><Link className='link'>Jouer maintenant</Link></Button>
                 </div>   
                 <div className='footer--top__right'>  

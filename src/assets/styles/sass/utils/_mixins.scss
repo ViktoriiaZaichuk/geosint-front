@@ -1,19 +1,40 @@
 @mixin box-shadow {
     box-shadow: #3E3E3E -2px -2px 0px 1px;
 }
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin container-wrapper {
+    max-width: 140rem;
+    margin: 0 auto;
+}
 
 @mixin button {
-    border: 1px solid #3E3E3E;
+    font-family: $primaryFontBold;
+    letter-spacing: .1rem;
+    border: 1px solid $black;
     border-radius: 5px;
-    box-shadow: #3E3E3E -2px -2px 0px 1px;
-    padding: 5px 0;
+    box-shadow: $black -2px -2px 0px 1px;
+    padding: .5rem 2rem;
     margin: 0 1rem;
     &:hover {
         animation: 0.25s infinite alternate shadowButton;
     }
+    & a {
+        font-family: $primaryFontBold;
+        color: $black;
+    }
 }
 
-@mixin flex-column {
-    display: flex;
-    flex-direction: column;
+@mixin card {
+    @include flex-column;
+    width: 100%;
+    max-width: 360px;
+    padding: 1.5rem;
+    background-color: $white;
+    border: 2px solid $black;
+    border-radius: 20px;
+    box-shadow: $green -6px -6px 0px 1px, -7px -7px 0 1px $black;
 }
