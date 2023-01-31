@@ -1,30 +1,15 @@
-<<<<<<< HEAD
-=======
-.nav {
-    padding: 1rem 2rem 2rem 2rem;
-    @include screen768 {
-        @include container-wrapper;
-        padding: 2rem 0;
-        width: 100%;
-    }
-}
-
->>>>>>> responsive-home
 .header {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-<<<<<<< HEAD
     position: fixed;
     padding: 1rem 2rem;
     background-color: $white;
-=======
     @include screen768 {
         display: none;
     }
->>>>>>> responsive-home
 }
 
 .header--right {

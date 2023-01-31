@@ -17,13 +17,8 @@ const HeaderHome = () => {
                 <Link to={"/"}><Logo /></Link>
                 <div className='header--right'>
                     <ul className='header--right__links'>
-<<<<<<< HEAD
-                        <Link className='link' to={"/about"}>A propos</Link>
-                        <Link className='link'>Contact</Link>
-=======
-                        <Link className='link l-txt'>A propos</Link>
+                        <Link className='link l-txt' to={'/about'}>A propos</Link>
                         <Link className='link l-txt'>Contact</Link>
->>>>>>> responsive-home
                         <Button className={'button'}><Link className='link'>Jouer maintenant</Link></Button>
                     </ul>
                     <div className='header--right__social'>
