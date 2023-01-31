@@ -53,7 +53,8 @@ body {
   min-height: 100vh;
   position: relative;
   font-size: 1.6rem;
-  color: #3E3E3E; }
+  color: #3E3E3E;
+  background-color: #F6F6F6; }
 
 ol, ul {
   list-style: none; }
@@ -184,40 +185,18 @@ a {
     align-self: center;
     padding: .5rem 3rem; }
 
-<<<<<<< HEAD
-=======
-.nav {
-  padding: 1rem 2rem 2rem 2rem; }
-  @media (max-width: 768px) {
-    .nav {
-      max-width: 140rem;
-      margin: 0 auto;
-      padding: 2rem 0;
-      width: 100%; } }
-  @media (max-width: 768px) and (max-width: 1024px) {
-    .nav {
-      max-width: 90vw; } }
-  @media (max-width: 768px) and (max-width: 768px) {
-    .nav {
-      max-width: 90vw; } }
-
->>>>>>> responsive-home
 .header {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-<<<<<<< HEAD
   align-items: center;
   position: fixed;
   padding: 1rem 2rem;
   background-color: #F6F6F6; }
-=======
-  align-items: center; }
   @media (max-width: 768px) {
     .header {
       display: none; } }
->>>>>>> responsive-home
 
 .header--right {
   display: flex;
@@ -303,7 +282,9 @@ a {
     .mobile-menu-home {
       display: flex;
       justify-content: space-between;
-      align-items: center; } }
+      align-items: center;
+      max-width: 90vw;
+      margin: 0 auto; } }
 
 .mobile-menu-overlay {
   visibility: hidden;
@@ -334,7 +315,8 @@ a {
 .footer {
   background-color: #CDB4FF;
   color: #3E3E3E;
-  width: 100%; }
+  width: 100%;
+  border-top: #3E3E3E 5px solid; }
   .footer--top {
     margin: 2rem 2rem;
     padding: 2rem 0;
@@ -549,20 +531,8 @@ a {
   .login--header a {
     color: #3E3E3E;
     text-decoration: none;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    font-size: 1.6rem; }
-  .login--header h2 {
->>>>>>> home-page
-=======
->>>>>>> cf51d8ed92ee1fc2aa9b363d54351e5bdb23fb3f
-    font-size: 2.5rem; }
-=======
     font-size: 2.5rem;
     padding: 0 2rem; }
->>>>>>> responsive-home
 
 .login--form {
   display: flex;
@@ -618,16 +588,7 @@ a {
       margin-left: 1.5rem;
       color: #CDB4FF;
       text-decoration: none;
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-      font-size: 1.5rem; }
-=======
       font-size: 1.6rem; }
->>>>>>> cf51d8ed92ee1fc2aa9b363d54351e5bdb23fb3f
-=======
-      font-size: 1.6rem; }
->>>>>>> responsive-home
   .login--form__avatar {
     display: flex;
     justify-content: space-around;
@@ -653,12 +614,6 @@ a {
 .login--form p {
   font-size: 1.6rem;
   margin: 1rem 0; }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-      font-size: 1.6rem; }
->>>>>>> home-page
-=======
 
 .about--page {
   padding: 2rem 0;
@@ -728,6 +683,3 @@ a {
   .about--team__cards {
     display: flex;
     justify-content: space-around; }
->>>>>>> cf51d8ed92ee1fc2aa9b363d54351e5bdb23fb3f
-=======
->>>>>>> responsive-home
