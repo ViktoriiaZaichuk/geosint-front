@@ -89,6 +89,26 @@ a {
   flex-direction: column;
   justify-content: space-between; }
 
+.dashboard-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; }
+
+.dashboard-content {
+  width: 90vw;
+  flex: 1 1 0px;
+  margin: 0 0 0 auto;
+  border-top: #3E3E3E 4px solid;
+  border-left: #3E3E3E 4px solid;
+  border-top-left-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden; }
+
 .button {
   background-color: #BFFFD6;
   font-family: "millimetre_bold";
@@ -382,6 +402,16 @@ a {
       display: inline-block; }
     .footer--bottomp:last-child {
       text-align: right; }
+
+.dashboard-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 2rem;
+  border-top: #3E3E3E solid 1px;
+  font-size: 1.2rem;
+  margin-top: auto; }
 
 .home--page {
   max-width: 140rem;
@@ -683,3 +713,49 @@ a {
   .about--team__cards {
     display: flex;
     justify-content: space-around; }
+
+.dashboard-home {
+  overflow: hidden; }
+  .dashboard-home--profile {
+    min-height: 400px;
+    border-bottom: #3E3E3E 2px solid;
+    background-image: url("/src/assets/img/dashboard-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 -30px;
+    position: relative; }
+    .dashboard-home--profile__avatar {
+      height: 110px;
+      width: 110px;
+      border-radius: 50%;
+      background-color: #F6F6F6;
+      border: solid #3E3E3E 2px;
+      position: absolute;
+      bottom: -55px;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .dashboard-home--profile__avatar svg {
+        width: 70px;
+        height: 70px; }
+  .dashboard-home--profiletxt {
+    margin: 6rem 5rem 2rem 5rem;
+    text-align: center; }
+    .dashboard-home--profiletxt span {
+      margin: 1rem 0;
+      font-family: "millimetre_bold";
+      font-size: 2.5rem; }
+    .dashboard-home--profiletxt p {
+      max-width: 400px;
+      margin: 1rem auto;
+      font-size: 1.2rem; }
+  .dashboard-home--stats {
+    margin: 2rem 5rem; }
+  .dashboard-home--challenges {
+    margin: 2rem 5rem; }
+  .dashboard-home--groupe {
+    margin: 2rem 5rem; }

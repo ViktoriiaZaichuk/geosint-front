@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import Button from './button'
-import { ReactComponent as Insta } from '../assets/icons/insta.svg'
-import { ReactComponent as Discord } from '../assets/icons/discord.svg'
-import { ReactComponent as Twitter } from '../assets/icons/twitter.svg'
-import { ReactComponent as Logo } from '../assets/icons/logo_purple_shadow.svg'
+import Button from '../button'
+import { ReactComponent as Insta } from '../../assets/icons/insta.svg'
+import { ReactComponent as Discord } from '../../assets/icons/discord.svg'
+import { ReactComponent as Twitter } from '../../assets/icons/twitter.svg'
+import { ReactComponent as Logo } from '../../assets/icons/logo_purple_shadow.svg'
 
 const HeaderHome = () => {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
