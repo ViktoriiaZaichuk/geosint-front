@@ -11,10 +11,10 @@ const HeaderHome = () => {
     return (
         <nav className='nav'> 
             <div className='header'>
-                <Logo />
+                <Link to={"/"}><Logo /></Link>
                 <div className='header--right'>
                     <ul className='header--right__links'>
-                        <Link className='link'>A propos</Link>
+                        <Link className='link' to={"/about"}>A propos</Link>
                         <Link className='link'>Contact</Link>
                         <Button className={'button'}><Link className='link'>Jouer maintenant</Link></Button>
                     </ul>

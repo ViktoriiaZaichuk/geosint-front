@@ -1,0 +1,87 @@
+.about {
+    &--page {
+        padding: 2rem 0;
+        margin-top: 10rem;
+    }
+    &--banner {
+        height: 90vh;
+        text-align: center;
+        &__img {
+            border-radius: 20px;
+            @include box-shadow;
+            height: 50vh;
+        }
+        &__txt {
+            margin-top: 3rem;
+            & p {
+                margin-top: 2rem;
+            }
+        }
+        &__scores {
+            margin-top: 5rem;
+            display: flex;
+            justify-content: space-around;
+            & .score {
+                & h2 {
+                    font-size: $fontSize;
+                }
+                & p {
+                    font-size: 3rem;
+                    margin-top: 1.5rem;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    &--intro {
+        @include flex-column;
+        align-items: center;
+        height: 95vh;
+        background-color: $white;
+        justify-content: space-around;
+        &__title {
+            width: 50vw;
+            text-align: center;
+            & p {
+                margin: 6rem 0;
+                text-align: justify;
+            }
+            & h1 {
+                font-size: 5rem;
+            }
+        }
+        &__content {
+            display: flex;
+            justify-content: space-around;
+            width: 50vw;
+            &__txt {
+                width: 40vw;
+                text-align: right;
+                & p {
+                    margin: 2rem 0;
+                }
+                & h2 {
+                    font-size: 5rem;
+                }
+            }
+        }
+    }
+    &--team {
+        @include flex-column;
+        height: 95vh;
+        justify-content: space-around;
+        & h2 {
+            font-size: 5rem;
+            align-self: center;
+        }
+        & p {
+            width: 50vw;
+            text-align: justify;
+            align-self: center;
+        }
+        &__cards {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+}
