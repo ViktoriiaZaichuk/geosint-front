@@ -2,23 +2,28 @@
     background-color: $purple;
     color: $black;
     width: 100%;
-    h1 {
-        color: $black;
-        font-size: $fontSize;
-        margin-bottom: 1rem;
-    }
     &--top {
         margin: 2rem 2rem;
         padding: 2rem 0;
         display: flex;
         justify-content: space-between;
+        @include screen768 {
+            flex-direction: column;
+        }
         &__left {
-            width: 30%;
+            flex: 1 1 0px;
+            @include screen768 {
+                margin-bottom: 2rem;
+            }
         }
         &__right {
             display: flex;
-            width: 40%;
+            flex: 2 1 0px;
             justify-content: space-around;
+            @include screen768 {
+                justify-content: space-between;
+                width: 100%;
+            }
             & h2 {
                 font-size: $fontSize;
             }
@@ -54,9 +59,16 @@
         display: flex;
         justify-content: space-between;
         margin: 0 2rem;
+        @include screen768 {
+            @include container-wrapper;
+        }
         & p {
             font-size: 1rem;
             margin-bottom: 1rem;
+            display: inline-block;
+        }
+        &p:last-child {
+            text-align: right;
         }
     }
 }

@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 
 import Layout from "./LayoutHome";
 import Input from "../components/textInput";
-
+ 
 const Login = () => {
     const { 
         control,

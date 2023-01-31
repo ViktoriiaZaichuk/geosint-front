@@ -1,15 +1,52 @@
-@mixin box-shadow {
-    box-shadow: #3E3E3E -2px -2px 0px 1px;
+$screen1024: 1024px;
+$screen768: 768px;
+$screen550: 550px;
+
+@mixin screen1024 {
+    @media (max-width: #{$screen1024}) {
+      @content;
+    }
 }
+
+@mixin screen768 {
+    @media (max-width: #{$screen768}) {
+      @content;
+    }
+}
+
+@mixin screen550 {
+    @media (max-width: #{$screen550}) {
+      @content;
+    }
+}
+
+
+@mixin container-wrapper {
+    max-width: 140rem;
+    margin: 0 auto;
+    @include screen1024 {
+        max-width: 90vw;
+    }
+    @include screen768 {
+        max-width: 90vw;
+    }
+}
+
+@mixin nav-f-wrapper {
+    max-width: 90vh;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@mixin box-shadow {
+    box-shadow: $black -2px -2px 0px 1px;
+}
+
 @mixin flex-column {
     display: flex;
     flex-direction: column;
 }
 
-@mixin container-wrapper {
-    max-width: 140rem;
-    margin: 0 auto;
-}
 
 @mixin button {
     font-family: $primaryFontBold;
@@ -27,6 +64,63 @@
         color: $black;
     }
 }
+
+
+
+@mixin burger-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    z-index: 5;
+    height: 40px;
+    width: 40px;
+    border: 2px solid $black;
+    background-color: $white;
+    border-radius: 50%;
+    box-shadow: $purple 1px 1px 0px 1px, 2px 2px 0 1px $black;
+    user-select: none;
+    > span {
+        background-color: $black;
+        border-radius: 2px;
+		height: 2px;
+        width: 23px;
+        position: relative;
+        display: block;
+        transition: all .2s ease-in-out;
+        &.expanded {
+            background-color: transparent;
+        }
+        &:after, &:before {
+            content: "";
+			height: 2px;
+            width: 25px;
+            border-radius: 2px;
+            background-color: $black;
+            position: absolute;
+            transition: all .2s ease-in-out;
+        }
+        &:before {
+            top: -5px;
+            height: 2.5px;
+        }
+        &.expanded:before  {
+            transform: rotate(45deg) translate(5px, 2px);
+            width: 20px;
+            opacity: 1;
+        }
+        &:after {
+            top: 5px;
+            height: 2px;
+        }
+        &.expanded::after {
+            width: 20px;
+            transform: rotate(-45deg) translate(5px, -2px);
+        }
+    }
+}
+
 
 @mixin card {
     @include flex-column;
