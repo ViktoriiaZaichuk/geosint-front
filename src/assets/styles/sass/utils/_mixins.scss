@@ -22,13 +22,15 @@ $screen550: 550px;
 
 
 @mixin container-wrapper {
-    max-width: 140rem;
+    padding: 0 20%;
     margin: 0 auto;
     @include screen1024 {
         max-width: 90vw;
+        padding: 0;
     }
     @include screen768 {
         max-width: 90vw;
+        padding: 0;
     }
 }
 
