@@ -1,0 +1,89 @@
+.profile-menu {
+    width: 90vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &--logo {
+
+    }
+    &--btn {
+        padding-right: 5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        &__score {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            & span {
+                font-family: $primaryFontBold;
+                font-size: 2rem;
+                margin-left: 1rem;
+                display: inline-block;
+            }
+        }
+        &__avatar {
+           height: 44px;
+           width: 44px;
+           border-radius: 50%; 
+           margin-left: 2rem;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           border: 2px solid $black;
+           box-shadow: $purple 1px 1px 0px 1px, 2px 2px 0 1px $black;
+           & svg {
+            height: 32px;
+            width: 32px;
+           }
+        }
+    }
+}
+
+
+.profilebar-overlay {
+    visibility: hidden;
+    opacity: 0;
+    border: 2px solid $black;
+    top: 0;
+    right: 0;
+    position: fixed;
+    background-color: $white;
+    padding: 0 2rem;
+    margin-right: 5rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+    z-index: 5;
+    box-shadow: $purple 1px 1px 0px 1px, 2px 2px 0 1px $black;
+    & ul {
+        border-top: 1px solid $black;
+        border-bottom: 1px solid $black;
+        & a {
+            padding: .5rem 0;
+            & svg {
+                display: inline-block;
+            }
+        }
+    }
+    & a {
+        display: flex;
+        align-items: center;
+        & svg {
+            height: 25px;
+            width: 25px;
+            display: inline-block;
+            margin-right: 1rem;
+        }
+    }
+    > * {
+        padding: 1.5rem 0;
+    }
+    .avatar-expanded {
+        display: flex;
+        align-items: center;
+    }
+    &.expanded {
+        visibility: visible;
+        opacity: 1;
+    }
+}
