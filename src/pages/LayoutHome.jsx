@@ -1,6 +1,6 @@
 import React from 'react'
-import HeaderHome from '../components/header_home'
-import FooterHome from '../components/footer_home'
+import HeaderHome from '../components/navigation/header_home'
+import FooterHome from '../components/navigation/footer_home'
 
 const Layout = ({ children }) => {
     return (
