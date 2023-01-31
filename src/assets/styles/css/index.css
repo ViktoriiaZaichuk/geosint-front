@@ -178,19 +178,21 @@ a {
     .card--title span {
       font-family: "millimetre_bold";
       font-size: 2rem; }
+  .card--txt {
+    align-self: flex-start !important; }
   .card--btn {
     align-self: center;
     padding: .5rem 3rem; }
-
-.nav {
-  padding: 1rem 2rem 2rem 2rem; }
 
 .header {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center; }
+  align-items: center;
+  position: fixed;
+  padding: 1rem 2rem;
+  background-color: #F6F6F6; }
 
 .header--right {
   display: flex;
@@ -353,7 +355,8 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center; }
+  align-items: center;
+  margin: 10rem 0; }
 
 .login--header {
   display: flex;
@@ -395,6 +398,8 @@ a {
       padding: 0.5rem;
       margin: 0.5rem 0;
       box-shadow: #3E3E3E -2px -2px 0px 1px; }
+      .login--form__input input:focus {
+        outline: none; }
   .login--form a {
     font-size: 1.6rem; }
   .login--form__link {
@@ -443,3 +448,72 @@ a {
 .login--form p {
   font-size: 1.6rem;
   margin: 1rem 0; }
+
+.about--page {
+  padding: 2rem 0;
+  margin-top: 10rem; }
+
+.about--banner {
+  height: 90vh;
+  text-align: center; }
+  .about--banner__img {
+    border-radius: 20px;
+    box-shadow: #3E3E3E -2px -2px 0px 1px;
+    height: 50vh; }
+  .about--banner__txt {
+    margin-top: 3rem; }
+    .about--banner__txt p {
+      margin-top: 2rem; }
+  .about--banner__scores {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-around; }
+    .about--banner__scores .score h2 {
+      font-size: 1.6rem; }
+    .about--banner__scores .score p {
+      font-size: 3rem;
+      margin-top: 1.5rem;
+      font-weight: bold; }
+
+.about--intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 95vh;
+  background-color: #F6F6F6;
+  justify-content: space-around; }
+  .about--intro__title {
+    width: 50vw;
+    text-align: center; }
+    .about--intro__title p {
+      margin: 6rem 0;
+      text-align: justify; }
+    .about--intro__title h1 {
+      font-size: 5rem; }
+  .about--intro__content {
+    display: flex;
+    justify-content: space-around;
+    width: 50vw; }
+    .about--intro__content__txt {
+      width: 40vw;
+      text-align: right; }
+      .about--intro__content__txt p {
+        margin: 2rem 0; }
+      .about--intro__content__txt h2 {
+        font-size: 5rem; }
+
+.about--team {
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+  justify-content: space-around; }
+  .about--team h2 {
+    font-size: 5rem;
+    align-self: center; }
+  .about--team p {
+    width: 50vw;
+    text-align: justify;
+    align-self: center; }
+  .about--team__cards {
+    display: flex;
+    justify-content: space-around; }
