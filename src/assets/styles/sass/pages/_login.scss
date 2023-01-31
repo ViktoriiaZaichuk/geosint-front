@@ -53,14 +53,10 @@
                 border-radius: 5px;
                 padding: 0.5rem;
                 margin: 0.5rem 0;
-<<<<<<< HEAD
-                box-shadow: #3E3E3E -2px -2px 0px 1px;
+                box-shadow: $black -2px -2px 0px 1px;
                 &:focus {
                     outline: none;
                 }
-=======
-                box-shadow: $black -2px -2px 0px 1px;
->>>>>>> responsive-home
             }
         } 
         & a {
