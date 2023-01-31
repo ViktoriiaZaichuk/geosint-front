@@ -2,14 +2,24 @@
     &--page {
         padding: 2rem 0;
         margin-top: 10rem;
+        @include screen768 {
+            margin-top: 5rem;
+            padding: 2rem 2rem;
+        }
     }
     &--banner {
         height: 90vh;
         text-align: center;
+        @include screen768 {
+            height: auto;
+        }
         &__img {
             border-radius: 20px;
             @include box-shadow;
             height: 50vh;
+            @include screen768 {
+                height: 30vh;
+            }
         }
         &__txt {
             margin-top: 3rem;
@@ -21,7 +31,13 @@
             margin-top: 5rem;
             display: flex;
             justify-content: space-around;
+            @include screen768 {
+                flex-wrap: wrap;
+            }
             & .score {
+                @include screen768 {
+                    margin: 1rem 3rem;
+                }
                 & h2 {
                     font-size: $fontSize;
                 }
@@ -39,9 +55,16 @@
         height: 95vh;
         background-color: $white;
         justify-content: space-around;
+        @include screen768 {
+            height: auto;
+            margin-top: 5rem;
+        }
         &__title {
             width: 50vw;
             text-align: center;
+            @include screen768 {
+                width: 100%;
+            }
             & p {
                 margin: 6rem 0;
                 text-align: justify;
@@ -54,9 +77,22 @@
             display: flex;
             justify-content: space-around;
             width: 50vw;
+            @include screen768 {
+                flex-direction: column;
+                width: 100%;
+            }
+            & .globe {
+                @include screen768 {
+                    display: none;
+                }
+            }
             &__txt {
                 width: 40vw;
                 text-align: right;
+                @include screen768 {
+                    width: 100%;
+                    text-align: center;
+                }
                 & p {
                     margin: 2rem 0;
                 }
@@ -70,18 +106,32 @@
         @include flex-column;
         height: 95vh;
         justify-content: space-around;
+        @include screen768 {
+            height: auto;
+            margin-top: 5rem;
+        }
         & h2 {
             font-size: 5rem;
             align-self: center;
+            @include screen768 {
+                margin-bottom: 5rem;
+            }
         }
         & p {
             width: 50vw;
             text-align: justify;
             align-self: center;
+            @include screen768 {
+                width: 100%;
+            }
         }
         &__cards {
             display: flex;
             justify-content: space-around;
+            @include screen768 {
+                flex-direction: column;
+                margin-top: 5rem;
+            }
         }
     }
 }

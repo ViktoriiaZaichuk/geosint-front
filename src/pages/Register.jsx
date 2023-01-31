@@ -41,16 +41,16 @@ const Register = () => {
                             control={control}
                             render={({ field: { onChange, value } }) => (
                                 <ul className="login--form__avatar">
-                                    <li style={value === "avatar1" ? {backgroundColor: "#000", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#fff"}}>
+                                    <li style={value === "avatar1" ? {backgroundColor: "#3E3E3E", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#fff"}}>
                                         <Avatar1 onClick={() => onChange("avatar1")} />
                                     </li>
-                                    <li style={value === "avatar2" ? {backgroundColor: "#000", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#fff"}}>
+                                    <li style={value === "avatar2" ? {backgroundColor: "#3E3E3E", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#fff"}}>
                                         <Avatar2 onClick={() => onChange("avatar2")} />
                                     </li>
-                                    <li style={value === "avatar3" ? {backgroundColor: "#000", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#fff"}}>
+                                    <li style={value === "avatar3" ? {backgroundColor: "#3E3E3E", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#fff"}}>
                                         <Avatar3 onClick={() => onChange("avatar3")} />
                                     </li>
-                                    <li style={value === "avatar4" ? {backgroundColor: "#000", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#fff"}}>
+                                    <li style={value === "avatar4" ? {backgroundColor: "#3E3E3E", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#fff"}}>
                                         <Avatar4 onClick={() => onChange("avatar4")} />
                                     </li>
                                 </ul>

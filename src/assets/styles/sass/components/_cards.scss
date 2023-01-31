@@ -1,5 +1,8 @@
 .card {
     @include card;
+    @include screen768 {
+        margin-bottom: 2rem;
+    }
     > * {
         margin: 1rem 0;
     }

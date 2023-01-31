@@ -47,7 +47,7 @@ const About = () => {
                         <Search />
                     </div>
                     <div className="about--intro__content">
-                        <Globe />
+                        <Globe className="globe" />
                         <div className="about--intro__content__txt">
                             <h2>Le concept du jeu</h2>
                             <p>GEOS'INT est une application mobile qui vous permet de relever des défis géographiques en répondant à des questions sur des photos prises dans des endroits du monde entier. Vous pouvez jouer seul ou avec vos amis et vous pouvez même créer vos propres défis !</p>
