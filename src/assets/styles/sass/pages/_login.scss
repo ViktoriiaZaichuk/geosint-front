@@ -9,28 +9,36 @@
         width: 25vw;
         justify-content: space-around;
         margin: 2rem 0 4rem 0;
+        @include screen768 {
+            width: auto;
+        }
         &__underline {
             width: 100%;
-            height: 0.2rem;
-            background-color: #CDB4FF;
+            height: 0.3rem;
+            background-color: $purple;
             margin-top: 0.5rem;
         }
         & a {
-            color: #3E3E3E;
+            color: $black;
             text-decoration: none;
             font-size: 2.5rem;
+            padding: 0 2rem;
         }
     }
     &--form {
         @include flex-column;
+        margin: 4rem 0;
         justify-content: space-around;
         align-items: center;
-        width: 25vw;
+        min-width: 400px;
         height: auto;
-        border: 1px solid black;
+        border: 1px solid $black;
         padding: 4rem;
         border-radius: 20px;
-        box-shadow: #BFFFD6 -6px -6px 0px 1px, -7px -7px 0 1px black;
+        box-shadow: $green -6px -6px 0px 1px, -7px -7px 0 1px $black;
+        @include screen768 {
+            min-width: 300px;
+        }
         &__input {
             @include flex-column;
             margin: 1rem 0;
@@ -40,18 +48,18 @@
                 margin-bottom: 0.5rem;
             }
             & input {
-                border: 1px solid black;
+                border: 1px solid $black;
                 border-radius: 5px;
                 padding: 0.5rem;
                 margin: 0.5rem 0;
-                box-shadow: #3E3E3E -2px -2px 0px 1px;
+                box-shadow: $black -2px -2px 0px 1px;
             }
         } 
         & a {
             font-size: $fontSize;
         }
         &__link {
-            color: #3E3E3E;
+            color: $black;
             text-decoration: none;
             align-items: flex-start;
             width: 100%;
@@ -71,7 +79,8 @@
                 font-size: $fontSize;
             }
             & a {
-                color: #CDB4FF;
+                margin-left: 1.5rem;
+                color: $purple;
                 text-decoration: none;
                 font-size: $fontSize;
             }
