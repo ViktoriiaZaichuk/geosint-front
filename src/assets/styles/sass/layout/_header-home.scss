@@ -44,6 +44,14 @@
     font-family: $primaryFontBold;
 }
 
+.l-txt {
+    transition: .2s;
+    text-transform: uppercase;
+    &:hover {
+        text-shadow: $purple 1.5px 1.5px;
+    }
+}
+
 .icon {
     margin: 0 0.5rem;
 }

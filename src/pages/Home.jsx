@@ -16,7 +16,7 @@ const Home = () => {
                     <div className="home--hero__txt">
                         <h1>Rejoignez notre communauté de joueurs passionnés maintenant et relevez le défi !</h1>
                         <p>Téléchargez des photos de différents endroits à travers le monde et mettez vos connaissances géographiques à l'épreuve en devinant où elles ont été prises.</p>
-                        <div className="home--hero__img">
+                        <div className="home--hero__btn">
                             <button className="button-purple">
                                 <Link className='link' to={"/login"}>Connecte-toi</Link>
                             </button>
@@ -25,7 +25,7 @@ const Home = () => {
                             </button>
                         </div>
                     </div>
-                    <div>
+                    <div className="home--hero__img">
                         <Globe></Globe>
                     </div>
                 </div>

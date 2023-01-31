@@ -17,13 +17,30 @@
         min-height: 70vh;
         align-items: center;
         justify-content: space-between;
+        @include screen768 {
+            flex-direction: column;
+        }
         &__txt {
+            @include screen768 {
+                margin-top: 5rem;
+
+            }
             & p {
                 margin: 1.5rem 0;
             }
         }
+        &__btn {
+            @include screen550 {
+                > * {
+                    @include flex-column;
+                    margin: 1.5rem 0;
+                }
+            }
+        }
         &__img {
-
+            @include screen768 {
+               padding-top: 5rem;
+            }
         }
 
     }
@@ -48,10 +65,22 @@
             align-items: center;
             justify-content: space-around;
             width: 100%;
+            @include screen768 {
+                flex-direction: column;
+                & h3 {
+                    text-align: center;
+                    margin-top: 1.5rem;
+                }
+            }
             & p {
                 max-width: 300px;
                 text-align: left;
+                @include screen768 {
+                    text-align: center;
+                    margin-top: .5rem;
+                }
             }
+
         }
 
     }
@@ -60,6 +89,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        @include screen768 {
+            flex-direction: column;
+        }
         &__img {
             flex: 1 1 0px;
             margin: 0 2rem 0 2rem;
@@ -70,12 +102,23 @@
         &__content {
             @include flex-column;
             flex: 2 1 0px;
+            @include screen768 {
+                margin-top: 5rem;
+            }
             & .card-list {
                 margin: 3rem 0;
                 display: flex;
                 justify-content: space-between;
                 > * {
                     margin: 0 2rem;
+                }
+                @include screen768 {
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    > * {
+                        margin: 2rem;
+                    }
                 }
             }
 

@@ -1,5 +1,6 @@
 $screen1024: 1024px;
 $screen768: 768px;
+$screen550: 550px;
 
 @mixin screen1024 {
     @media (max-width: #{$screen1024}) {
@@ -9,6 +10,12 @@ $screen768: 768px;
 
 @mixin screen768 {
     @media (max-width: #{$screen768}) {
+      @content;
+    }
+}
+
+@mixin screen550 {
+    @media (max-width: #{$screen550}) {
       @content;
     }
 }
@@ -25,8 +32,14 @@ $screen768: 768px;
     }
 }
 
+@mixin nav-f-wrapper {
+    max-width: 90vh;
+    width: 100%;
+    margin: 0 auto;
+}
+
 @mixin box-shadow {
-    box-shadow: #3E3E3E -2px -2px 0px 1px;
+    box-shadow: $black -2px -2px 0px 1px;
 }
 
 @mixin flex-column {
