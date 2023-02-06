@@ -247,7 +247,6 @@ a {
     align-self: center;
     padding: .5rem 3rem; }
 
-<<<<<<< HEAD
 .modal--content {
   position: fixed;
   top: 50%;
@@ -277,7 +276,7 @@ a {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 100; }
-=======
+
 input {
   color: #3E3E3E; }
 
@@ -300,7 +299,6 @@ select {
   box-shadow: #3E3E3E -2px -2px 0px 1px; }
   select:focus {
     outline: none; }
->>>>>>> create-challenge-page
 
 .header {
   width: 100%;
@@ -1208,7 +1206,6 @@ select {
         .dashboard-home--groupe .link a .arrow-right {
           margin-left: 1rem; }
 
-<<<<<<< HEAD
 .profile-settings {
   display: flex;
   justify-content: space-between;
@@ -1236,7 +1233,7 @@ select {
     .profile-settings--avatar__buttons button {
       font-size: 1.5rem;
       margin: 0 1rem; }
-=======
+
 .create-challenge {
   overflow: hidden; }
   .create-challenge--title {
@@ -1318,4 +1315,3 @@ select {
       @media (max-width: 1024px) {
         .create-challenge--content__img {
           margin: 5rem 0; } }
->>>>>>> create-challenge-page
