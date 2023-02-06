@@ -264,9 +264,17 @@ a {
   .modal--content__avatar {
     margin-bottom: 5rem;
     width: 20vw; }
+    @media (max-width: 768px) {
+      .modal--content__avatar {
+        width: 60vw; } }
     .modal--content__avatar ul {
       display: flex;
       justify-content: space-between; }
+  .modal--content__difficulty {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 20vh; }
 
 .overlay {
   position: fixed;
@@ -1188,6 +1196,11 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 0 10rem; }
+  @media (max-width: 768px) {
+    .profile-settings {
+      flex-direction: column;
+      padding: 0;
+      justify-content: center; } }
   .profile-settings--title {
     font-size: 2.5rem;
     font-family: "millimetre_bold";
@@ -1195,6 +1208,9 @@ a {
   .profile-settings .login--form {
     height: 55vh;
     width: 30vw; }
+    @media (max-width: 768px) {
+      .profile-settings .login--form {
+        width: 90%; } }
     .profile-settings .login--form button {
       align-self: flex-start;
       width: 50%; }
@@ -1210,3 +1226,31 @@ a {
     .profile-settings--avatar__buttons button {
       font-size: 1.5rem;
       margin: 0 1rem; }
+
+.challenges-list--page {
+  padding: 5rem; }
+  @media (max-width: 768px) {
+    .challenges-list--page {
+      padding: 2rem; } }
+
+.challenges-list--difficulty {
+  display: flex;
+  margin-top: 5rem; }
+  .challenges-list--difficulty__buttons {
+    display: flex;
+    margin-left: 3rem; }
+  .challenges-list--difficulty .mobile {
+    width: 100%; }
+
+.challenges-list--list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 5rem; }
+  .challenges-list--list .card {
+    width: 30%;
+    margin: 5rem; }
+    @media (max-width: 768px) {
+      .challenges-list--list .card {
+        width: 100%;
+        margin: 2rem; } }

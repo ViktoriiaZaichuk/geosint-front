@@ -24,6 +24,12 @@
                 justify-content: space-between;
             }
         }
+        &__difficulty {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 20vh;
+        }
     }
 }
 
