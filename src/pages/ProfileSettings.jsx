@@ -48,7 +48,7 @@ const ProfileSettings = () => {
             </div>
 
             <div className="profile-settings">
-                <div className="profile-settings--infos">
+                <div className="profile-settings profile-settings--infos">
                     <form className="login--form">
                         <h2 className="profile-settings--title">Changer les informations du profil</h2>
                         <TextInput
@@ -91,7 +91,7 @@ const ProfileSettings = () => {
                     </form>
                 </div>
 
-                <div className="profile-settings--avatar">
+                <div className="profile-settings profile-settings--avatar">
                     <div className="login--form">
                         <h2 className="profile-settings--title">Changer l'avatar</h2>
                         {

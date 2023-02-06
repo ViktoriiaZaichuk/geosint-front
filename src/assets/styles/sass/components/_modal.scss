@@ -16,6 +16,9 @@
         &__avatar {
             margin-bottom: 5rem;
             width: 20vw;
+            @include screen768 {
+                width: 60vw;
+            }
             & ul {
                 display: flex;
                 justify-content: space-between;

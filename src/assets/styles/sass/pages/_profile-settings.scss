@@ -3,6 +3,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 10rem;
+    @include screen768 {
+        flex-direction: column;
+        padding: 0;
+        justify-content: center;
+    }
     &--title {
         font-size: 2.5rem;
         font-family: $primaryFontBold;
@@ -11,6 +16,9 @@
     & .login--form {
         height: 55vh;
         width: 30vw;
+        @include screen768 {
+            width: 90%;
+        }
         & button {
             align-self: flex-start;
             width: 50%;
