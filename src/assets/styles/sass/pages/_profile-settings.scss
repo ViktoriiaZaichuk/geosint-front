@@ -1,0 +1,38 @@
+.profile-settings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10rem;
+    &--title {
+        font-size: 2.5rem;
+        font-family: $primaryFontBold;
+        margin-bottom: 2rem;
+    }
+    & .login--form {
+        height: 55vh;
+        width: 30vw;
+        & button {
+            align-self: flex-start;
+            width: 50%;
+        }
+    }
+    &--avatar {
+        & svg {
+            &:hover {
+                cursor: pointer;
+                animation: 0.4s scaling ease-in-out;
+            }
+        }
+        &__buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            width: 100%;
+            & button {
+                font-size: 1.5rem;
+                margin: 0 1rem;
+            }
+        }
+    }
+}

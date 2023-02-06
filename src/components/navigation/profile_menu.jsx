@@ -57,7 +57,7 @@ const ProfileMenu = () => {
                         </div>
                         <ul>
                             <li>
-                                <Link to={"/dashboard"}>
+                                <Link to={"/profile_settings"}>
                                     <Settings></Settings>
                                     Profile
                                 </Link>
