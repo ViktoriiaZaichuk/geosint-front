@@ -104,10 +104,21 @@ a {
   border-top-left-radius: 50px;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   height: 100%;
   min-height: 100%;
   overflow: hidden; }
+  @media (max-width: 768px) {
+    .dashboard-content {
+      width: 100%;
+      border-top: none;
+      border-left: none;
+      border-radius: 0; } }
+
+.dark {
+  background-color: #3E3E3E !important;
+  color: #F6F6F6 !important; }
+  .dark a {
+    color: #F6F6F6 !important; }
 
 .button {
   background-color: #BFFFD6;
@@ -117,12 +128,16 @@ a {
   border-radius: 5px;
   box-shadow: #3E3E3E -2px -2px 0px 1px;
   padding: .5rem 2rem;
-  margin: 0 1rem; }
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
   .button:hover {
     animation: 0.25s infinite alternate shadowButton; }
   .button a {
     font-family: "millimetre_bold";
-    color: #3E3E3E; }
+    color: #3E3E3E;
+    text-align: center; }
 
 .button-green {
   background-color: #BFFFD6;
@@ -132,12 +147,16 @@ a {
   border-radius: 5px;
   box-shadow: #3E3E3E -2px -2px 0px 1px;
   padding: .5rem 2rem;
-  margin: 0 1rem; }
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
   .button-green:hover {
     animation: 0.25s infinite alternate shadowButton; }
   .button-green a {
     font-family: "millimetre_bold";
-    color: #3E3E3E; }
+    color: #3E3E3E;
+    text-align: center; }
 
 .button-purple {
   background-color: #CDB4FF;
@@ -147,12 +166,16 @@ a {
   border-radius: 5px;
   box-shadow: #3E3E3E -2px -2px 0px 1px;
   padding: .5rem 2rem;
-  margin: 0 1rem; }
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
   .button-purple:hover {
     animation: 0.25s infinite alternate shadowButton; }
   .button-purple a {
     font-family: "millimetre_bold";
-    color: #3E3E3E; }
+    color: #3E3E3E;
+    text-align: center; }
 
 .button-gray {
   background-color: #F6F6F6;
@@ -162,12 +185,16 @@ a {
   border-radius: 5px;
   box-shadow: #3E3E3E -2px -2px 0px 1px;
   padding: .5rem 2rem;
-  margin: 0 1rem; }
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
   .button-gray:hover {
     animation: 0.25s infinite alternate shadowButton; }
   .button-gray a {
     font-family: "millimetre_bold";
-    color: #3E3E3E; }
+    color: #3E3E3E;
+    text-align: center; }
 
 .card {
   display: flex;
@@ -392,14 +419,16 @@ a {
     margin: 0 2rem; }
     @media (max-width: 768px) {
       .footer--bottom {
-        max-width: 140rem;
+        padding: 0 20%;
         margin: 0 auto; } }
   @media (max-width: 768px) and (max-width: 1024px) {
     .footer--bottom {
-      max-width: 90vw; } }
+      max-width: 90vw;
+      padding: 0; } }
   @media (max-width: 768px) and (max-width: 768px) {
     .footer--bottom {
-      max-width: 90vw; } }
+      max-width: 90vw;
+      padding: 0; } }
     .footer--bottom p {
       font-size: 1rem;
       margin-bottom: 1rem;
@@ -412,6 +441,10 @@ a {
   align-items: center;
   justify-content: space-between;
   margin: 1.5rem 0; }
+  @media (max-width: 768px) {
+    .header-dashboard {
+      width: 95vw;
+      margin: 1.5rem auto; } }
   .header-dashboard--nav {
     width: 10vw;
     position: relative;
@@ -481,6 +514,12 @@ a {
   border-right: 4px #3E3E3E solid;
   padding-top: 10rem;
   transition: left 0.3s; }
+  @media (max-width: 1024px) {
+    .dashboard-menu-overlay {
+      width: 70vw; } }
+  @media (max-width: 768px) {
+    .dashboard-menu-overlay {
+      width: 100vw; } }
   .dashboard-menu-overlay ul {
     display: flex;
     flex-direction: column;
@@ -506,17 +545,30 @@ a {
   border-top: #3E3E3E solid 1px;
   font-size: 1.2rem;
   margin-top: auto; }
+  @media (max-width: 768px) {
+    .dashboard-footer :last-child {
+      text-align: right; } }
 
 .profile-menu {
   width: 90vw;
   display: flex;
   align-items: center;
-  justify-content: space-between; }
+  justify-content: space-between;
+  position: relative; }
+  @media (max-width: 550px) {
+    .profile-menu {
+      justify-content: end; } }
+  @media (max-width: 550px) {
+    .profile-menu--logo {
+      display: none; } }
   .profile-menu--btn {
     padding-right: 5rem;
     cursor: pointer;
     display: flex;
     align-items: center; }
+    @media (max-width: 768px) {
+      .profile-menu--btn {
+        padding: 0; } }
     .profile-menu--btn__score {
       display: flex;
       align-items: center;
@@ -554,6 +606,9 @@ a {
   border-radius: 10px;
   z-index: 5;
   box-shadow: #CDB4FF 1px 1px 0px 1px, 2px 2px 0 1px #3E3E3E; }
+  @media (max-width: 768px) {
+    .profilebar-overlay {
+      margin-right: .5rem; } }
   .profilebar-overlay ul {
     border-top: 1px solid #3E3E3E;
     border-bottom: 1px solid #3E3E3E; }
@@ -579,14 +634,16 @@ a {
     opacity: 1; }
 
 .home--page {
-  max-width: 140rem;
+  padding: 0 20%;
   margin: 0 auto; }
   @media (max-width: 1024px) {
     .home--page {
-      max-width: 90vw; } }
+      max-width: 90vw;
+      padding: 0; } }
   @media (max-width: 768px) {
     .home--page {
-      max-width: 90vw; } }
+      max-width: 90vw;
+      padding: 0; } }
   .home--page h1, .home--page h2, .home--page p {
     max-width: 500px; }
   .home--page p {
@@ -922,23 +979,24 @@ a {
   .about--team__cards {
     display: flex;
     justify-content: space-around; }
-<<<<<<< HEAD
     @media (max-width: 768px) {
       .about--team__cards {
         flex-direction: column;
         margin-top: 5rem; } }
-=======
 
 .dashboard-home {
   overflow: hidden; }
   .dashboard-home--profile {
     min-height: 400px;
     border-bottom: #3E3E3E 2px solid;
-    background-image: url("/src/assets/img/dashboard-background.jpg");
+    background-image: url("/src/assets/img/dashboard-bckgrnd.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 0 -30px;
+    background-position: center;
     position: relative; }
+    @media (max-width: 768px) {
+      .dashboard-home--profile {
+        border-top: #3E3E3E 2px solid; } }
     .dashboard-home--profile__avatar {
       height: 110px;
       width: 110px;
@@ -969,9 +1027,116 @@ a {
       margin: 1rem auto;
       font-size: 1.2rem; }
   .dashboard-home--stats {
-    margin: 2rem 5rem; }
+    margin: 4rem 5rem;
+    display: flex; }
+    @media (max-width: 1024px) {
+      .dashboard-home--stats {
+        flex-direction: column;
+        align-items: center;
+        margin: 4rem 2rem; } }
+    .dashboard-home--stats__data {
+      flex: 1 1 0px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-right: 5rem; }
+      @media (max-width: 1024px) {
+        .dashboard-home--stats__data {
+          margin-right: 0; } }
+      .dashboard-home--stats__data > div {
+        border: #3E3E3E 2px solid;
+        border-radius: 20px;
+        padding: 3rem 4rem;
+        display: flex; }
+      .dashboard-home--stats__data p {
+        font-size: 2.6rem; }
+      .dashboard-home--stats__data span {
+        font-size: 3.4rem;
+        font-family: "millimetre_bold"; }
+      .dashboard-home--stats__data .ranking {
+        justify-content: space-between; }
+      .dashboard-home--stats__data .ranking-stats {
+        margin: 3rem 0;
+        flex-direction: column; }
+        .dashboard-home--stats__data .ranking-stats > div {
+          padding: 2rem 0;
+          display: flex;
+          align-items: center;
+          justify-content: space-between; }
+      .dashboard-home--stats__data .create-chlng {
+        align-items: center;
+        justify-content: center; }
+    .dashboard-home--stats__challenge {
+      flex: 1 1 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border: #3E3E3E 2px solid;
+      border-radius: 20px;
+      padding: 3rem 2rem; }
+      @media (max-width: 1024px) {
+        .dashboard-home--stats__challenge {
+          margin-top: 4rem; } }
+      .dashboard-home--stats__challenge > p {
+        font-family: "millimetre_bold";
+        font-size: 3.2rem;
+        margin-bottom: 3rem; }
   .dashboard-home--challenges {
-    margin: 2rem 5rem; }
+    margin: 7rem 5rem; }
+    @media (max-width: 1024px) {
+      .dashboard-home--challenges {
+        margin: 7rem 2rem; } }
+    .dashboard-home--challenges h2 {
+      font-size: 3.6rem;
+      text-transform: uppercase;
+      font-family: "millimetre_bold";
+      margin-bottom: 3rem; }
+    .dashboard-home--challenges .card-list {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; }
+      @media (max-width: 1024px) {
+        .dashboard-home--challenges .card-list {
+          flex-direction: column;
+          align-items: center; }
+          .dashboard-home--challenges .card-list .card {
+            margin: 2rem 0; } }
+    .dashboard-home--challenges .link {
+      font-size: 3.2rem;
+      margin: 2rem 0 0 auto; }
+      .dashboard-home--challenges .link a {
+        display: flex;
+        align-items: center;
+        justify-content: end; }
+        .dashboard-home--challenges .link a .arrow-right {
+          margin-left: 1rem; }
   .dashboard-home--groupe {
-    margin: 2rem 5rem; }
->>>>>>> dashboard-page
+    margin: 7rem 5rem; }
+    @media (max-width: 1024px) {
+      .dashboard-home--groupe {
+        margin: 7rem 2rem; } }
+    .dashboard-home--groupe h2 {
+      font-size: 3.6rem;
+      text-transform: uppercase;
+      font-family: "millimetre_bold";
+      margin-bottom: 3rem; }
+    .dashboard-home--groupe .card-list {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; }
+      @media (max-width: 1024px) {
+        .dashboard-home--groupe .card-list {
+          flex-direction: column;
+          align-items: center; }
+          .dashboard-home--groupe .card-list .card {
+            margin: 2rem 0; } }
+    .dashboard-home--groupe .link {
+      font-size: 3.2rem;
+      margin: 2rem 0 0 auto; }
+      .dashboard-home--groupe .link a {
+        display: flex;
+        align-items: center;
+        justify-content: end; }
+        .dashboard-home--groupe .link a .arrow-right {
+          margin-left: 1rem; }
