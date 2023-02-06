@@ -235,6 +235,29 @@ a {
     align-self: center;
     padding: .5rem 3rem; }
 
+input {
+  color: #3E3E3E; }
+
+textarea {
+  border: 1px solid #3E3E3E;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  box-shadow: #3E3E3E -2px -2px 0px 1px; }
+  textarea:focus {
+    outline: none; }
+
+select {
+  font-family: "millimetre_regular";
+  color: #3E3E3E;
+  border: 1px solid #3E3E3E;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  box-shadow: #3E3E3E -2px -2px 0px 1px; }
+  select:focus {
+    outline: none; }
+
 .header {
   width: 100%;
   display: flex;
@@ -557,7 +580,7 @@ a {
   position: relative; }
   @media (max-width: 550px) {
     .profile-menu {
-      justify-content: end; } }
+      justify-content: flex-end; } }
   @media (max-width: 550px) {
     .profile-menu--logo {
       display: none; } }
@@ -1108,7 +1131,7 @@ a {
       .dashboard-home--challenges .link a {
         display: flex;
         align-items: center;
-        justify-content: end; }
+        justify-content: flex-end; }
         .dashboard-home--challenges .link a .arrow-right {
           margin-left: 1rem; }
   .dashboard-home--groupe {
@@ -1137,6 +1160,88 @@ a {
       .dashboard-home--groupe .link a {
         display: flex;
         align-items: center;
-        justify-content: end; }
+        justify-content: flex-end; }
         .dashboard-home--groupe .link a .arrow-right {
           margin-left: 1rem; }
+
+.create-challenge {
+  overflow: hidden; }
+  .create-challenge--title {
+    margin: 5rem 5rem 1rem 5rem;
+    display: flex;
+    align-items: center; }
+    .create-challenge--title h1 {
+      margin-right: 2rem;
+      font-size: 3.4rem; }
+    @media (max-width: 1024px) {
+      .create-challenge--title {
+        text-align: center; } }
+  .create-challenge--content {
+    margin: 4rem 5rem;
+    display: flex; }
+    @media (max-width: 1024px) {
+      .create-challenge--content {
+        flex-direction: column;
+        align-items: center;
+        margin: 4rem 0rem; } }
+    .create-challenge--content__form {
+      flex: 1 1 0px;
+      margin-right: 5rem;
+      border: #3E3E3E 2px solid;
+      border-radius: 20px;
+      padding: 3rem 2rem; }
+      @media (max-width: 1024px) {
+        .create-challenge--content__form {
+          margin: 0 0 3rem 0; } }
+      .create-challenge--content__form .form-select {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 0;
+        width: 100%; }
+        .create-challenge--content__form .form-select label {
+          font-size: 1.6rem;
+          margin-bottom: 0.5rem; }
+      .create-challenge--content__form .form-img-upload {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 0;
+        width: 100%; }
+        .create-challenge--content__form .form-img-upload label {
+          font-size: 1.6rem;
+          margin-bottom: 0.5rem; }
+        .create-challenge--content__form .form-img-upload--wrapper {
+          border: 1px solid #3E3E3E;
+          border-radius: 5px;
+          padding: 1rem 0.5rem;
+          margin: 0.5rem 0;
+          background-color: white;
+          box-shadow: #3E3E3E -2px -2px 0px 1px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between; }
+          .create-challenge--content__form .form-img-upload--wrapper > div {
+            position: relative;
+            background-color: #BFFFD6;
+            border: 1px solid #3E3E3E;
+            box-shadow: #3E3E3E -2px -2px 0px 1px;
+            border-radius: 5px;
+            padding: .7rem 4rem;
+            margin: 0rem 1rem;
+            cursor: pointer; }
+            .create-challenge--content__form .form-img-upload--wrapper > div input[type="file"] {
+              position: absolute;
+              top: 0;
+              left: 0;
+              opacity: 0;
+              cursor: pointer; }
+          .create-challenge--content__form .form-img-upload--wrapper span {
+            color: #3E3E3E;
+            margin: 0 1rem; }
+    .create-challenge--content__img {
+      flex: 1 1 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      @media (max-width: 1024px) {
+        .create-challenge--content__img {
+          margin: 5rem 0; } }
