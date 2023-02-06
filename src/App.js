@@ -8,6 +8,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import ForgottenPassword from './pages/ForgottenPassword'
 import Dashboard from './pages/Dashboard'
+import ProfileSettings from './pages/ProfileSettings'
 
 const router = createBrowserRouter([
     {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
         path: '/dashboard',
         element: <Dashboard />,
     },
+    {
+        path: '/profile_settings',
+        element: <ProfileSettings />,
+    }
 ])
 
 function App() {

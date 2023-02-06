@@ -130,7 +130,7 @@
             justify-content: space-around;
             @include screen768 {
                 flex-direction: column;
-                margin-top: 5rem;
+                margin: 5rem 1rem;
             }
         }
     }
