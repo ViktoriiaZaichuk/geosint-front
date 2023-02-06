@@ -8,6 +8,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import ForgottenPassword from './pages/ForgottenPassword'
 import Dashboard from './pages/Dashboard'
+import CreateChallenge from './pages/CreateChallenge'
 import ProfileSettings from './pages/ProfileSettings'
 import ChallengesList from './pages/ChallengesList'
 
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
     {
         path: '/dashboard',
         element: <Dashboard />,
+    },
+    {
+        path: '/create_challenge',
+        element: <CreateChallenge />,
     },
     {
         path: '/profile_settings',
