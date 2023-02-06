@@ -1,0 +1,23 @@
+.challenges-list {
+    &--page {
+        padding: 5rem;
+    }
+    &--difficulty {
+        display: flex;
+        margin-top: 5rem;
+        &__buttons {
+            display: flex;
+            margin-left: 3rem;
+        }
+    }
+    &--list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 5rem;
+        & .card {
+            width: 30%;
+            margin: 5rem;
+        }
+    }
+}
