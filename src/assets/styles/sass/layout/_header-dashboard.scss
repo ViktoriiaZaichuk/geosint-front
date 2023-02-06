@@ -3,6 +3,10 @@
     align-items: center;
     justify-content: space-between;
     margin: 1.5rem 0;
+    @include screen768 {
+        width: 95vw;
+        margin: 1.5rem auto;
+    }
     &--nav {
         width: 10vw;
         position: relative;
@@ -33,6 +37,12 @@
     border-right: 4px $black solid;
     padding-top: 10rem;
     transition: left 0.3s;
+    @include screen1024 {
+        width: 70vw;
+    }
+    @include screen768 {
+        width: 100vw;
+    }
     & ul {
         display: flex;
         flex-direction: column;

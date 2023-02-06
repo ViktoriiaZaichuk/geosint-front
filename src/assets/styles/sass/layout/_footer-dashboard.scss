@@ -7,5 +7,9 @@
     border-top: $black solid 1px;
     font-size: 1.2rem;
     margin-top: auto;
-
+    :last-child {
+        @include screen768 {
+            text-align: right;
+        }
+    }
 }

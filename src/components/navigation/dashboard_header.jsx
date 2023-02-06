@@ -39,8 +39,6 @@ const DashboardHeader = () => {
                     </ul>
                 </div>
 
-
-
             </nav>
             <ProfileMenu></ProfileMenu>
         </header>
