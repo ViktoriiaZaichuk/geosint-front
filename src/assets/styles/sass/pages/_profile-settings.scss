@@ -43,4 +43,9 @@
             }
         }
     }
+    &--password {
+        @include screen768 {
+            width: 100%;
+        }
+    }
 }

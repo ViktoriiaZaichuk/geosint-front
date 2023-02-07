@@ -132,9 +132,13 @@
         &__cards {
             display: flex;
             justify-content: space-around;
+            flex-wrap: wrap;
             @include screen768 {
                 flex-direction: column;
                 margin: 5rem 1rem;
+            }
+            & p {
+                width: auto;
             }
         }
     }

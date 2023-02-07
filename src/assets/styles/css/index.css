@@ -1081,11 +1081,14 @@ select {
         width: 100%; } }
   .about--team__cards {
     display: flex;
-    justify-content: space-around; }
+    justify-content: space-around;
+    flex-wrap: wrap; }
     @media (max-width: 768px) {
       .about--team__cards {
         flex-direction: column;
         margin: 5rem 1rem; } }
+    .about--team__cards p {
+      width: auto; }
 
 .dashboard-home {
   overflow: hidden; }
@@ -1279,6 +1282,9 @@ select {
     .profile-settings--avatar__buttons button {
       font-size: 1.5rem;
       margin: 0 1rem; }
+  @media (max-width: 768px) {
+    .profile-settings--password {
+      width: 100%; } }
 
 .challenges-list--page {
   padding: 5rem; }

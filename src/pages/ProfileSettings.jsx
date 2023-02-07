@@ -154,34 +154,36 @@ const ProfileSettings = () => {
             </div>
 
             <div className="profile-settings">
-                <form className="login--form">
-                    <h2 className="profile-settings--title">Changer le mot de passe</h2>
-                    <TextInput
-                        label="Mot de passe actuel"
-                        placeholder="********"
-                        type="password"
-                        name="password"
-                        control={control}
-                        error={errors.password?.message}
-                    />
-                    <TextInput
-                        label="Nouveau mot de passe"
-                        placeholder="********"
-                        type="password"
-                        name="newPassword"
-                        control={control}
-                        error={errors.newPassword?.message}
-                    />
-                    <TextInput
-                        label="Confirmer le nouveau mot de passe"
-                        placeholder="********"
-                        type="password"
-                        name="confirmNewPassword"
-                        control={control}
-                        error={errors.confirmNewPassword?.message}
-                    />
-                    <button className="button-purple" onClick={handleSubmit(onSubmit)}>Enregistrer</button>
-                </form>
+                <div className="profile-settings profile-settings--password">
+                    <form className="login--form">
+                        <h2 className="profile-settings--title">Changer le mot de passe</h2>
+                        <TextInput
+                            label="Mot de passe actuel"
+                            placeholder="********"
+                            type="password"
+                            name="password"
+                            control={control}
+                            error={errors.password?.message}
+                        />
+                        <TextInput
+                            label="Nouveau mot de passe"
+                            placeholder="********"
+                            type="password"
+                            name="newPassword"
+                            control={control}
+                            error={errors.newPassword?.message}
+                        />
+                        <TextInput
+                            label="Confirmer le nouveau mot de passe"
+                            placeholder="********"
+                            type="password"
+                            name="confirmNewPassword"
+                            control={control}
+                            error={errors.confirmNewPassword?.message}
+                        />
+                        <button className="button-purple" onClick={handleSubmit(onSubmit)}>Enregistrer</button>
+                    </form>
+                </div>
             </div>
         </LayoutDashboard>
     )
