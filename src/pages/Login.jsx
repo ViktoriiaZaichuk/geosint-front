@@ -4,14 +4,10 @@ import { useForm } from "react-hook-form";
 
 import { UserContext } from "../context/UserContext";
 import Layout from "./LayoutHome";
-<<<<<<< HEAD
 import Input from "../components/form/text_input";
-=======
-import Input from "../components/textInput";
 import { loginUser } from "../api/auth";
 import ReactModal from "react-modal";
 // import { loginSchema } from "../utils/validationSchemas"
->>>>>>> login-from-api
  
 const Login = () => {
     const [isModalOpen, setIsModalOpen] = useState(true)
@@ -35,10 +31,6 @@ const Login = () => {
     });
 
     const onSubmit = (data) => {
-<<<<<<< HEAD
-        isValid && console.log(data);
-    } 
-=======
         const emailValue = getValues("email")
 
         const { email, password } = data
@@ -51,7 +43,6 @@ const Login = () => {
 
         reset({ email: emailValue, password: "" })
     }
->>>>>>> login-from-api
 
     return (
         <Layout>

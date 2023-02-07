@@ -3,12 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
 
 import Layout from "./LayoutHome";
-<<<<<<< HEAD
 import Input from "../components/form/text_input";
-=======
-import Input from "../components/textInput";
 import { registerUser } from "../api/auth";
->>>>>>> login-from-api
 import { ReactComponent as Avatar1 } from "../assets/icons/avatar1.svg";
 import { ReactComponent as Avatar2 } from "../assets/icons/avatar2.svg";
 import { ReactComponent as Avatar3 } from "../assets/icons/avatar3.svg";

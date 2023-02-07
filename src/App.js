@@ -11,55 +11,10 @@ import Dashboard from './pages/Dashboard'
 import CreateChallenge from './pages/CreateChallenge'
 import ProfileSettings from './pages/ProfileSettings'
 import ChallengesList from './pages/ChallengesList'
-<<<<<<< HEAD
 import Challenge from './pages/Challenge'
-
-const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Home />,
-    },
-    {
-        path: '/about',
-        element: <About />,
-    },
-    {
-        path: '/login',
-        element: <Login />,
-    },
-    {
-        path: '/register',
-        element: <Register />,
-    },
-    {
-        path: '/forgotten_password',
-        element: <ForgottenPassword />,
-    },
-    {
-        path: '/dashboard',
-        element: <Dashboard />,
-    },
-    {
-        path: '/create_challenge',
-        element: <CreateChallenge />,
-    },
-    {
-        path: '/profile_settings',
-        element: <ProfileSettings />,
-    },
-    {
-        path: '/challenges_list',
-        element: <ChallengesList />,
-    },
-    {
-        path: '/challenge',
-        element: <Challenge />,
-    }
-])
-=======
 import useGetCurrentUser from './hooks/useGetCurrentUser'
 import Loader from './components/loader'
->>>>>>> login-from-api
+
 
 function App() {
     const user = useGetCurrentUser()
@@ -92,7 +47,15 @@ function App() {
         {
             path: '/challenges_list',
             element: <ChallengesList />,
-        }
+        },
+        {
+            path: '/challenge',
+            element: <Challenge />,
+        },
+        {
+            path: '/create_challenge',
+            element: <CreateChallenge />,
+        },
     ])
 
     return (
