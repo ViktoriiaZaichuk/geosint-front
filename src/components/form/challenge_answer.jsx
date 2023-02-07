@@ -38,8 +38,9 @@ const ChallengeAnswer = () => {
         </div>
       </div>
       
-      <div className="challenge-answer--validation">
+      <div >
         {answer && (
+          <div className="challenge-answer--validation">
             <div>
             {isCorrect ? (
                 <div>
@@ -53,6 +54,7 @@ const ChallengeAnswer = () => {
                 </div>
             )}
             </div>
+          </div>
         )}
       </div>
     </form>

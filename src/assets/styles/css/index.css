@@ -1405,7 +1405,12 @@ select {
         overflow: hidden;
         border: 2px solid #3E3E3E;
         border-radius: 10px;
-        box-shadow: #BFFFD6 -6px -6px 0px 1px, -7px -7px 0 1px #3E3E3E; }
+        box-shadow: #BFFFD6 -6px -6px 0px 1px, -7px -7px 0 1px #3E3E3E;
+        min-width: 600px; }
+        @media (max-width: 768px) {
+          .challenge-page--infos__details .img-info > div {
+            min-width: 100%;
+            margin: 1.5rem; } }
         .challenge-page--infos__details .img-info > div img {
           width: 100%;
           height: 100%;
@@ -1505,3 +1510,61 @@ select {
       padding: 0 2rem; }
       .challenge-page--forum__ranking ol li {
         margin: .5rem 0; }
+
+.general-ranking-page--content {
+  margin: 5rem; }
+  @media (max-width: 768px) {
+    .general-ranking-page--content {
+      margin: 5rem 2rem; } }
+  @media (max-width: 550px) {
+    .general-ranking-page--content {
+      margin: 5rem 1rem; } }
+  .general-ranking-page--content__title {
+    display: flex;
+    align-items: center; }
+    @media (max-width: 1024px) {
+      .general-ranking-page--content__title {
+        justify-content: center; } }
+    .general-ranking-page--content__title h1 {
+      font-size: 3.4rem;
+      margin-right: 2rem; }
+  .general-ranking-page--content__table {
+    margin-top: 5rem;
+    padding: 4rem;
+    border-radius: 20px; }
+    @media (max-width: 768px) {
+      .general-ranking-page--content__table {
+        padding: 2rem 0; } }
+    .general-ranking-page--content__table table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0; }
+    .general-ranking-page--content__table thead tr th {
+      box-shadow: #3E3E3E -2px -2px 0px 0px;
+      padding: 2rem 1.5rem;
+      text-align: left;
+      font-size: 1.8rem;
+      border: 2px #3E3E3E solid;
+      border-style: solid none solid none;
+      background-color: #CDB4FF; }
+      @media (max-width: 550px) {
+        .general-ranking-page--content__table thead tr th {
+          padding: 2rem 1rem; } }
+    .general-ranking-page--content__table thead tr:first-child th:first-child {
+      border-top-left-radius: 20px; }
+    .general-ranking-page--content__table thead tr:first-child th:last-child {
+      border-top-right-radius: 20px; }
+    .general-ranking-page--content__table thead tr:last-child th:first-child {
+      border-bottom-left-radius: 20px; }
+    .general-ranking-page--content__table thead tr:last-child th:last-child {
+      border-bottom-right-radius: 20px; }
+    .general-ranking-page--content__table thead tr:first-child th {
+      border-top-style: solid; }
+    .general-ranking-page--content__table thead tr th:first-child {
+      border-left-style: solid; }
+    .general-ranking-page--content__table tbody tr td {
+      border-bottom: 3px ridge #BFFFD6;
+      padding: 1.5rem; }
+      @media (max-width: 550px) {
+        .general-ranking-page--content__table tbody tr td {
+          padding: 1rem; } }

@@ -1,0 +1,68 @@
+.general-ranking-page {
+    &--content {
+        margin: 5rem;
+        @include screen768 {
+            margin: 5rem 2rem;
+        }
+        @include screen550 {
+            margin: 5rem 1rem;
+        }
+        &__title {
+            display: flex;
+            align-items: center;
+            @include screen1024 {
+                justify-content: center;
+            }
+            h1 {
+                font-size: 3.4rem;
+                margin-right: 2rem;
+            }
+        }
+        &__table {
+            margin-top: 5rem;
+            padding: 4rem;
+            border-radius: 20px;
+            @include screen768 {
+                padding: 2rem 0;
+            }
+            & table {
+                width: 100%;
+                border-collapse: separate;
+                border-spacing: 0;
+            }
+            & thead {
+                tr {
+                    th {
+                        box-shadow: $black -2px -2px 0px 0px; 
+                        padding: 2rem 1.5rem;
+                        text-align: left;
+                        font-size: 1.8rem;
+                        border: 2px $black solid;
+                        border-style: solid none solid none;
+                        background-color: $purple;
+                        @include screen550 {
+                            padding: 2rem 1rem;
+                        }
+                    }
+                    &:first-child th:first-child { border-top-left-radius: 20px; }
+                    &:first-child th:last-child { border-top-right-radius: 20px; }
+                    &:last-child th:first-child { border-bottom-left-radius: 20px; }
+                    &:last-child th:last-child { border-bottom-right-radius: 20px; }
+                    &:first-child th { border-top-style: solid; }
+                    & th:first-child { border-left-style: solid; }
+                }
+            }
+            & tbody {
+                tr {
+                    td {
+                        border-bottom: 3px ridge #BFFFD6;
+                        padding: 1.5rem;
+                        @include screen550 {
+                            padding: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
