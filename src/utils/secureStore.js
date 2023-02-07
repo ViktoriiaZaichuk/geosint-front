@@ -7,7 +7,7 @@ export const storeData = (key, value) => {
 
 export const getData = (key) => {
     const jsonValue = secureLocalStorage.getItem(key);
-    return jsonValue != null ? JSON.parse(jsonValue) : null;
+    return jsonValue ? JSON.parse(jsonValue) : null;
 }
 
 export const removeData = (key) => {

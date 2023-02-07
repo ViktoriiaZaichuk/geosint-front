@@ -1,42 +1,29 @@
 import { useContext, useEffect, useState } from "react"
+import jwt_decode from "jwt-decode"
 
 import { getData, storeData } from "../utils/secureStore"
 import { UserContext } from "../context/UserContext"
 
 const useGetCurrentUser = () => {
     const { user, dispatch } = useContext(UserContext)
-    const [currentUser, setCurrentUser] = useState(null)
+    const [currentUserToken, setCurrentUserToken] = useState(null)
 
     useEffect(() => {
-        const getCurrentUser = async () => {
-            const storedUser = await getData("currentUser")
-            storedUser && setCurrentUser(storedUser)
-        }
-
-        getCurrentUser()
+        const storedUser = getData("currentUserToken")
+        storedUser && setCurrentUserToken(storedUser)
     }, [])
 
     useEffect(() => {
-        if (currentUser?.login) {
+        if (currentUserToken) {
             dispatch({ type: "REQUEST_LOGIN" })
-            const payload = {
-                id: currentUser.id,
-                username: currentUser.username,
-                avatar: currentUser.avatar,
-                global_score: currentUser.global_score,
-                login: true,
-            }
-            dispatch({ type: "LOGIN_SUCCESS", payload })
-            dispatch({ type: "GET_TOKEN", payload: { token: currentUser.token } })
+            const decoded = jwt_decode(currentUserToken)
+            dispatch({ type: "LOGIN_SUCCESS", payload: decoded.id })
+            dispatch({ type: "GET_TOKEN", payload: currentUserToken })
         }
-    }, [currentUser])
+    }, [currentUserToken, dispatch])
 
     useEffect(() => {
-        const storeCurrentUser = async () => {
-            await storeData("currentUser", user)
-        }
-
-        storeCurrentUser()
+        storeData("currentUserToken", user.token )
     }, [user])
 
     return user

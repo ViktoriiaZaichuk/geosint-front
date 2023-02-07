@@ -11,7 +11,7 @@ const instance = axios.create({
 })
 
 instance.interceptors.request.use(async (config) => {
-    const { token } = await getData('currentUser');
+    const token = getData('currentUserToken');
     config.headers.Authorization = `Bearer ${token}`;
     // config.headers.post['X-CSRF-Token'] = await getCSRFToken();
     // config.headers.put['X-CSRF-Token'] = await getCSRFToken();
