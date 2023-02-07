@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect, useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { ReactComponent as Logo } from '../../assets/icons/logo_purple_shadow.svg'
 import { ReactComponent as Star } from '../../assets/icons/star.svg'
@@ -9,14 +9,24 @@ import { ReactComponent as Notification } from '../../assets/icons/notification.
 import { ReactComponent as Sun } from '../../assets/icons/sun.svg'
 import { ReactComponent as Moon } from '../../assets/icons/moon.svg'
 import { ReactComponent as Logout } from '../../assets/icons/logout.svg'
+import { UserContext } from '../../context/UserContext'
 
 const ProfileMenu = () => {
     const [isProfileBarExpanded, setIsProfileBarExpanded] = useState(false);
+    const navigate = useNavigate();
+
+    const { dispatch } = useContext(UserContext);
 
     const handleClickOutside = (event) => {
         if (event.target.closest('.profile-menu--btn')) return;
         setIsProfileBarExpanded(false);
     };
+
+    const logout = () => {
+        dispatch({ type: "LOGOUT" })
+        return navigate("/")
+    };
+
     useEffect(() => {
         document.addEventListener('click', handleClickOutside);
         return () => {
@@ -27,7 +37,7 @@ const ProfileMenu = () => {
     return (
         <div className='profile-menu'>
             <div className='profile-menu--logo'>
-                <Logo></Logo>
+                <Link to={"/"}><Logo /></Link>
             </div>
 
             <div className='profile-menu--nav'>
@@ -76,7 +86,7 @@ const ProfileMenu = () => {
                             </li>
                         </ul>
                         <div>
-                            <Link to={"/dashboard"}>
+                            <Link onClick={logout}>
                                 <Logout></Logout>
                                 Déconnexion
                             </Link>

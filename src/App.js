@@ -11,6 +11,7 @@ import Dashboard from './pages/Dashboard'
 import CreateChallenge from './pages/CreateChallenge'
 import ProfileSettings from './pages/ProfileSettings'
 import ChallengesList from './pages/ChallengesList'
+<<<<<<< HEAD
 import Challenge from './pages/Challenge'
 
 const router = createBrowserRouter([
@@ -55,8 +56,45 @@ const router = createBrowserRouter([
         element: <Challenge />,
     }
 ])
+=======
+import useGetCurrentUser from './hooks/useGetCurrentUser'
+import Loader from './components/loader'
+>>>>>>> login-from-api
 
 function App() {
+    const user = useGetCurrentUser()
+
+    const router = createBrowserRouter([
+        {
+            path: '/',
+            element: user.loading ? <Loader /> : user.login ? <Dashboard /> : <Home />,
+        },
+        {
+            path: '/about',
+            element: <About />,
+        },
+        {
+            path: '/login',
+            element: <Login />,
+        },
+        {
+            path: '/register',
+            element: <Register />,
+        },
+        {
+            path: '/forgotten_password',
+            element: <ForgottenPassword />,
+        },
+        {
+            path: '/profile_settings',
+            element: <ProfileSettings />,
+        },
+        {
+            path: '/challenges_list',
+            element: <ChallengesList />,
+        }
+    ])
+
     return (
         <ThemeProvider>
             <RouterProvider router={router} />
