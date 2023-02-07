@@ -1,26 +1,41 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
 
 import Layout from "./LayoutHome";
 import Input from "../components/textInput";
+import { registerUser } from "../api/auth";
 import { ReactComponent as Avatar1 } from "../assets/icons/avatar1.svg";
 import { ReactComponent as Avatar2 } from "../assets/icons/avatar2.svg";
 import { ReactComponent as Avatar3 } from "../assets/icons/avatar3.svg";
 import { ReactComponent as Avatar4 } from "../assets/icons/avatar4.svg";
 
 const Register = () => {
+    const navigate = useNavigate()
+
     const { 
+        getValues,
         control,
         handleSubmit, 
-        formState: { errors, isValid } 
+        formState: { errors },
+        reset 
     } = useForm({
         mode: "onBlur",
         reValidateMode: "onChange"
     });
 
-    const onSubmit = (data) => {
-        isValid && console.log(data);
+    const onSubmit = async (data) => {
+        const avatarValue = getValues("avatar")
+        const usernameValue = getValues("username")
+        const emailValue = getValues("email")
+
+        const isRegister = await registerUser(data)
+
+        if (isRegister) {
+            return navigate("/login")
+        }
+
+        reset({ avatar: avatarValue, username: usernameValue, email: emailValue, password: "" })
     }
     
     return (
@@ -41,16 +56,16 @@ const Register = () => {
                             control={control}
                             render={({ field: { onChange, value } }) => (
                                 <ul className="login--form__avatar">
-                                    <li style={value === "avatar1" ? {backgroundColor: "#3E3E3E", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#fff"}}>
+                                    <li style={value === "avatar1" ? {backgroundColor: "#3E3E3E", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#F6F6F6"}}>
                                         <Avatar1 onClick={() => onChange("avatar1")} />
                                     </li>
-                                    <li style={value === "avatar2" ? {backgroundColor: "#3E3E3E", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#fff"}}>
+                                    <li style={value === "avatar2" ? {backgroundColor: "#3E3E3E", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#F6F6F6"}}>
                                         <Avatar2 onClick={() => onChange("avatar2")} />
                                     </li>
-                                    <li style={value === "avatar3" ? {backgroundColor: "#3E3E3E", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#fff"}}>
+                                    <li style={value === "avatar3" ? {backgroundColor: "#3E3E3E", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#F6F6F6"}}>
                                         <Avatar3 onClick={() => onChange("avatar3")} />
                                     </li>
-                                    <li style={value === "avatar4" ? {backgroundColor: "#3E3E3E", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#fff"}}>
+                                    <li style={value === "avatar4" ? {backgroundColor: "#3E3E3E", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#F6F6F6"}}>
                                         <Avatar4 onClick={() => onChange("avatar4")} />
                                     </li>
                                 </ul>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const UserContext = React.createContext();
+export const UserContext = React.createContext();
 
 const UserProvider = ({ children }) => {
     const [user, dispatch] = React.useReducer(userReducer, initialState);
@@ -14,10 +14,11 @@ const UserProvider = ({ children }) => {
 
 const initialState = {
     id: "",
+    username: "",
+    avatar: "",
+    global_score: 0,
     login: null,
     token: "",
-    firstName: "",
-    lastName: "",
     loading: false,
     errorMessage: null,
 }
@@ -27,10 +28,8 @@ const userReducer = (state, action) => {
         case "LOGIN_SUCCESS":
             return {
                 ...state,
-                id: action.payload._id,
-                login: action.payload.isLoggedIn,
-                firstName: action.payload.firstName,
-                lastName: action.payload.lastName,
+                id: action.payload,
+                login: true,
                 loading: false,
                 errorMessage: null
             }
@@ -64,4 +63,4 @@ const userReducer = (state, action) => {
     }
 }
 
-export { UserContext, UserProvider };
+export default UserProvider

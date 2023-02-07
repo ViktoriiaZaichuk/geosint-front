@@ -1,22 +1,47 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
+import { UserContext } from "../context/UserContext";
 import Layout from "./LayoutHome";
 import Input from "../components/textInput";
+import { loginUser } from "../api/auth";
+import ReactModal from "react-modal";
+// import { loginSchema } from "../utils/validationSchemas"
  
 const Login = () => {
+    const [isModalOpen, setIsModalOpen] = useState(true)
+    const navigate = useNavigate()
+
+    const closeModal = () => {
+        setIsModalOpen(false)
+    }
+
+    const { user, dispatch } = useContext(UserContext);
+
     const { 
+        getValues,
         control,
         handleSubmit, 
-        formState: { errors, isValid } 
+        formState: { errors, isSubmitted },
+        reset 
     } = useForm({
         mode: "onBlur",
         reValidateMode: "onChange"
     });
 
     const onSubmit = (data) => {
-        isValid && console.log(data);
+        const emailValue = getValues("email")
+
+        const { email, password } = data
+
+        const isLogin = loginUser(dispatch, email, password)
+
+        if (isLogin) {
+            return navigate("/")
+        }
+
+        reset({ email: emailValue, password: "" })
     }
 
     return (
@@ -54,6 +79,23 @@ const Login = () => {
                     </div>
                 </form>
             </div>
+
+            {(user.errorMessage !== null && isSubmitted) && (
+                <ReactModal
+                    isOpen={isModalOpen}
+                    className="modal"
+                    overlayClassName="overlay"
+                    onRequestClose={closeModal}
+                    shouldCloseOnOverlayClick={true}
+                    appElement={document.getElementById("root")}
+                >
+                    <div className="modal--content">
+                        <h2 className="modal--title">Erreur</h2>
+                        <p className="modal--text">{user.errorMessage}</p>
+                        <button className="button-purple" onClick={closeModal}>Fermer</button>
+                    </div>
+                </ReactModal>
+            )}
         </Layout>
     );
 }

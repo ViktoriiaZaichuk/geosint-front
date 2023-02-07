@@ -126,6 +126,18 @@ a {
       border-left: none;
       border-radius: 0; } }
 
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #F6F6F6;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
 .dark {
   background-color: #3E3E3E !important;
   color: #F6F6F6 !important; }
@@ -275,6 +287,14 @@ a {
     flex-direction: column;
     justify-content: space-around;
     height: 20vh; }
+
+.modal--title {
+  font-size: 3rem;
+  margin-bottom: 1.5rem; }
+
+.modal--text {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem; }
 
 .overlay {
   position: fixed;
@@ -720,6 +740,8 @@ a {
       display: flex;
       flex-direction: column;
       margin: 1.5rem 0; } }
+  .home--hero__btn button {
+    margin: 1.5rem 0; }
   @media (max-width: 768px) {
     .home--hero__img {
       padding-top: 5rem; } }
@@ -808,7 +830,8 @@ a {
     text-align: center; }
   .home--discord p {
     text-align: center;
-    margin: 1.5rem 0; }
+    margin: 1.5rem 0;
+    width: 50%; }
 
 .login--page {
   display: flex;
@@ -1003,6 +1026,9 @@ a {
         margin: 2rem 0; }
       .about--intro__content__txt h2 {
         font-size: 5rem; }
+      .about--intro__content__txt button {
+        margin: 5rem 0;
+        display: unset; }
 
 .about--team {
   display: flex;

@@ -36,6 +36,9 @@
                     margin: 1.5rem 0;
                 }
             }
+            & button {
+                margin: 1.5rem 0;
+            }
         }
         &__img {
             @include screen768 {
@@ -146,6 +149,7 @@
         & p {
             text-align: center;
             margin: 1.5rem 0;
+            width: 50%;
         }
     }
 
