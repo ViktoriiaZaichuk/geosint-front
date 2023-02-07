@@ -33,6 +33,14 @@ const userReducer = (state, action) => {
                 loading: false,
                 errorMessage: null
             }
+        case "GET_USER":
+            return {
+                ...state,
+                username: action.payload.username,
+                avatar: action.payload.avatar,
+                global_score: action.payload.global_score,
+                errorMessage: null
+            }
         case "GET_TOKEN":
             return {
                 ...state,
