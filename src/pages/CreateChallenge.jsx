@@ -2,9 +2,9 @@ import React from "react";
 import FooterDashboard from "../components/navigation/footer_dashboard";
 import LayoutDashboard from "./LayoutDashboard";
 import { useForm, Controller } from "react-hook-form";
-import TextInput from '../components/textInput';
-import SelectLevel from "../components/select_level";
-import UploadImage from "../components/upload_image";
+import TextInput from '../components/form/text_input';
+import SelectLevel from "../components/form/select_level";
+import UploadImage from "../components/form/upload_image";
 
 import { ReactComponent as GlobeImg } from '../assets/img/globe.svg'
 import { ReactComponent as Lightening } from '../assets/icons/lightening.svg'

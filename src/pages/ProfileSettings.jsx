@@ -7,7 +7,7 @@ import { ReactComponent as Avatar1 } from "../assets/icons/avatar1.svg"
 import { ReactComponent as Avatar2 } from "../assets/icons/avatar2.svg"
 import { ReactComponent as Avatar3 } from "../assets/icons/avatar3.svg"
 import { ReactComponent as Avatar4 } from "../assets/icons/avatar4.svg"
-import TextInput from '../components/textInput'
+import TextInput from '../components/form/text_input'
 
 const ProfileSettings = () => {
     const [avatar, setAvatar] = useState(4)

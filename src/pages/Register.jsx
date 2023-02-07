@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
 
 import Layout from "./LayoutHome";
-import Input from "../components/textInput";
+import Input from "../components/form/text_input";
 import { ReactComponent as Avatar1 } from "../assets/icons/avatar1.svg";
 import { ReactComponent as Avatar2 } from "../assets/icons/avatar2.svg";
 import { ReactComponent as Avatar3 } from "../assets/icons/avatar3.svg";

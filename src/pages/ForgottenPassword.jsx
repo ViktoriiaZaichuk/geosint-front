@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
 
 import Layout from "./LayoutHome";
-import Input from "../components/textInput";
+import Input from "../components/form/text_input";
 
 const ForgottenPassword = () => {
     const { 

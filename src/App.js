@@ -11,6 +11,7 @@ import Dashboard from './pages/Dashboard'
 import CreateChallenge from './pages/CreateChallenge'
 import ProfileSettings from './pages/ProfileSettings'
 import ChallengesList from './pages/ChallengesList'
+import Challenge from './pages/Challenge'
 
 const router = createBrowserRouter([
     {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
     {
         path: '/challenges_list',
         element: <ChallengesList />,
+    },
+    {
+        path: '/challenge',
+        element: <Challenge />,
     }
 ])
 

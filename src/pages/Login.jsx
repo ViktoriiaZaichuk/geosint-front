@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import Layout from "./LayoutHome";
-import Input from "../components/textInput";
+import Input from "../components/form/text_input";
  
 const Login = () => {
     const { 
@@ -17,7 +17,7 @@ const Login = () => {
 
     const onSubmit = (data) => {
         isValid && console.log(data);
-    }
+    } 
 
     return (
         <Layout>
