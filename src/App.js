@@ -52,10 +52,10 @@ function App() {
         {
             path: '/challenge',
             element: <Challenge />,
-    },
-    {
-        path: '/general_ranking',
-        element: < GeneralRanking/>,
+        },
+        {
+            path: '/general_ranking',
+            element: < GeneralRanking/>,
         },
         {
             path: '/create_challenge',

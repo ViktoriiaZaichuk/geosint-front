@@ -947,7 +947,7 @@ select {
     width: 100%;
     margin: 1rem 0; }
   .login--form__error {
-    color: #FF1770;
+    color: #FF6060;
     font-size: 1.6rem;
     margin: 0 !important;
     align-self: flex-start; }
