@@ -11,6 +11,8 @@ import ReactModal from "react-modal";
  
 const Login = () => {
     const [isModalOpen, setIsModalOpen] = useState(true)
+    const [loginError, setLoginError] = useState(false)
+
     const navigate = useNavigate()
 
     const closeModal = () => {
@@ -30,15 +32,17 @@ const Login = () => {
         reValidateMode: "onChange"
     });
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         const emailValue = getValues("email")
 
         const { email, password } = data
 
-        const isLogin = loginUser(dispatch, email, password)
+        const isLogin = await loginUser(dispatch, email, password)
 
         if (isLogin) {
             return navigate("/")
+        } else {
+            setLoginError(true)
         }
 
         reset({ email: emailValue, password: "" })
@@ -73,6 +77,7 @@ const Login = () => {
                     />
                     <Link to={"/forgotten_password"} className="login--form__link">Mot de passe oublié ?</Link>
                     <button onClick={handleSubmit(onSubmit)} className="button-purple">Connexion</button>
+                    {loginError && <p className="login--form__error">Email ou mot de passe incorrect</p>}
                     <div className="login--form__register">
                         <p>Tu n'as pas de compte ?</p>
                         <Link to={"/register"}>Inscris-toi</Link>

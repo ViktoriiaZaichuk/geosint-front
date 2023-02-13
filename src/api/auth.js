@@ -3,8 +3,8 @@ import request from "./config"
 export const loginUser = async (dispatch, email, password) => {
     dispatch({ type: "REQUEST_LOGIN" })
     const response = await request({ method: "post", url: "/login", data: { email, password } })
-    const { id, token } = response.data
-    if (id && token) {
+    if (response.status === 200) {
+        const { id, token } = response.data
         dispatch({ type: "LOGIN_SUCCESS", payload: id })
         dispatch({ type: "GET_TOKEN", payload: token })
         return true

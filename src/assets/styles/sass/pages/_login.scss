@@ -95,5 +95,11 @@
             width: 100%;
             margin: 1rem 0;
         }
+        &__error {
+            color: $red;
+            font-size: $fontSize;
+            margin: 0 !important;
+            align-self: flex-start;
+        }
     }
 }

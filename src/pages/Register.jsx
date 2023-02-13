@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
+import ReactModal from "react-modal";
 
 import Layout from "./LayoutHome";
 import Input from "../components/form/text_input";
@@ -11,6 +12,8 @@ import { ReactComponent as Avatar3 } from "../assets/icons/avatar3.svg";
 import { ReactComponent as Avatar4 } from "../assets/icons/avatar4.svg";
 
 const Register = () => {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
     const navigate = useNavigate()
 
     const { 
@@ -32,7 +35,7 @@ const Register = () => {
         const isRegister = await registerUser(data)
 
         if (isRegister) {
-            return navigate("/login")
+            setModalIsOpen(true)
         }
 
         reset({ avatar: avatarValue, username: usernameValue, email: emailValue, password: "" })
@@ -103,6 +106,18 @@ const Register = () => {
                     </div>
                 </form>
             </div>
+            <ReactModal
+                isOpen={modalIsOpen}
+                onRequestClose={() => setModalIsOpen(false)}
+                className="modal"
+                overlayClassName="overlay"
+            >
+                <div className="modal--content">
+                    <h2 className="modal--title">Compte créé avec succès</h2>
+                    <p className="modal--text">Un email de confirmation a été envoyé à l'adresse indiquée.</p>
+                    <button onClick={() => navigate("/login")} className="button-purple">Fermer</button>
+                </div>
+            </ReactModal>
         </Layout>
     );
 }
