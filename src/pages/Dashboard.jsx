@@ -88,7 +88,7 @@ const Dashboard = () => {
 
                     <div className="dashboard-home--stats__challenge">
                         <p>Ton challenge quotidien est disponible :</p>
-                        {isFetching ? <Loader /> : <Card key={lastChallenges[3].id} challenge={lastChallenges[3]} />}
+                        {isFetching ? <Loader /> : <Card key={data[data.length - 1].id} challenge={data[data.length - 1]} />}
                     </div>
                 </div>
                 <div className="dashboard-home--challenges">

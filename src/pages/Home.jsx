@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import Layout from "./LayoutHome";
 import Card from '../components/card';
-
+import ChallengeImg from '../assets/img/tour-eiffel.jpg'
+import ChallengeImg2 from '../assets/img/taj-mahal.jpg'
 import { ReactComponent as Logo } from '../assets/icons/logo_purple_shadow.svg'
 import { ReactComponent as ArrowRight } from '../assets/icons/arrow-right.svg'
 import { ReactComponent as Search } from '../assets/img/search.svg'
@@ -70,8 +72,18 @@ const Home = () => {
                     <div className="home--challenge__content">
                         <h2>Crée ton propre challenge et invite tes amis !</h2>
                         <div className="card-list">
-                            <Card></Card>
-                            <Card></Card>
+                            <Card challenge={{
+                                name: 'La Tour', 
+                                description: 'Dans quelle ville se trouve cette tour ?', 
+                                level: 1,
+                                challengeImg: ChallengeImg
+                            }}/>
+                            <Card challenge={{
+                                name: 'Le temple', 
+                                description: 'Dans quel pays se trouve ce temple ?', 
+                                level: 1,
+                                challengeImg: ChallengeImg2
+                            }}/>
                         </div>
                         <div className="link">
                             <Link to={"/login"}>Voir d’autres challenges <ArrowRight className="arrow-right"></ArrowRight></Link>

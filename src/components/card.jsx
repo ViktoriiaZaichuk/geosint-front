@@ -1,13 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import ChallengeImg from '../assets/img/challenge-img/in-the-sky.jpg'
-
 const Card = ({ challenge }) => {
     return (
         <div className="card">
             <div className="card--img">
-                <img src={challenge.image ? `http://la-tote-server.eddi.cloud:8080/${challenge.image}` : ChallengeImg} alt="Challenge"/>
+                <img src={challenge.image ? `http://la-tote-server.eddi.cloud:8080/${challenge.image}` : challenge.challengeImg} alt="Challenge"/>
             </div>
             <div className="card--title">
                 <span>{challenge.name}</span>
