@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import { ReactComponent as Logo } from '../../assets/icons/logo_purple_shadow.svg'
 import { ReactComponent as Star } from '../../assets/icons/star.svg'
@@ -13,18 +13,12 @@ import { UserContext } from '../../context/UserContext'
 
 const ProfileMenu = () => {
     const [isProfileBarExpanded, setIsProfileBarExpanded] = useState(false);
-    const navigate = useNavigate();
 
     const { dispatch } = useContext(UserContext);
 
     const handleClickOutside = (event) => {
         if (event.target.closest('.profile-menu--btn')) return;
         setIsProfileBarExpanded(false);
-    };
-
-    const logout = () => {
-        dispatch({ type: "LOGOUT" })
-        return navigate("/")
     };
 
     useEffect(() => {
@@ -86,7 +80,7 @@ const ProfileMenu = () => {
                             </li>
                         </ul>
                         <div>
-                            <Link onClick={logout}>
+                            <Link onClick={() => dispatch({ type: "LOGOUT" })} to={"/"}>
                                 <Logout></Logout>
                                 Déconnexion
                             </Link>
