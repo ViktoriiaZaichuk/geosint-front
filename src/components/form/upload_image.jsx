@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 
-const UploadImage = ({label, register}) => {
+const UploadImage = ({label, onImageChange}) => {
     const [file, setFile] = useState(null);
+    const [image, setImage] = useState(null);
 
-    const onChange = (e) => {
+    const handleImageChange = async (e) => {
         setFile(e.target.files[0]);
+        const reader = new FileReader();
+        reader.readAsDataURL(e.target.files[0]);
+        reader.onload = () => {
+            setImage(reader.result);
+            onImageChange(reader.result);
+        };
     };
+
 
     return (
         <div className="form-img-upload">
@@ -15,13 +23,12 @@ const UploadImage = ({label, register}) => {
                     <input
                         type="file"
                         id="file"
-                        name="Uploader une image"
-                        ref={register}
-                        onChange={onChange}
+                        name="image"
+                        onChange={handleImageChange}
                     />
                     <label>Choisir</label>
                 </div>
-                <span>{file ? file.name : "No file chosen"}</span>
+                <span>{file ? file.name : "Aucun fichier sélectionné"}</span>
             </div>
         </div>
     );

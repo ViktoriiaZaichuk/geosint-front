@@ -1,22 +1,30 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
-const SelectLevel = ({ onChange, onBlur, name, label }) => {
+const SelectLevel = ({ onChange, onBlur, name, label, defaultValue }) => {
     const selectRef = useRef(null);
+    const [value, setValue] = useState(1);
+
+    const handleChange = (event) => {
+        onChange(event);
+        setValue(parseInt(event.target.value));
+    };
 
     return (
-        <div className="form-select">
-          <label>{label}</label>
-          <select 
-            name={name} 
-            ref={selectRef} 
-            onChange={onChange} 
-            onBlur={onBlur}
-          >
-            <option value="Facile">Facile</option>
-            <option value="Intermédiaire">Intermédiaire</option>
-            <option value="Expert">Expert</option>
-          </select>
-        </div>
+      <div className="form-select">
+        <label>{label}</label>
+        <select 
+          name={name} 
+          ref={selectRef} 
+          onChange={handleChange} 
+          onBlur={onBlur}
+          value={value}
+          defaultValue={1} 
+        >
+          <option value={1}>Facile</option>
+          <option value={2}>Intermédiaire</option>
+          <option value={3}>Expert</option>
+        </select>
+    </div>
     );
 }
 

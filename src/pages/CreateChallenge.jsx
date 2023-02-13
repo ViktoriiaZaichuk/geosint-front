@@ -5,24 +5,57 @@ import { useForm, Controller } from "react-hook-form";
 import TextInput from '../components/form/text_input';
 import SelectLevel from "../components/form/select_level";
 import UploadImage from "../components/form/upload_image";
+import { createChallenge } from "../api/challenge";
 
 import { ReactComponent as GlobeImg } from '../assets/img/globe.svg'
 import { ReactComponent as Lightening } from '../assets/icons/lightening.svg'
 
 const CreateChallenge = () => {
     const { 
+        getValues,
         control,
         handleSubmit, 
-        register,
-        formState: { errors, isValid } 
+        setValue,
+        triggerValidation,
+        formState: { errors },
+        reset
     } = useForm({
         mode: "onBlur",
         reValidateMode: "onChange"
     });
 
+    const handleImageChange = (image) => {
+        setValue("image", image);
+    };
 
-    const onSubmit = (data) => {
-        isValid && console.log(data);
+    const onSubmit = async (data) => {
+        const nameValue = getValues("name")
+        const levelValue = parseInt(getValues("level"), 10)
+        const answerValue = getValues("answer")
+        const answerExampleValue = getValues("answer_example")
+        const descriptionValue = getValues("description")
+        const imageValue = getValues("image")
+        const group_id = null
+
+        data.image = imageValue
+
+        console.log(data)
+
+        const isChallengeCreated = await createChallenge({
+            ...data,
+            level: levelValue,
+            group_id,
+        })
+
+        reset({ 
+            name: nameValue,
+            level: levelValue, 
+            answer: answerValue, 
+            answer_example: answerExampleValue, 
+            description: descriptionValue,
+            image: imageValue,
+            group_id,
+        })
     }
 
     return (
@@ -39,22 +72,41 @@ const CreateChallenge = () => {
                             label="Nom du challenge"
                             placeholder="Ex."
                             type="text"
-                            name="Nom du challenge"
+                            name="name"
                             control={control}
-                            error={errors.pseudo?.message}
+                            error={errors.name?.message}
+                        />
+                        <Controller 
+                            name="level"
+                            control={control}
+                            defaultValue={1}
+                            render={({ field: { value, onChange } }) => (
+                                <SelectLevel 
+                                    label="Niveau du challenge"
+                                    name="level"
+                                    type="number"
+                                    onChange={onChange}
+                                    value={value || 1}
+                                />
+                            )}
                         />
 
-                        <SelectLevel 
-                            label="Niveau du challenge"
+                        <TextInput
+                            label="Réponse"
+                            placeholder="Ex."
+                            type="text"
+                            name="answer"
+                            control={control}
+                            error={errors.answer?.message}
                         />
 
                         <TextInput
                             label="Type de réponse attendue"
                             placeholder="Ex."
                             type="text"
-                            name="Type de réponse attendue"
+                            name="answer_example"
                             control={control}
-                            error={errors.pseudo?.message}
+                            error={errors.answer_example?.message}
                         />
                        <div className="login--form__input">
                             <label htmlFor="description">Description</label>
@@ -76,16 +128,25 @@ const CreateChallenge = () => {
                             />
                             {errors.description?.message && <p className="error">{errors.description?.message}</p>}
                         </div> 
+                        
                         <UploadImage
-                            label="Uploader une image"
-                            ref={register}
+                            name="image"
+                            label="Uploader une image" 
+                            onImageChange={handleImageChange}
                         />             
 
                         <button className="button-purple" onClick={handleSubmit(onSubmit)}>Créer</button>
                     </form>
                 </div>
                 <div className="create-challenge--content__img">
-                    <GlobeImg></GlobeImg>
+                    {   
+                        getValues("image") ? 
+                        <div className="chosen-image">
+                            <img src={getValues("image")} alt="Uploaded Image"/> 
+                        </div>
+                        
+                        : <GlobeImg></GlobeImg> 
+                    }
                 </div>
             </div>
             <FooterDashboard></FooterDashboard>

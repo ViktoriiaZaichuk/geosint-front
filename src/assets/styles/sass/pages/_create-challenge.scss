@@ -78,7 +78,7 @@
                         margin: 0 1rem;
                     }
                 }
-            }
+            } 
         }
         &__img {
             flex: 1 1 0px;
@@ -87,6 +87,24 @@
             justify-content: center;
             @include screen1024 {
                 margin: 5rem 0;
+            }
+
+            .chosen-image {
+                overflow: hidden;
+                    border: 2px solid $black;
+                    border-radius: 10px;
+                    box-shadow: $green -6px -6px 0px 1px, -7px -7px 0 1px $black;
+                    min-width: 600px;
+                    @include screen768 {
+                        min-width: 100%;
+                        margin: 1.5rem;
+                    }
+                    & img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        display: block;
+                    }
             }
         }
     }
