@@ -15,12 +15,17 @@ import Challenge from './pages/Challenge'
 import GeneralRanking from './pages/GeneralRanking'
 import useGetCurrentUser from './hooks/useGetCurrentUser'
 import Loader from './components/loader'
+import NotFound from './pages/404Page'
 
 
 function App() {
     const user = useGetCurrentUser()
 
     const router = createBrowserRouter([
+        {
+            path: '*',
+            element: <NotFound />,
+        },
         {
             path: '/',
             element: user.loading ? <Loader /> : user.login ? <Dashboard /> : <Home />,
