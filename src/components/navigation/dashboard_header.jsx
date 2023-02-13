@@ -22,19 +22,19 @@ const DashboardHeader = () => {
                 >
                     <ul>
                         <li>
-                            <Link to={"/dashboard"}>Liste des challenges</Link>
+                            <Link to={"/challenges_list"}>Liste des challenges</Link>
                         </li>
                         <li>
-                            <Link to={"/dashboard"}>Classement général</Link>
+                            <Link to={"/general_ranking"}>Classement général</Link>
                         </li>
                         <li>
-                            <Link to={"/dashboard"}>Tes groupes</Link>
+                            <Link to={"/"}>Tes groupes</Link>
                         </li>
                         <li>
-                            <Button className={'button'}><Link className='link'>Créer un challenge</Link></Button>
+                            <Button className={'button'}><Link className='link' to={"/create_challenge"}>Créer un challenge</Link></Button>
                         </li>
                         <li>
-                            <Button className={'button'}><Link className='link'>Créer un groupe</Link></Button>
+                            <Button className={'button'}><Link className='link' to={"/"}>Créer un groupe</Link></Button>
                         </li>
                     </ul>
                 </div>
