@@ -8,10 +8,15 @@ import { ReactComponent as Avatar2 } from "../assets/icons/avatar2.svg"
 import { ReactComponent as Avatar3 } from "../assets/icons/avatar3.svg"
 import { ReactComponent as Avatar4 } from "../assets/icons/avatar4.svg"
 import TextInput from '../components/form/text_input'
+import { updateUser } from '../api/user'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { schema } from '../resolvers/profileSettings'
 
 const ProfileSettings = () => {
     const [avatar, setAvatar] = useState(4)
     const [modalIsOpen, setModalIsOpen] = useState(false)
+    const [updatedModal, setUpdatedModal] = useState(false)
+    const [errorModal, setErrorModal] = useState(false)
 
     const openModal = () => {
         setModalIsOpen(true)
@@ -22,16 +27,64 @@ const ProfileSettings = () => {
     }
 
     const { 
+        getValues,
         handleSubmit, 
         control, 
         formState: { errors, isValid }
     } = useForm({
-        mode: 'onBlur',
-        reValidateMode: 'onChange'
+        mode: 'onTouched',
+        reValidateMode: 'onChange',
+        resolver: yupResolver(schema)
     });
 
-    const onSubmit = (data) => {
-        isValid && console.log(data);
+    const onSubmitProfilInfos = async () => {
+        const formData = {
+            pseudo: getValues('pseudo'),
+            email: getValues('email'),
+            description: getValues('description')
+        }
+
+        if (isValid) {
+            const updated = await updateUser(formData)
+
+            if (updated) {
+                setUpdatedModal(true)
+            } else {
+                setErrorModal(true)
+            }
+        }
+    }
+
+    const onSubmitAvatar = async () => {
+        const formData = {
+            avatar: avatar
+        }
+
+        if (isValid) {
+            const updated = await updateUser(formData)
+
+            if (updated) {
+                setUpdatedModal(true)
+            } else {
+                setErrorModal(true)
+            }
+        }
+    }
+
+    const onSubmitPassword = async () => {
+        const formData = {
+            password: getValues('newPassword')
+        }
+
+        if (isValid) {
+            const updated = await updateUser(formData)
+
+            if (updated) {
+                setUpdatedModal(true)
+            } else {
+                setErrorModal(true)
+            }
+        }
     }
 
     return (
@@ -87,7 +140,7 @@ const ProfileSettings = () => {
                             />
                             {errors.description?.message && <p className="error">{errors.description?.message}</p>}
                         </div>
-                        <button className="button-purple" onClick={handleSubmit(onSubmit)}>Enregistrer</button>
+                        <button className="button-purple" onClick={handleSubmit(onSubmitProfilInfos)}>Enregistrer</button>
                     </form>
                 </div>
 
@@ -146,7 +199,7 @@ const ProfileSettings = () => {
                             </div>
                         </Modal>
                         <div className="profile-settings--avatar__buttons">
-                            <button className="button-green" onClick={handleSubmit(onSubmit)}>Choisir</button>
+                            <button className="button-green" onClick={handleSubmit(onSubmitAvatar)}>Choisir</button>
                             <button className="button-purple">Uploader une image</button>
                         </div>
                     </div>
@@ -159,7 +212,6 @@ const ProfileSettings = () => {
                         <h2 className="profile-settings--title">Changer le mot de passe</h2>
                         <TextInput
                             label="Mot de passe actuel"
-                            placeholder="********"
                             type="password"
                             name="password"
                             control={control}
@@ -167,7 +219,6 @@ const ProfileSettings = () => {
                         />
                         <TextInput
                             label="Nouveau mot de passe"
-                            placeholder="********"
                             type="password"
                             name="newPassword"
                             control={control}
@@ -175,16 +226,39 @@ const ProfileSettings = () => {
                         />
                         <TextInput
                             label="Confirmer le nouveau mot de passe"
-                            placeholder="********"
                             type="password"
                             name="confirmNewPassword"
                             control={control}
                             error={errors.confirmNewPassword?.message}
                         />
-                        <button className="button-purple" onClick={handleSubmit(onSubmit)}>Enregistrer</button>
+                        <button className="button-purple" onClick={handleSubmit(onSubmitPassword)}>Enregistrer</button>
                     </form>
                 </div>
             </div>
+            <Modal
+                isOpen={updatedModal}
+                onRequestClose={() => setUpdatedModal(false)}
+                className="modal"
+                overlayClassName="overlay"
+                appElement={document.getElementById('root')}
+            >
+                <div className="modal--content">
+                    <h2 className="modal--title">Vos informations ont bien été mises à jour</h2>
+                    <button className="button-purple" onClick={() => setUpdatedModal(false)}>Fermer</button>
+                </div>
+            </Modal>
+            <Modal
+                isOpen={errorModal}
+                onRequestClose={() => setErrorModal(false)}
+                className="modal"
+                overlayClassName="overlay"
+                appElement={document.getElementById('root')}
+            >
+                <div className="modal--content">
+                    <h2 className="modal--title">Une erreur est survenue, veuillez réessayer</h2>
+                    <button className="button-purple" onClick={() => setErrorModal(false)}>Fermer</button>
+                </div>
+            </Modal>
         </LayoutDashboard>
     )
 }

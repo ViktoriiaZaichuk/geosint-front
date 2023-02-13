@@ -311,6 +311,11 @@ input {
   input:focus {
     outline: none; }
 
+input[type='password'] {
+  font-family: Verdana;
+  letter-spacing: 0.125em;
+  font-weight: bold; }
+
 textarea {
   border: 1px solid #3E3E3E;
   border-radius: 5px;
@@ -331,6 +336,12 @@ select {
   box-shadow: #3E3E3E -2px -2px 0px 1px; }
   select:focus {
     outline: none; }
+
+.error {
+  color: #FF6060;
+  font-family: "millimetre_regular";
+  font-size: 1.4rem !important;
+  margin: 0 !important; }
 
 .header {
   width: 100%;
@@ -902,6 +913,7 @@ select {
     .login--form {
       min-width: 300px; } }
   .login--form__input {
+    position: relative;
     display: flex;
     flex-direction: column;
     margin: 1rem 0;
@@ -917,6 +929,10 @@ select {
       box-shadow: #3E3E3E -2px -2px 0px 1px; }
       .login--form__input input:focus, .login--form__input textarea:focus {
         outline: none; }
+    .login--form__input svg {
+      position: absolute;
+      right: 1rem;
+      top: 2.8rem; }
   .login--form a {
     font-size: 1.6rem; }
   .login--form__link {

@@ -6,6 +6,12 @@ input {
     }
 }
 
+input[type='password'] {
+    font-family: Verdana;
+    letter-spacing: 0.125em;
+    font-weight: bold;
+}
+
 textarea {
     border: 1px solid $black;
     border-radius: 5px;
@@ -29,4 +35,11 @@ select {
     &:focus {
         outline: none;
     }
+}
+
+.error {
+    color: $red;
+    font-family: $primaryFontRegular;
+    font-size: 1.4rem !important;
+    margin: 0 !important;
 }
