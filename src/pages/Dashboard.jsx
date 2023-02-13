@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useQuery } from "react-query";
+
 import FooterDashboard from "../components/navigation/footer_dashboard";
 import LayoutDashboard from "./LayoutDashboard";
 import Card from "../components/card";
-
+import Loader from "../components/loader";
+import { getChallenges } from "../api/challenge";
 import { ReactComponent as Avatar4 } from "../assets/icons/avatar4.svg";
 import { ReactComponent as Trophy } from "../assets/icons/trophy.svg";
 import { ReactComponent as Compass } from "../assets/icons/compass.svg";
@@ -12,6 +15,17 @@ import { ReactComponent as Calendar } from "../assets/icons/calendar.svg";
 import { ReactComponent as ArrowRight } from '../assets/icons/arrow-right.svg'
 
 const Dashboard = () => {
+    const [lastChallenges, setLastChallenges] = useState([]);
+
+    const { isFetching, data } = useQuery("challenges", getChallenges);
+
+    useEffect(() => {
+        if (data) {
+            const dataLength = data.length;
+            setLastChallenges(data.slice(dataLength - 4, dataLength));
+        }
+    }, [data]);
+
     return (
         <LayoutDashboard className="dashboard-home">
             
@@ -74,15 +88,13 @@ const Dashboard = () => {
 
                     <div className="dashboard-home--stats__challenge">
                         <p>Ton challenge quotidien est disponible :</p>
-                        <Card></Card>
+                        {isFetching ? <Loader /> : <Card key={lastChallenges[3].id} challenge={lastChallenges[3]} />}
                     </div>
                 </div>
                 <div className="dashboard-home--challenges">
                     <h2>Notre sélection pour toi :</h2>
                     <div className="card-list">
-                        <Card></Card>
-                        <Card></Card>
-                        <Card></Card>
+                        {isFetching ? <Loader /> : lastChallenges.map((challenge) => <Card key={challenge.id} challenge={challenge} />)}
                     </div>
                     <div className="link">
                         <Link to={""}>Voir d’autres challenges <ArrowRight className="arrow-right"></ArrowRight></Link>
@@ -91,9 +103,7 @@ const Dashboard = () => {
                 <div className="dashboard-home--groupe">
                     <h2>CHALLENGE DE GROUPE :</h2>
                     <div className="card-list">
-                        <Card></Card>
-                        <Card></Card>
-                        <Card></Card>
+                        {isFetching ? <Loader /> : lastChallenges.map((challenge) => <Card key={challenge.id} challenge={challenge} />)}
                     </div>
                     <div className="link">
                         <Link to={""}>Voir d’autres challenges <ArrowRight className="arrow-right"></ArrowRight></Link>

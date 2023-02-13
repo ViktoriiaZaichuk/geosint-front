@@ -1,23 +1,24 @@
 import React, { useState } from "react"
 import { useMediaQuery } from 'react-responsive'
 import Modal from 'react-modal'
+import { useQuery } from "react-query"
 
 import Card from "../components/card"
 import LayoutDashboard from "../pages/LayoutDashboard"
+import { getChallenges } from "../api/challenge"
+import Loader from "../components/loader"
 
 const ChallengesList = () => {
-    const [difficulty, setDifficulty] = useState(null)
+    const [difficulty, setDifficulty] = useState(0)
     const [modalIsOpen, setModalIsOpen] = useState(false)
 
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
 
-    const openModal = () => {
-        setModalIsOpen(true)
+    const toggleModal = () => {
+        setModalIsOpen(!modalIsOpen)
     }
 
-    const closeModal = () => {
-        setModalIsOpen(false)
-    }
+    const { isFetching, data } = useQuery("challenges", getChallenges)
 
     return (
         <LayoutDashboard>
@@ -26,28 +27,32 @@ const ChallengesList = () => {
 
                 {isMobile ? (
                     <div className="challenges-list--difficulty">
-                        <button className="button-purple mobile" onClick={openModal}>Trier par difficulté</button>
+                        <button className="button-purple mobile" onClick={toggleModal}>Trier par difficulté</button>
                         <Modal
                             isOpen={modalIsOpen}
-                            onRequestClose={closeModal}
+                            onRequestClose={toggleModal}
                             className="modal"
                             overlayClassName="overlay"
                             appElement={document.getElementById('root')}
                         >
                             <div className="modal--content">
                                 <div className="modal--content__difficulty">
-                                    <button className="button-gray" onClick={() => {
-                                        setDifficulty("easy")
-                                        closeModal()
+                                    <button className={difficulty === 1 ? "button-green" : "button-purple"} onClick={() => {
+                                        setDifficulty(1)
+                                        toggleModal()
                                     }}>Facile</button>
-                                    <button className="button-green" onClick={() => {
-                                        setDifficulty("medium")
-                                        closeModal()
+                                    <button className={difficulty === 2 ? "button-green" : "button-purple"} onClick={() => {
+                                        setDifficulty(2)
+                                        toggleModal()
                                     }}>Intermédiaire</button>
-                                    <button className="button-purple" onClick={() => {
-                                        setDifficulty("hard")
-                                        closeModal()
+                                    <button className={difficulty === 3 ? "button-green" : "button-purple"} onClick={() => {
+                                        setDifficulty(3)
+                                        toggleModal()
                                     }}>Expert</button>
+                                    <button className={difficulty === 0 ? "button-green" : "button-purple"} onClick={() => {
+                                        setDifficulty(0)
+                                        toggleModal()
+                                    }}>Tous</button>
                                 </div>
                             </div>
                         </Modal>
@@ -56,26 +61,24 @@ const ChallengesList = () => {
                     <div className="challenges-list--difficulty">
                         <h2>Difficulté : </h2>
                         <div className="challenges-list--difficulty__buttons">
-                            <button className="button-purple" onClick={() => setDifficulty("easy")}>Facile</button>
-                            <button className="button-green" onClick={() => setDifficulty("medium")}>Intermédiaire</button>
-                            <button className="button-purple" onClick={() => setDifficulty("hard")}>Expert</button>
+                            <button className={difficulty === 1 ? "button-green" : "button-purple"} onClick={() => setDifficulty(1)}>Facile</button>
+                            <button className={difficulty === 2 ? "button-green" : "button-purple"} onClick={() => setDifficulty(2)}>Intermédiaire</button>
+                            <button className={difficulty === 3 ? "button-green" : "button-purple"} onClick={() => setDifficulty(3)}>Expert</button>
+                            <button className={difficulty === 0 ? "button-green" : "button-purple"} onClick={() => setDifficulty(0)}>Tous</button>
                         </div>
                     </div>
                 )}
 
                 <div className="challenges-list--list">
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    {isFetching ? <Loader /> : data && (
+                        data.map((challenge) => {
+                            if (difficulty === 0) {
+                                return <Card key={challenge.id} challenge={challenge} />
+                            } else if (difficulty === challenge.level) {
+                                return <Card key={challenge.id} challenge={challenge} />
+                            }
+                        })
+                    )}
                 </div>
             </div>
         </LayoutDashboard>

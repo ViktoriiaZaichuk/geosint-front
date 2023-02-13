@@ -72,7 +72,7 @@ const Login = () => {
                         name="password"
                         type="password"
                         label="Mot de passe"
-                        placeholder="Mot de passe"
+                        placeholder="********"
                         error={errors.password?.message}
                     />
                     <Link to={"/forgotten_password"} className="login--form__link">Mot de passe oublié ?</Link>
