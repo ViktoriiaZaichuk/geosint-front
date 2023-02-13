@@ -5,9 +5,7 @@ import ChallengeAnswer from "../components/form/challenge_answer";
 
 import ChallengeImg from '../assets/img/challenge-img/in-the-sky.jpg'
 
-const Challenge = ( data ) => {
-    data = 'hello';
-
+const Challenge = ( ) => {
     return (
         <LayoutDashboard className="challenge-page">
             <div className="challenge-page--infos">

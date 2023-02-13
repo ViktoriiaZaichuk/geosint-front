@@ -8398,6 +8398,11 @@ react-scripts@5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
+react-table@^7.8.0:
+  version "7.8.0"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-7.8.0.tgz#07858c01c1718c09f7f1aed7034fcfd7bda907d2"
+  integrity sha512-hNaz4ygkZO4bESeFfnfOft73iBUj8K5oKi1EcSHPAibEydfsX2MyU6Z8KCr3mv3C9Kqqh71U+DhZkFvibbnPbA==
+
 react-secure-storage@^1.0.22:
   version "1.0.22"
   resolved "https://registry.yarnpkg.com/react-secure-storage/-/react-secure-storage-1.0.22.tgz#542dd3222afe9bfcb0cf896fbfa8fe9c4c52c951"

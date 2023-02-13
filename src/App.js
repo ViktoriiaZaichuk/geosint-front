@@ -12,6 +12,7 @@ import CreateChallenge from './pages/CreateChallenge'
 import ProfileSettings from './pages/ProfileSettings'
 import ChallengesList from './pages/ChallengesList'
 import Challenge from './pages/Challenge'
+import GeneralRanking from './pages/GeneralRanking'
 import useGetCurrentUser from './hooks/useGetCurrentUser'
 import Loader from './components/loader'
 
@@ -51,6 +52,10 @@ function App() {
         {
             path: '/challenge',
             element: <Challenge />,
+    },
+    {
+        path: '/general_ranking',
+        element: < GeneralRanking/>,
         },
         {
             path: '/create_challenge',
