@@ -59,17 +59,17 @@ const Register = () => {
                             control={control}
                             render={({ field: { onChange, value } }) => (
                                 <ul className="login--form__avatar">
-                                    <li style={value === "avatar1" ? {backgroundColor: "#3E3E3E", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#F6F6F6"}}>
-                                        <Avatar1 onClick={() => onChange("avatar1")} />
+                                    <li className={value === 1 ? "active" : ""}>
+                                        <Avatar1 onClick={() => onChange(1)} />
                                     </li>
-                                    <li style={value === "avatar2" ? {backgroundColor: "#3E3E3E", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#F6F6F6"}}>
-                                        <Avatar2 onClick={() => onChange("avatar2")} />
+                                    <li className={value === 2 ? "active" : ""}>
+                                        <Avatar2 onClick={() => onChange(2)} />
                                     </li>
-                                    <li style={value === "avatar3" ? {backgroundColor: "#3E3E3E", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#F6F6F6"}}>
-                                        <Avatar3 onClick={() => onChange("avatar3")} />
+                                    <li className={value === 3 ? "active" : ""}>
+                                        <Avatar3 onClick={() => onChange(3)} />
                                     </li>
-                                    <li style={value === "avatar4" ? {backgroundColor: "#3E3E3E", borderRadius: "50%", padding: "5px"} : {backgroundColor: "#F6F6F6"}}>
-                                        <Avatar4 onClick={() => onChange("avatar4")} />
+                                    <li className={value === 4 ? "active" : ""}>
+                                        <Avatar4 onClick={() => onChange(4)} />
                                     </li>
                                 </ul>
                             )}
