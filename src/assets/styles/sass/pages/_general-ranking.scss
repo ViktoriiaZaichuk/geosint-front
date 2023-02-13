@@ -37,7 +37,8 @@
                         padding: 2rem 1.5rem;
                         text-align: left;
                         font-size: 1.8rem;
-                        border: 2px $black solid;
+                        
+                        
                         border-style: solid none solid none;
                         background-color: $purple;
                         @include screen550 {
