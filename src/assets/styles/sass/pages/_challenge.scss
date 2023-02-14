@@ -70,6 +70,12 @@
                     justify-content: center;
                 }
                 &--form {
+                    display: flex;
+                    align-items: flex-end;
+                    @include screen768 {
+                        flex-direction: column;
+                        align-items: center;
+                    }
                     & label {
                         display: block;
                         margin-bottom: 1rem;
@@ -97,6 +103,7 @@
                 }
                 &--validation {
                     padding: 1rem 2rem;
+                    margin-left: 3rem;
                     background-color: white;
                     border: 2px solid $black;
                     align-self: flex-end;
@@ -105,6 +112,7 @@
                     @include screen768 {
                         margin-top: 2rem;
                         align-self: center;
+                        margin-left: 0;
                     }
                     > * div {
                         display: flex;

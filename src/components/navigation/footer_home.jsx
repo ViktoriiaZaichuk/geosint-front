@@ -5,7 +5,7 @@ import Button from '../button'
 import { ReactComponent as Insta } from '../../assets/icons/insta_shadow_light.svg'
 import { ReactComponent as Discord } from '../../assets/icons/discord_shadow_light.svg'
 import { ReactComponent as Twitter } from '../../assets/icons/twitter_shadow_light.svg'
-import { ReactComponent as Logo } from '../../assets/icons/logo_white_shadow.svg'
+import { ReactComponent as Logo } from '../../assets/icons/logo-purple-bckgnd.svg'
 
 const FooterHome = () => {
     return (

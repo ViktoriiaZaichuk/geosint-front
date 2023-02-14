@@ -1,6 +1,5 @@
 .home {
     &--page {
-        @include container-wrapper;
         h1, h2, p {
             max-width: 500px;
         }
@@ -13,6 +12,7 @@
         }
     }
     &--hero {
+        @include container-wrapper;
         display: flex;
         min-height: 70vh;
         align-items: center;
@@ -48,14 +48,19 @@
 
     }
     &--intro {
+        background-color: $purple;
         @include flex-column;
         margin: 10rem 0;
+        padding: 6rem 0;
         align-items: center;
+        border-top: 10px solid $black;
+        border-bottom: 10px solid $black;
         & p {
             text-align: center;
             margin: 1.5rem 0;
         }
         &__title {
+            @include container-wrapper;
             display: flex;
             align-items: center;
             & .logo {
@@ -63,6 +68,7 @@
             }
         }
         &__func {
+            @include container-wrapper;
             margin: 2rem 0;
             display: flex;
             align-items: center;
@@ -88,6 +94,7 @@
 
     }
     &--challenge {
+        @include container-wrapper;
         margin: 10rem 0;
         display: flex;
         justify-content: space-between;

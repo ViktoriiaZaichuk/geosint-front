@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
-const UploadImage = ({label, onImageChange}) => {
+const UploadImage = ({label, onImageChange, image, setImage}) => {
     const [file, setFile] = useState(null);
-    const [image, setImage] = useState(null);
 
     const handleImageChange = async (e) => {
         setFile(e.target.files[0]);
@@ -13,7 +12,6 @@ const UploadImage = ({label, onImageChange}) => {
             onImageChange(reader.result);
         };
     };
-
 
     return (
         <div className="form-img-upload">
