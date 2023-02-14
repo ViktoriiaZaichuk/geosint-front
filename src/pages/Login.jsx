@@ -16,8 +16,8 @@ const Login = () => {
 
     const navigate = useNavigate()
 
-    const closeModal = () => {
-        setIsModalOpen(false)
+    const toggleModal = () => {
+        setIsModalOpen(!isModalOpen)
     }
 
     const { user, dispatch } = useContext(UserContext);
@@ -92,14 +92,14 @@ const Login = () => {
                     isOpen={isModalOpen}
                     className="modal"
                     overlayClassName="overlay"
-                    onRequestClose={closeModal}
+                    onRequestClose={toggleModal}
                     shouldCloseOnOverlayClick={true}
                     appElement={document.getElementById("root")}
                 >
                     <div className="modal--content">
                         <h2 className="modal--title">Erreur</h2>
                         <p className="modal--text">{user.errorMessage}</p>
-                        <button className="button-purple" onClick={closeModal}>Fermer</button>
+                        <button className="button-purple" onClick={toggleModal}>Fermer</button>
                     </div>
                 </ReactModal>
             )}

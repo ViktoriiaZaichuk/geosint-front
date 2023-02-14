@@ -41,7 +41,7 @@ const Register = () => {
             setModalIsOpen(true)
         }
 
-        reset({ avatar: avatarValue, username: usernameValue, email: emailValue, password: "" })
+        reset({ avatar: avatarValue, username: usernameValue, email: emailValue, password: "", password_confirmation: "" })
     }
     
     return (
@@ -102,6 +102,14 @@ const Register = () => {
                         label="Mot de passe"
                         placeholder=""
                         error={errors.password?.message}
+                    />
+                    <Input
+                        control={control}
+                        name="password_confirmation"
+                        type="password"
+                        label="Confirme ton mot de passe"
+                        placeholder=""
+                        error={errors.passwordConfirm?.message}
                     />
                     <button onClick={handleSubmit(onSubmit)} className="button-purple">Connexion</button>
                     <div className="login--form__register">

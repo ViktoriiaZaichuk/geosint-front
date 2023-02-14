@@ -5,6 +5,7 @@ const schema = yup.object().shape({
     username: yup.string().min(3, "Ton pseudo doit faire au moins 3 charactères").required(),
     email: yup.string().email().required("Ton email doit être valide"),
     password: yup.string().min(8, "Ton mot de passe doit faire 8 charactères ou plus").required(),
+    password_confirmation: yup.string().min(8).oneOf([yup.ref("password"), null], "Les mots de passe ne correspondent pas").required()
 }).required()
 
 export default schema

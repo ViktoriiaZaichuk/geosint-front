@@ -8,7 +8,6 @@ import { ReactComponent as Check } from '../../assets/icons/check.svg'
 const ChallengeAnswer = ({ challengeId }) => {
     const [answer, setAnswer] = React.useState(null)
     const [isCorrect, setIsCorrect] = React.useState(null)
-    const [isUserPlayed, setIsUserPlayed] = React.useState(false)
 
     const { register, handleSubmit } = useForm()
 
@@ -19,8 +18,6 @@ const ChallengeAnswer = ({ challengeId }) => {
             setIsCorrect(true)
         } else if (response.message === "Wrong answer") {
             setIsCorrect(false)
-        } else if (response.status === 403) {
-            setIsUserPlayed(true)
         }
     }
 
@@ -53,7 +50,7 @@ const ChallengeAnswer = ({ challengeId }) => {
                             ) : (
                                 <div>
                                     <Minus></Minus>
-                                    {isUserPlayed ? "Vous avez déjà joué à ce challenge" : "Reponse fausse"}
+                                    Reponse fausse
                                 </div>
                             )}
                         </div>
