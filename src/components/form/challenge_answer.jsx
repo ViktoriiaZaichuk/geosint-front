@@ -36,26 +36,25 @@ const ChallengeAnswer = () => {
             />
             <button type="submit">Submit</button>
         </div>
-      </div>
-      
-      <div >
-        {answer && (
-          <div className="challenge-answer--validation">
-            <div>
-            {isCorrect ? (
-                <div>
-                    <Check></Check>
-                    Reponse juste !
-                </div>
-            ) : (
-                <div>
-                    <Minus></Minus>
-                    Reponse fausse !
-                </div>
-            )}
+        <div >
+          {answer && (
+            <div className="challenge-answer--validation">
+              <div>
+              {isCorrect ? (
+                  <div>
+                      <Check></Check>
+                      Reponse juste !
+                  </div>
+              ) : (
+                  <div>
+                      <Minus></Minus>
+                      Reponse fausse !
+                  </div>
+              )}
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </form>
   );

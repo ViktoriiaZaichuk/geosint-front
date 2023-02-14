@@ -5,10 +5,11 @@ import Layout from "./LayoutHome";
 import Card from '../components/card';
 import ChallengeImg from '../assets/img/tour-eiffel.jpg'
 import ChallengeImg2 from '../assets/img/taj-mahal.jpg'
-import { ReactComponent as Logo } from '../assets/icons/logo_purple_shadow.svg'
+import { ReactComponent as Logo } from '../assets/icons/logo-purple-bckgnd.svg'
 import { ReactComponent as ArrowRight } from '../assets/icons/arrow-right.svg'
-import { ReactComponent as Search } from '../assets/img/search.svg'
-import { ReactComponent as Globe } from '../assets/img/globe.svg'
+import { ReactComponent as CreateChallenge } from '../assets/img/pensil-create.svg'
+import { ReactComponent as HeroImg } from '../assets/img/hero-img.svg'
+import { ReactComponent as Eye } from '../assets/img/eye-home.svg'
 
 const Home = () => {
     return (
@@ -28,7 +29,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="home--hero__img">
-                        <Globe></Globe>
+                        <HeroImg />
                     </div>
                 </div>
 
@@ -50,7 +51,7 @@ const Home = () => {
                             </div>
                         </div>
                         <div>
-                            <Globe></Globe>
+                            <Eye></Eye>
                         </div>
                         <div>
                             <div>
@@ -67,7 +68,7 @@ const Home = () => {
 
                 <div className="home--challenge">
                     <div className="home--challenge__img">
-                        <Search></Search>
+                        <CreateChallenge></CreateChallenge>
                     </div>
                     <div className="home--challenge__content">
                         <h2>Crée ton propre challenge et invite tes amis !</h2>

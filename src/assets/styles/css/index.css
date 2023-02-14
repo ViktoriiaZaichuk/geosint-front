@@ -741,30 +741,31 @@ select {
     visibility: visible;
     opacity: 1; }
 
-.home--page {
-  padding: 0 20%;
-  margin: 0 auto; }
-  @media (max-width: 1024px) {
-    .home--page {
-      max-width: 90vw;
-      padding: 0; } }
-  @media (max-width: 768px) {
-    .home--page {
-      max-width: 90vw;
-      padding: 0; } }
-  .home--page h1, .home--page h2, .home--page p {
-    max-width: 500px; }
-  .home--page p {
-    display: inline-block; }
-  .home--page h1, .home--page h2 {
-    text-transform: uppercase;
-    font-size: 3rem; }
+.home--page h1, .home--page h2, .home--page p {
+  max-width: 500px; }
+
+.home--page p {
+  display: inline-block; }
+
+.home--page h1, .home--page h2 {
+  text-transform: uppercase;
+  font-size: 3rem; }
 
 .home--hero {
+  padding: 0 20%;
+  margin: 0 auto;
   display: flex;
   min-height: 70vh;
   align-items: center;
   justify-content: space-between; }
+  @media (max-width: 1024px) {
+    .home--hero {
+      max-width: 90vw;
+      padding: 0; } }
+  @media (max-width: 768px) {
+    .home--hero {
+      max-width: 90vw;
+      padding: 0; } }
   @media (max-width: 768px) {
     .home--hero {
       flex-direction: column; } }
@@ -785,24 +786,48 @@ select {
       padding-top: 5rem; } }
 
 .home--intro {
+  background-color: #CDB4FF;
   display: flex;
   flex-direction: column;
   margin: 10rem 0;
-  align-items: center; }
+  padding: 6rem 0;
+  align-items: center;
+  border-top: 10px solid #3E3E3E;
+  border-bottom: 10px solid #3E3E3E; }
   .home--intro p {
     text-align: center;
     margin: 1.5rem 0; }
   .home--intro__title {
+    padding: 0 20%;
+    margin: 0 auto;
     display: flex;
     align-items: center; }
+    @media (max-width: 1024px) {
+      .home--intro__title {
+        max-width: 90vw;
+        padding: 0; } }
+    @media (max-width: 768px) {
+      .home--intro__title {
+        max-width: 90vw;
+        padding: 0; } }
     .home--intro__title .logo {
       margin: 0 1rem; }
   .home--intro__func {
+    padding: 0 20%;
+    margin: 0 auto;
     margin: 2rem 0;
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 100%; }
+    @media (max-width: 1024px) {
+      .home--intro__func {
+        max-width: 90vw;
+        padding: 0; } }
+    @media (max-width: 768px) {
+      .home--intro__func {
+        max-width: 90vw;
+        padding: 0; } }
     @media (max-width: 768px) {
       .home--intro__func {
         flex-direction: column; }
@@ -818,10 +843,20 @@ select {
           margin-top: .5rem; } }
 
 .home--challenge {
+  padding: 0 20%;
+  margin: 0 auto;
   margin: 10rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center; }
+  @media (max-width: 1024px) {
+    .home--challenge {
+      max-width: 90vw;
+      padding: 0; } }
+  @media (max-width: 768px) {
+    .home--challenge {
+      max-width: 90vw;
+      padding: 0; } }
   @media (max-width: 768px) {
     .home--challenge {
       flex-direction: column; } }
@@ -1500,29 +1535,37 @@ select {
         flex-direction: column;
         align-items: center;
         justify-content: center; } }
-    .challenge-page--infos__answer .challenge-answer--form label {
-      display: block;
-      margin-bottom: 1rem; }
-    .challenge-page--infos__answer .challenge-answer--form input {
-      padding: 1rem;
-      min-width: 200px;
-      border: 1px #3E3E3E solid;
-      font-size: 1.5rem;
-      border-right: none;
-      border-radius: 10px 0 0 10px;
-      box-shadow: #3E3E3E -2px -2px 0px 1px; }
-      @media (max-width: 550px) {
-        .challenge-page--infos__answer .challenge-answer--form input {
-          min-width: auto; } }
-    .challenge-page--infos__answer .challenge-answer--form button {
-      padding: 1rem 1.5rem;
-      border: 1px #3E3E3E solid;
-      font-size: 1.5rem;
-      border-radius: 0px 10px 10px 0px;
-      background-color: #CDB4FF;
-      box-shadow: #3E3E3E -1px -2px 0px 1px; }
+    .challenge-page--infos__answer .challenge-answer--form {
+      display: flex;
+      align-items: flex-end; }
+      @media (max-width: 768px) {
+        .challenge-page--infos__answer .challenge-answer--form {
+          flex-direction: column;
+          align-items: center; } }
+      .challenge-page--infos__answer .challenge-answer--form label {
+        display: block;
+        margin-bottom: 1rem; }
+      .challenge-page--infos__answer .challenge-answer--form input {
+        padding: 1rem;
+        min-width: 200px;
+        border: 1px #3E3E3E solid;
+        font-size: 1.5rem;
+        border-right: none;
+        border-radius: 10px 0 0 10px;
+        box-shadow: #3E3E3E -2px -2px 0px 1px; }
+        @media (max-width: 550px) {
+          .challenge-page--infos__answer .challenge-answer--form input {
+            min-width: auto; } }
+      .challenge-page--infos__answer .challenge-answer--form button {
+        padding: 1rem 1.5rem;
+        border: 1px #3E3E3E solid;
+        font-size: 1.5rem;
+        border-radius: 0px 10px 10px 0px;
+        background-color: #CDB4FF;
+        box-shadow: #3E3E3E -1px -2px 0px 1px; }
     .challenge-page--infos__answer .challenge-answer--validation {
       padding: 1rem 2rem;
+      margin-left: 3rem;
       background-color: white;
       border: 2px solid #3E3E3E;
       align-self: flex-end;
@@ -1531,7 +1574,8 @@ select {
       @media (max-width: 768px) {
         .challenge-page--infos__answer .challenge-answer--validation {
           margin-top: 2rem;
-          align-self: center; } }
+          align-self: center;
+          margin-left: 0; } }
       .challenge-page--infos__answer .challenge-answer--validation > * div {
         display: flex;
         align-items: center; }

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import FooterDashboard from "../components/navigation/footer_dashboard";
 import LayoutDashboard from "./LayoutDashboard";
 import { useForm, Controller } from "react-hook-form";
@@ -7,10 +8,12 @@ import SelectLevel from "../components/form/select_level";
 import UploadImage from "../components/form/upload_image";
 import { createChallenge } from "../api/challenge";
 
-import { ReactComponent as GlobeImg } from '../assets/img/globe.svg'
+import { ReactComponent as GlobeImg } from '../assets/img/challenge-create.svg'
 import { ReactComponent as Lightening } from '../assets/icons/lightening.svg'
 
 const CreateChallenge = () => {
+    const navigate = useNavigate()
+
     const { 
         getValues,
         control,
@@ -23,6 +26,8 @@ const CreateChallenge = () => {
         mode: "onBlur",
         reValidateMode: "onChange"
     });
+
+    const [image, setImage] = useState(null)
 
     const handleImageChange = (image) => {
         setValue("image", image);
@@ -46,6 +51,12 @@ const CreateChallenge = () => {
             level: levelValue,
             group_id,
         })
+
+        if(isChallengeCreated) {
+            return navigate("/challenges_list")
+        } else {
+
+        }
 
         reset({ 
             name: nameValue,
@@ -130,6 +141,8 @@ const CreateChallenge = () => {
                         </div> 
                         
                         <UploadImage
+                            image={image}
+                            setImage={setImage}
                             name="image"
                             label="Uploader une image" 
                             onImageChange={handleImageChange}
@@ -140,11 +153,10 @@ const CreateChallenge = () => {
                 </div>
                 <div className="create-challenge--content__img">
                     {   
-                        getValues("image") ? 
+                        image ? 
                         <div className="chosen-image">
                             <img src={getValues("image")} alt="Uploaded Image"/> 
                         </div>
-                        
                         : <GlobeImg></GlobeImg> 
                     }
                 </div>
