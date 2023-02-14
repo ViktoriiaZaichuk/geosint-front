@@ -88,13 +88,13 @@ const Dashboard = () => {
 
                     <div className="dashboard-home--stats__challenge">
                         <p>Ton challenge quotidien est disponible :</p>
-                        {isFetching ? <Loader /> : <Card key={data[data.length - 1].id} challenge={data[data.length - 1]} />}
+                        {isFetching ? <Loader /> : data.length > 0 && <Card key={data[data.length - 1].id} challenge={data[data.length - 1]} />}
                     </div>
                 </div>
                 <div className="dashboard-home--challenges">
                     <h2>Notre sélection pour toi :</h2>
                     <div className="card-list">
-                        {isFetching ? <Loader /> : lastChallenges.map((challenge) => <Card key={challenge.id} challenge={challenge} />)}
+                        {isFetching ? <Loader /> : data.length > 0 && lastChallenges.map((challenge) => <Card key={challenge.id} challenge={challenge} />)}
                     </div>
                     <div className="link">
                         <Link to={""}>Voir d’autres challenges <ArrowRight className="arrow-right"></ArrowRight></Link>
@@ -103,7 +103,7 @@ const Dashboard = () => {
                 <div className="dashboard-home--groupe">
                     <h2>CHALLENGE DE GROUPE :</h2>
                     <div className="card-list">
-                        {isFetching ? <Loader /> : lastChallenges.map((challenge) => <Card key={challenge.id} challenge={challenge} />)}
+                        {isFetching ? <Loader /> : data.length > 0 && lastChallenges.map((challenge) => <Card key={challenge.id} challenge={challenge} />)}
                     </div>
                     <div className="link">
                         <Link to={""}>Voir d’autres challenges <ArrowRight className="arrow-right"></ArrowRight></Link>
