@@ -1,13 +1,14 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup'
 
 import { UserContext } from "../context/UserContext";
 import Layout from "./LayoutHome";
 import Input from "../components/form/text_input";
 import { loginUser } from "../api/auth";
 import ReactModal from "react-modal";
-// import { loginSchema } from "../utils/validationSchemas"
+import schema from "../resolvers/login"
  
 const Login = () => {
     const [isModalOpen, setIsModalOpen] = useState(true)
@@ -28,8 +29,9 @@ const Login = () => {
         formState: { errors, isSubmitted },
         reset 
     } = useForm({
-        mode: "onBlur",
-        reValidateMode: "onChange"
+        mode: "onTouched",
+        reValidateMode: "onChange",
+        resolver: yupResolver(schema)
     });
 
     const onSubmit = async (data) => {

@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
 import ReactModal from "react-modal";
+import { yupResolver } from '@hookform/resolvers/yup'
 
 import Layout from "./LayoutHome";
 import Input from "../components/form/text_input";
 import { registerUser } from "../api/auth";
+import schema from "../resolvers/register"
 import { ReactComponent as Avatar1 } from "../assets/icons/avatar1.svg";
 import { ReactComponent as Avatar2 } from "../assets/icons/avatar2.svg";
 import { ReactComponent as Avatar3 } from "../assets/icons/avatar3.svg";
@@ -23,8 +25,9 @@ const Register = () => {
         formState: { errors },
         reset 
     } = useForm({
-        mode: "onBlur",
-        reValidateMode: "onChange"
+        mode: "onTouched",
+        reValidateMode: "onChange",
+        resolver: yupResolver(schema)
     });
 
     const onSubmit = async (data) => {
@@ -74,6 +77,7 @@ const Register = () => {
                                 </ul>
                             )}
                         />
+                        {errors.avatar?.message && <p className="error">{errors.avatar?.message}</p>}
                     </div>
                     <Input 
                         control={control}
