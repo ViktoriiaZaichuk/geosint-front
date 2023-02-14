@@ -55,7 +55,7 @@ function App() {
             element: <ChallengesList />,
         },
         {
-            path: '/challenge',
+            path: '/challenge/:id',
             element: <Challenge />,
         },
         {
