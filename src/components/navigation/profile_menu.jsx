@@ -3,7 +3,10 @@ import { Link } from 'react-router-dom'
 
 import { ReactComponent as Logo } from '../../assets/icons/logo_purple_shadow.svg'
 import { ReactComponent as Star } from '../../assets/icons/star.svg'
-import { ReactComponent as Avatar } from '../../assets/icons/avatar4.svg'
+import { ReactComponent as Avatar1 } from "../../assets/icons/avatar1.svg"
+import { ReactComponent as Avatar2 } from "../../assets/icons/avatar2.svg"
+import { ReactComponent as Avatar3 } from "../../assets/icons/avatar3.svg"
+import { ReactComponent as Avatar4 } from "../../assets/icons/avatar4.svg"
 import { ReactComponent as Settings } from '../../assets/icons/settings.svg'
 import { ReactComponent as Notification } from '../../assets/icons/notification.svg'
 import { ReactComponent as Sun } from '../../assets/icons/sun.svg'
@@ -14,7 +17,7 @@ import { UserContext } from '../../context/UserContext'
 const ProfileMenu = () => {
     const [isProfileBarExpanded, setIsProfileBarExpanded] = useState(false);
 
-    const { dispatch } = useContext(UserContext);
+    const { user, dispatch } = useContext(UserContext);
 
     const handleClickOutside = (event) => {
         if (event.target.closest('.profile-menu--btn')) return;
@@ -40,10 +43,13 @@ const ProfileMenu = () => {
                 >   
                     <div className='profile-menu--btn__score'>
                         <Star></Star>
-                        <span>546</span>
+                        <span>{user.global_score}</span>
                     </div>
                     <div className='profile-menu--btn__avatar'>
-                        <Avatar></Avatar>
+                        {user.avatar === "1" && <Avatar1></Avatar1>}
+                        {user.avatar === "2" && <Avatar2></Avatar2>}
+                        {user.avatar === "3" && <Avatar3></Avatar3>}
+                        {user.avatar === "4" && <Avatar4></Avatar4>}
                     </div>
                 </div>
 
@@ -53,10 +59,13 @@ const ProfileMenu = () => {
                         <div className='avatar-expanded'>
                             <div className='profile-menu--btn__score'>
                                 <Star></Star>
-                                <span>546</span>
+                                <span>{user.global_score}</span>
                             </div>
                             <div className='profile-menu--btn__avatar'>
-                                <Avatar></Avatar>
+                                {user.avatar === "1" && <Avatar1></Avatar1>}
+                                {user.avatar === "2" && <Avatar2></Avatar2>}
+                                {user.avatar === "3" && <Avatar3></Avatar3>}
+                                {user.avatar === "4" && <Avatar4></Avatar4>}
                             </div>
                         </div>
                         <ul>
