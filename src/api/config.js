@@ -6,7 +6,7 @@ const instance = axios.create({
 })
 
 instance.interceptors.request.use(async (config) => {
-    const { token } = getData('currentUser');
+    const { token } = getData('currentUser') ? getData('currentUser') : { token: '' };
     config.headers.Authorization = token;
     return config;
 })
