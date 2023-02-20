@@ -29,5 +29,25 @@ export const getChallenge = async (id) => {
 
 export const checkAnswer = async (id, answer) => {
     const response = await request({ method: "post", url: "userchallenge/check_answer", data: {challenge_id: id, answer: answer} })
+    console.log(response.data)
     return response.data
+}
+
+
+export const updateChallenge = async (formData) => {
+    const response = await request({ method: "patch", url: `/challenge/edit`, data: formData })
+    if (response.status === 200) {
+        return true
+    } else {
+        return false
+    }
+}
+
+export const deleteChallenge = async (id, formData) => {
+    const response = await request({ method: "delete", url: `/challenge/challenge_id/delete`, data: formData })
+    if (response.status === 200) {
+        return true
+    } else {
+        return false
+    }
 }

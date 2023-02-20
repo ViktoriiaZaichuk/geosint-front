@@ -5,18 +5,19 @@ import moment from "moment";
 import "moment/locale/fr";
 
 import { getChallenge } from "../api/challenge";
-import { getUser } from "../api/user";
-import LayoutDashboard from "../pages/LayoutDashboard"
-import FooterDashboard from "../components/navigation/footer_dashboard"
+import LayoutDashboard from "../pages/LayoutDashboard";
+import FooterDashboard from "../components/navigation/footer_dashboard";
 import ChallengeAnswer from "../components/form/challenge_answer";
+import EditChallenge from "../components/form/edit_challenge";
 import Loader from "../components/loader";
-
+ 
 const Challenge = () => {
     const { id } = useParams();
 
     const { data: challenge, isFetching: isChallengeFetching } = useQuery(["challenge", id], () => getChallenge(id));
 
-    const { data: user } = useQuery(["user", challenge?.creator_id], () => getUser(challenge?.user_id));
+    const isCreator = challenge?.isCreator;
+    const creatorData = challenge?.creator; 
 
     return (
         <LayoutDashboard className="challenge-page">
@@ -30,14 +31,14 @@ const Challenge = () => {
                                     <tbody>
                                         <tr>
                                             <td>Auteur : </td> 
-                                            <td>{user.username}</td> 
+                                            <td>{creatorData.username}</td> 
                                         </tr>   
                                         <tr>
                                             <td>Niveau : </td> 
                                             <td>{
                                                 challenge.challenge.level === 1 ? "Facile" :
                                                 challenge.challenge.level === 2 ? "Moyen" :
-                                                challenge.challenge.level === 4 ? "Expert" :
+                                                challenge.challenge.level === 3 ? "Expert" :
                                                 "Niveau inconnu"
                                             }</td> 
                                         </tr> 
@@ -58,8 +59,12 @@ const Challenge = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="challenge-page--infos__answer">
-                            <ChallengeAnswer challengeId={challenge.challenge.id} />
+                        <div className="challenge-page--infos__answer"> 
+                            {!challenge.isCreator ? (
+                                <ChallengeAnswer challengeId={challenge.challenge.id} />
+                            ) : (
+                                <EditChallenge />
+                            )}
                         </div>
                     </div>
 
