@@ -32,3 +32,12 @@ export const updatePassword = async (formData) => {
         return false
     }
 }
+
+export const getChallengesDone = async () => {
+    const response = await request({ method: 'get', url: `/me/challenges/done` })
+    if (response.status === 200) {
+        return response.data.doneChallenges
+    } else {
+        return false
+    }
+}
