@@ -1,30 +1,30 @@
 import { useContext, useEffect, useState } from "react"
-import jwt_decode from "jwt-decode"
 
-import { getData, storeData } from "../utils/secureStore"
+import { getData } from "../utils/secureStore"
 import { UserContext } from "../context/UserContext"
 
 const useGetCurrentUser = () => {
     const { user, dispatch } = useContext(UserContext)
-    const [currentUserToken, setCurrentUserToken] = useState(null)
+    const [currentUser, setCurrentUser] = useState(null)
 
     useEffect(() => {
-        const storedUser = getData("currentUserToken")
-        storedUser && setCurrentUserToken(storedUser)
+        const storedUser = getData("currentUser")
+        storedUser && setCurrentUser(storedUser)
     }, [])
 
     useEffect(() => {
-        if (currentUserToken) {
+        if (currentUser?.login) {
             dispatch({ type: "REQUEST_LOGIN" })
-            const decoded = jwt_decode(currentUserToken)
-            dispatch({ type: "LOGIN_SUCCESS", payload: decoded.id })
-            dispatch({ type: "GET_TOKEN", payload: currentUserToken })
+            const payload = {
+                username: currentUser.username,
+                avatar: currentUser.avatar,
+                global_score: currentUser.global_score
+            }
+            dispatch({ type: "GET_USER", payload })
+            dispatch({ type: "GET_TOKEN", payload: currentUser.token })
+            dispatch({ type: "LOGIN_SUCCESS", payload: currentUser.id })
         }
-    }, [currentUserToken, dispatch])
-
-    useEffect(() => {
-        storeData("currentUserToken", user.token )
-    }, [user])
+    }, [currentUser, dispatch])
 
     return user
 }

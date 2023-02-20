@@ -5,8 +5,13 @@ import moment from "moment";
 import "moment/locale/fr";
 
 import { getChallenge } from "../api/challenge";
+<<<<<<< HEAD
 import LayoutDashboard from "../pages/LayoutDashboard";
 import FooterDashboard from "../components/navigation/footer_dashboard";
+=======
+import LayoutDashboard from "../pages/LayoutDashboard"
+import FooterDashboard from "../components/navigation/footer_dashboard"
+>>>>>>> dev
 import ChallengeAnswer from "../components/form/challenge_answer";
 import EditChallenge from "../components/form/edit_challenge";
 import Loader from "../components/loader";
@@ -16,9 +21,12 @@ const Challenge = () => {
 
     const { data: challenge, isFetching: isChallengeFetching } = useQuery(["challenge", id], () => getChallenge(id));
 
+<<<<<<< HEAD
     const isCreator = challenge?.isCreator;
     const creatorData = challenge?.creator; 
 
+=======
+>>>>>>> dev
     return (
         <LayoutDashboard className="challenge-page">
             {isChallengeFetching ? <Loader /> : (
@@ -31,7 +39,11 @@ const Challenge = () => {
                                     <tbody>
                                         <tr>
                                             <td>Auteur : </td> 
+<<<<<<< HEAD
                                             <td>{creatorData.username}</td> 
+=======
+                                            <td>{challenge.creator.username}</td> 
+>>>>>>> dev
                                         </tr>   
                                         <tr>
                                             <td>Niveau : </td> 
