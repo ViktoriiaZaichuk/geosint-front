@@ -1,66 +1,88 @@
-import React from "react";
+import React from 'react'
+import { storeData } from '../utils/secureStore'
 
-export const UserContext = React.createContext();
+export const UserContext = React.createContext()
 
 const UserProvider = ({ children }) => {
-    const [user, dispatch] = React.useReducer(userReducer, initialState);
+    const [user, dispatch] = React.useReducer(userReducer, initialState)
 
     return (
         <UserContext.Provider value={{ user, dispatch }}>
             {children}
         </UserContext.Provider>
-    );
-};
+    )
+}
 
 const initialState = {
-    id: "",
-    username: "",
-    avatar: "",
+    id: '',
+    username: '',
+    avatar: '',
     global_score: 0,
     login: null,
-    token: "",
+    token: '',
     loading: false,
     errorMessage: null,
 }
 
 const userReducer = (state, action) => {
     switch (action.type) {
-        case "LOGIN_SUCCESS":
-            return {
+        case 'LOGIN_SUCCESS':
+           return {
                 ...state,
                 id: action.payload,
                 login: true,
                 loading: false,
-                errorMessage: null
+                errorMessage: null,
             }
-        case "GET_USER":
-            return {
+        case 'GET_USER':
+            const newState = {
                 ...state,
                 username: action.payload.username,
                 avatar: action.payload.avatar,
                 global_score: action.payload.global_score,
-                errorMessage: null
+                errorMessage: null,
             }
-        case "GET_TOKEN":
-            return {
+            storeData('currentUser', newState)
+            return newState;
+        case 'UPDATE_USER':
+            const updateUserState = {
+                ...state,
+                username: action.payload.username,
+                email: action.payload.email,
+                errorMessage: null,
+            }
+            storeData('currentUser', updateUserState)
+            return updateUserState
+        case 'UPDATE_AVATAR':
+            const updateAvatarState = {
+                ...state,
+                avatar: action.payload,
+                errorMessage: null,
+            }
+            storeData('currentUser', updateAvatarState)
+            return updateAvatarState
+        case 'GET_TOKEN':
+            const tokenState = {
                 ...state,
                 token: action.payload,
-                errorMessage: null
+                errorMessage: null,
             }
-        case "REQUEST_LOGIN":
+            storeData('currentUser', tokenState)
+            return tokenState
+        case 'REQUEST_LOGIN':
             return {
                 ...state,
                 loading: true,
-                errorMessage: null
+                errorMessage: null,
             }
-        case "LOGOUT":
+        case 'LOGOUT':
             return {
                 ...state,
                 login: false,
-                token: "",
-                errorMessage: null
+                token: '',
+                errorMessage: null,
             }
-        case "LOGIN_ERROR":
+        case 'LOGIN_ERROR':
             return {
                 ...state,
                 loading: false,

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 
@@ -7,6 +7,11 @@ import LayoutDashboard from "./LayoutDashboard";
 import Card from "../components/card";
 import Loader from "../components/loader";
 import { getChallenges } from "../api/challenge";
+import { getUser } from "../api/user";
+import { UserContext } from "../context/UserContext";
+import { ReactComponent as Avatar1 } from "../assets/icons/avatar1.svg";
+import { ReactComponent as Avatar2 } from "../assets/icons/avatar2.svg";
+import { ReactComponent as Avatar3 } from "../assets/icons/avatar3.svg";
 import { ReactComponent as Avatar4 } from "../assets/icons/avatar4.svg";
 import { ReactComponent as Trophy } from "../assets/icons/trophy.svg";
 import { ReactComponent as Compass } from "../assets/icons/compass.svg";
@@ -17,7 +22,17 @@ import { ReactComponent as ArrowRight } from '../assets/icons/arrow-right.svg'
 const Dashboard = () => {
     const [lastChallenges, setLastChallenges] = useState([]);
 
+    const { user, dispatch } = useContext(UserContext)
+
     const { isFetching, data } = useQuery("challenges", getChallenges);
+
+    const { data: userData } = useQuery("user", getUser);
+
+    useEffect(() => {
+        if (userData) {
+            dispatch({ type: "GET_USER", payload: { username: userData.username, avatar: userData.avatar, global_score: userData.global_score } })
+        }
+    }, [dispatch, userData]);
 
     useEffect(() => {
         if (data) {
@@ -31,13 +46,15 @@ const Dashboard = () => {
             
             <div className="dashboard-home--profile">
                 <div className="dashboard-home--profile__avatar">
-                    <Avatar4></Avatar4>
+                    {user.avatar === "1" && <Avatar1 />}
+                    {user.avatar === "2" && <Avatar2 />}
+                    {user.avatar === "3" && <Avatar3 />}
+                    {user.avatar === "4" && <Avatar4 />}
                 </div>
             </div>
 
             <div className="dashboard-home--profiletxt">
-                <span>Marie</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid...</p>
+                <span>{user.username}</span>
             </div>
 
             <div>

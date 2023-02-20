@@ -5,7 +5,6 @@ import moment from "moment";
 import "moment/locale/fr";
 
 import { getChallenge } from "../api/challenge";
-import { getUser } from "../api/user";
 import LayoutDashboard from "../pages/LayoutDashboard"
 import FooterDashboard from "../components/navigation/footer_dashboard"
 import ChallengeAnswer from "../components/form/challenge_answer";
@@ -15,8 +14,6 @@ const Challenge = () => {
     const { id } = useParams();
 
     const { data: challenge, isFetching: isChallengeFetching } = useQuery(["challenge", id], () => getChallenge(id));
-
-    const { data: user } = useQuery(["user", challenge?.creator_id], () => getUser(challenge?.user_id));
 
     return (
         <LayoutDashboard className="challenge-page">
@@ -30,7 +27,7 @@ const Challenge = () => {
                                     <tbody>
                                         <tr>
                                             <td>Auteur : </td> 
-                                            <td>{user.username}</td> 
+                                            <td>{challenge.creator.username}</td> 
                                         </tr>   
                                         <tr>
                                             <td>Niveau : </td> 
