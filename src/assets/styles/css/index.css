@@ -1640,13 +1640,12 @@ select {
       margin: 5rem 1rem; } }
   .general-ranking-page--content__title {
     display: flex;
-    align-items: center; }
+    align-items: center;
+    font-size: 3rem;
+    margin: 50px 0 0 50px; }
     @media (max-width: 1024px) {
       .general-ranking-page--content__title {
         justify-content: center; } }
-    .general-ranking-page--content__title h1 {
-      font-size: 3.4rem;
-      margin-right: 2rem; }
   .general-ranking-page--content__table {
     margin-top: 5rem;
     padding: 4rem;
@@ -1686,6 +1685,39 @@ select {
       @media (max-width: 550px) {
         .general-ranking-page--content__table tbody tr td {
           padding: 1rem; } }
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 3rem; }
+  .row div {
+    width: 25%;
+    text-align: center;
+    flex: 2; }
+  .row--number {
+    flex: 1 !important; }
+  .row--trophy {
+    flex: 1 !important; }
+
+.global-ranking--header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px;
+  font-size: 3rem;
+  background-color: #3E3E3E; }
+  .global-ranking--header div {
+    width: 25%;
+    text-align: center;
+    flex: 2;
+    color: #F6F6F6; }
+  .global-ranking--header__number {
+    flex: 1 !important; }
+  .global-ranking--header__trophy {
+    flex: 1 !important; }
 
 .notfound-page {
   min-height: 100vh;

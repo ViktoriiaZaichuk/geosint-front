@@ -12,7 +12,7 @@ import CreateChallenge from './pages/CreateChallenge'
 import ProfileSettings from './pages/ProfileSettings'
 import ChallengesList from './pages/ChallengesList'
 import Challenge from './pages/Challenge'
-import GeneralRanking from './pages/GeneralRanking'
+import GlobalRanking from './pages/GlobalRanking'
 import useGetCurrentUser from './hooks/useGetCurrentUser'
 import Loader from './components/loader'
 import NotFound from './pages/404Page'
@@ -60,7 +60,7 @@ function App() {
         },
         {
             path: '/general_ranking',
-            element: < GeneralRanking/>,
+            element: <GlobalRanking />,
         },
         {
             path: '/create_challenge',

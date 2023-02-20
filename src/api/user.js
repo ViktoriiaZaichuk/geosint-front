@@ -41,3 +41,12 @@ export const getChallengesDone = async () => {
         return false
     }
 }
+
+export const getUsersRanking = async () => {
+    const response = await request({ method: 'get', url: `/users_ranking` })
+    if (response.status === 200) {
+        return response.data.usersByScore
+    } else {
+        return false
+    }
+}
