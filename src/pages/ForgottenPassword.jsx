@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 import Layout from "./LayoutHome";
 import Input from "../components/form/text_input";
+import { ThemeContext } from "../context/ThemeContext";
 
 const ForgottenPassword = () => {
+    const { theme } = useContext(ThemeContext)
+    
     const { 
         control,
         handleSubmit, 
@@ -21,9 +24,9 @@ const ForgottenPassword = () => {
 
     return (
         <Layout>
-            <div className="login--page">
+            <div className={theme === "light" ? "login--page" : "login--page dark"}>
                 <div className="forgotten-password--header">
-                    <a>Réinitialiser le mot de passe <div className="forgotten-password--header__underline" /></a>
+                    <a href={"/forgotten_password"}>Réinitialiser le mot de passe <div className="forgotten-password--header__underline" /></a>
                 </div>
                 <form className="login--form">
                     <p>Renseigne l'adresse email associée à ton compte afin de recevoir les instructions pour changer de mot de passe.</p>

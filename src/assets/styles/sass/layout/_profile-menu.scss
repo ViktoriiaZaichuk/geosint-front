@@ -50,6 +50,22 @@
            }
         }
     }
+    &--switch {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include screen768 {
+            display: none;
+        }
+        &__btn {
+            @include button-white-shadow;
+            margin: 0;
+            padding: .5rem 1rem;
+            & a {
+                font-size: 1.4rem;
+            }
+        }
+    }
 }
 
 
@@ -59,7 +75,7 @@
     border: 2px solid $black;
     top: 0;
     right: 0;
-    position: fixed;
+    position: absolute;
     background-color: $white;
     padding: 0 2rem;
     margin-right: 5rem;

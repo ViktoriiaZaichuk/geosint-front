@@ -1,7 +1,169 @@
 .dark {
     background-color: $black !important;
     color: $white !important;
+    & ul {
+        & a {
+            color: $white;
+        }
+    }
+    .card {
+        background-color: $white;
+        border: 1px solid $black;
+        &--title {
+            color: $black;
+        }
+        &--txt {
+            color: $black;
+        }
+    }
+    & .home--challenge__content {
+        & .link {
+            & a {
+                color: $white;
+            }
+        }
+    }
+    & .footer {
+        border-top: $white 5px solid;
+    }
+    & .home--intro {
+        color: $black;
+    }
+    & .about--banner__img {
+        @include box-shadow-light;
+    }
+    & .about--intro {
+        color: $black;
+    }
+    & .login--header {
+        & a {
+            color: $white;
+        }
+    }
+    & .login--form {
+        background-color: $white;
+        & label {
+            color: $black;
+        }
+        & p {
+            color: $black;
+        }
+        & h2 {
+            color: $black;
+        }
+    }
+    & .forgotten-password--header {
+        & a {
+            color: $white;
+        }
+    }
+    & .login--form__error {
+        color: $red !important;
+    }
+    & .profile-menu--btn__avatar {
+        background-color: $white;
+    }
+    & .profilebar-overlay {
+        background-color: $grey;
+    }
+    & .dashboard-home--profile {
+        border-bottom: 2px solid $white;
+    }
+    & .dashboard-content {
+        border-top: 4px solid $white;
+        border-left: 4px solid $white;
+        & .link {
+            & a {
+                color: $white;
+            }
+        }
+    }
+    & .ranking {
+        border: 2px solid $white;
+    }
+    & .ranking-stats {
+        border: 2px solid $white;
+    }
+    & .create-chlng {
+        border: 2px solid $white;
+    }
+    & .dashboard-home--stats__challenge {
+        border: 2px solid $white;
+    }
+    & .dashboard-footer {
+        border-top: 1px solid $white
+    }
+    & .dashboard-menu-overlay {
+        background-color: $black;
+        border-right: 4px solid $white;
+        & li {
+            & a {
+                color: $white !important;
+            }
+            & button {
+                & a {
+                    color: $black !important;
+                }
+            }
+        }
+    }
+    & .button-green {
+        background-color: $green;
+        @include button-white-shadow;
+    }
+    & .button-purple {
+        background-color: $purple;
+        @include button-white-shadow;
+    }
+    & .global-ranking--header {
+        background-color: $green;
+        & div {
+            color: $black;
+        }
+    }
+    & .row {
+        color: $black;
+    }
+    & .challenge-page {
+        &--infos {
+            border-color: $white;
+        }
+        &--forum {
+            &__messages {
+                border-color: $white;
+                p {
+                    box-shadow: $purple -2px -2px 0px 1px, -3px -3px 0 1px $black;
+                    border-color: $white;
+                }
+            }
+            &__ranking {
+                border-color: $white;
+            }
+        }
+    }
+    & .challenge-answer {
+        &--form {
+            input {
+                background-color: $black;
+                box-shadow: $white -2px -2px 0px 1px !important;
+                border: 2px solid $white !important;
+                color: $white !important;
+            }
+            button {
+                box-shadow: $white -2px -2px 0px 1px !important;
+                border: 2px solid $white !important;
+            }
+        }
+    }
+    & .about--intro {
+        border-top: 4px solid $white;
+        border-bottom: 4px solid $white;
+    }
+}
+
+.expanded {
+    color: $black;
     & a {
-        color: $white !important;
+        color: $black !important;
     }
 }

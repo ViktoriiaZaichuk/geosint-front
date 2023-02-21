@@ -3,6 +3,9 @@
     color: $black;
     width: 100%;
     border-top: $black 5px solid;
+    &-dark {
+        border-top: $white 5px solid;
+    }
     &--top {
         margin: 2rem 2rem;
         padding: 2rem 0;

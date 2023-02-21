@@ -18,4 +18,14 @@
     @include button;
 }
 
+.button-green-light {
+    background-color: $green;
+    @include button-white-shadow;
+}
+
+.button-purple-light {
+    background-color: $purple;
+    @include button-white-shadow;
+}
+
 

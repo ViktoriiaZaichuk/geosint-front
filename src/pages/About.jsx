@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import Layout from "./LayoutHome";
 import Card from '../components/team_card';
 
 import { ReactComponent as Search } from '../assets/img/search.svg'
 import { ReactComponent as Globe } from '../assets/img/globe.svg'
-import bannerImg from '../assets/img/challenge-img/lake-view.jpg'
+import bannerImg from '../assets/img/Shovel-Knight.jpg'
 import Celine from '../assets/img/team/Celine.png'
 import Clement from '../assets/img/team/Clement.png'
 import Thomas from '../assets/img/team/Thomas.png'
 import Viktoriia from '../assets/img/team/Viktoriia.png'
+import { ThemeContext } from '../context/ThemeContext'
 
 const About = () => {
+    const { theme } = useContext(ThemeContext)
+
     return (
         <Layout>
-            <div className="about--page">
+            <div className={theme === "light" ? "about--page" : "about--page dark"}>
                 <div className="about--banner">
                     <img src={bannerImg} alt="background" className="about--banner__img" />
                     <div className="about--banner__txt">
@@ -51,7 +54,7 @@ const About = () => {
                         <div className="about--intro__content__txt">
                             <h2>Le concept du jeu</h2>
                             <p>GEOS'INT est une application mobile qui vous permet de relever des défis géographiques en répondant à des questions sur des photos prises dans des endroits du monde entier. Vous pouvez jouer seul ou avec vos amis et vous pouvez même créer vos propres défis !</p>
-                            <button className="button-purple">Jouer maintenant</button>
+                            <button className="button">Jouer maintenant</button>
                         </div>
                     </div>
                 </div>
@@ -87,7 +90,7 @@ const About = () => {
                     <h2>Rejoindre notre communauté sur Discord</h2>
                     <p>Rejoignez notre groupe Discord pour discuter avec d'autres utilisateurs de notre application, partager des conseils et des astuces, et participer à des défis amusants. 
                         Nous espérons vous y voir bientôt !</p>
-                    <button className="button">Rejoindre Discord</button>
+                    <button className="button-green">Rejoindre Discord</button>
                 </div>
             </div>
         </Layout>

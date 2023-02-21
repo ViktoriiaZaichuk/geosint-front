@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Controller, useForm } from "react-hook-form";
 import ReactModal from "react-modal";
@@ -12,9 +12,12 @@ import { ReactComponent as Avatar1 } from "../assets/icons/avatar1.svg";
 import { ReactComponent as Avatar2 } from "../assets/icons/avatar2.svg";
 import { ReactComponent as Avatar3 } from "../assets/icons/avatar3.svg";
 import { ReactComponent as Avatar4 } from "../assets/icons/avatar4.svg";
+import { ThemeContext } from "../context/ThemeContext";
 
 const Register = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const { theme } = useContext(ThemeContext)
 
     const navigate = useNavigate()
 
@@ -46,7 +49,7 @@ const Register = () => {
     
     return (
         <Layout>
-            <div className="login--page">
+            <div className={theme === "light" ? "login--page" : "login--page dark"}>
                 <div className="login--header">
                     <Link to={"/login"}>Connexion</Link>
                     <div>

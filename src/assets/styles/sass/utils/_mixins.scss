@@ -44,6 +44,10 @@ $screen550: 550px;
     box-shadow: $black -2px -2px 0px 1px;
 }
 
+@mixin box-shadow-light {
+    box-shadow: $white -2px -2px 0px 1px;
+}
+
 @mixin flex-column {
     display: flex;
     flex-direction: column;
@@ -67,6 +71,27 @@ $screen550: 550px;
     & a {
         font-family: $primaryFontBold;
         color: $black;
+        text-align: center;
+    }
+}
+
+@mixin button-white-shadow {
+    font-family: $primaryFontBold;
+    letter-spacing: .1rem;
+    border: 1px solid $black;
+    border-radius: 5px;
+    box-shadow: $white -2px -2px 0px 1px;
+    padding: .5rem 2rem;
+    margin: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        animation: 0.25s infinite alternate shadowButton;
+    }
+    & a {
+        font-family: $primaryFontBold;
+        color: $black !important;
         text-align: center;
     }
 }

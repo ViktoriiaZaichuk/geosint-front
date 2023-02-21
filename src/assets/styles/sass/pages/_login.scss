@@ -3,7 +3,7 @@
         @include flex-column;
         justify-content: space-around;
         align-items: center;
-        margin: 10rem 0;
+        padding: 10rem 0;
     }
     &--header {
         display: flex;
@@ -102,6 +102,7 @@
             margin: 1rem 0;
             & svg {
                 position: sticky;
+                z-index: 0;
             }
             & .active {
                 background-color: $black;

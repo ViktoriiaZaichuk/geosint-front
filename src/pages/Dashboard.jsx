@@ -15,12 +15,17 @@ import { ReactComponent as Avatar3 } from "../assets/icons/avatar3.svg";
 import { ReactComponent as Avatar4 } from "../assets/icons/avatar4.svg";
 import { ReactComponent as Trophy } from "../assets/icons/trophy.svg";
 import { ReactComponent as Compass } from "../assets/icons/compass.svg";
+import { ReactComponent as CompassLight } from "../assets/icons/compass_light.svg";
 import { ReactComponent as StarSts } from "../assets/icons/star-stats.svg";
+import { ReactComponent as StarStsLight } from "../assets/icons/star-stats-light.svg";
 import { ReactComponent as Calendar } from "../assets/icons/calendar.svg";
-import { ReactComponent as ArrowRight } from '../assets/icons/arrow-right.svg'
+import { ReactComponent as CalendarLight } from "../assets/icons/calendar-light.svg";
+import { ReactComponent as ArrowRight } from '../assets/icons/arrow-right.svg';
+import { ThemeContext } from "../context/ThemeContext";
 
 const Dashboard = () => {
     const { user, dispatch } = useContext(UserContext)
+    const { theme } = useContext(ThemeContext)
 
     const { isFetching, data } = useQuery("randomChallenges", getRandomChallenges);
 
@@ -57,7 +62,7 @@ const Dashboard = () => {
     return (
         <LayoutDashboard className="dashboard-home">
             
-            <div className="dashboard-home--profile">
+            <div className={theme === "light" ? "dashboard-home--profile" : "dashboard-home--profile dark"}>
                 <div className="dashboard-home--profile__avatar">
                     {user.avatar === "1" && <Avatar1 />}
                     {user.avatar === "2" && <Avatar2 />}
@@ -79,7 +84,7 @@ const Dashboard = () => {
                                <span>{user.global_score}</span>
                             </div>
                             <div>
-                                <Trophy></Trophy>
+                                {theme === "light" ? <Trophy /> : <Trophy fill="#fff" />}
                             </div>
                         </div>
                         <div className="ranking-stats">
@@ -89,32 +94,32 @@ const Dashboard = () => {
                                     <span>{challengesDone?.length}</span>
                                 </div>
                                 <div>
-                                    <Compass></Compass>
+                                    {theme === "light" ? <Compass /> : <CompassLight />}
                                 </div>
                             </div>
                             <div>
                                 <div>
                                     <p>Meilleur score</p>
                                     <span>{
-                                        challengesDone?.length > 0 && challengesDone.reduce((prev, current) => (prev.challenge_score > current.challenge_score) ? prev : current).challenge_score    
+                                        challengesDone?.length > 0 ? challengesDone.reduce((prev, current) => (prev.challenge_score > current.challenge_score) ? prev : current).challenge_score : 0    
                                     }</span>
                                 </div>
                                 <div>
-                                    <StarSts></StarSts>
+                                    {theme === "light" ? <StarSts /> : <StarStsLight />}
                                 </div>
                             </div>
                             <div>
                                 <div>
                                     <p>Score mensuel</p>
-                                    <span>{challengesDone?.length > 0 && calculateMonthlyScore(challengesDone, year, month)}</span>
+                                    <span>{challengesDone?.length > 0 ? calculateMonthlyScore(challengesDone, year, month) : 0}</span>
                                 </div>
                                 <div>
-                                    <Calendar></Calendar>
+                                    {theme === "light" ? <Calendar /> : <CalendarLight />}
                                 </div>
                             </div>
                         </div>
                         <div className="create-chlng">
-                            <button className="button">Créer un challenge</button>
+                            <button className={theme === "light" ? "button" : "button-green-light"}>Créer un challenge</button>
                         </div>
                     </div>
 
@@ -129,7 +134,7 @@ const Dashboard = () => {
                         {isFetching ? <Loader /> : data.length > 0 && data.map((challenge) => <Card key={challenge.id} challenge={challenge} />)}
                     </div>
                     <div className="link">
-                        <Link to={""}>Voir d’autres challenges <ArrowRight className="arrow-right"></ArrowRight></Link>
+                        <Link to={"/challenges_list"}>Voir d’autres challenges <ArrowRight className="arrow-right"></ArrowRight></Link>
                     </div>
                 </div>
                 <div className="dashboard-home--groupe">
@@ -138,7 +143,7 @@ const Dashboard = () => {
                         {isFetching ? <Loader /> : data.length > 0 && data.map((challenge) => <Card key={challenge.id} challenge={challenge} />)}
                     </div>
                     <div className="link">
-                        <Link to={""}>Voir d’autres challenges <ArrowRight className="arrow-right"></ArrowRight></Link>
+                        <Link to={"/challenges_list"}>Voir d’autres challenges <ArrowRight className="arrow-right"></ArrowRight></Link>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import Layout from "./LayoutHome";
@@ -10,20 +10,23 @@ import { ReactComponent as ArrowRight } from '../assets/icons/arrow-right.svg'
 import { ReactComponent as CreateChallenge } from '../assets/img/pensil-create.svg'
 import { ReactComponent as HeroImg } from '../assets/img/hero-img.svg'
 import { ReactComponent as Eye } from '../assets/img/eye-home.svg'
+import { ThemeContext } from '../context/ThemeContext'
 
 const Home = () => {
+    const { theme } = useContext(ThemeContext)
+
     return (
         <Layout> 
-            <div className="home--page">
+            <div className={theme === "light" ? "home--page" : "home--page dark"}>
                 <div className="home--hero">
                     <div className="home--hero__txt">
                         <h1>Rejoignez notre communauté de joueurs passionnés maintenant et relevez le défi !</h1>
                         <p>Téléchargez des photos de différents endroits à travers le monde et mettez vos connaissances géographiques à l'épreuve en devinant où elles ont été prises.</p>
                         <div className="home--hero__btn">
-                            <button className="button-purple">
+                            <button className={theme === "light" ? "button-purple" : "button-purple-light"}>
                                 <Link className='link' to={"/login"}>Connecte-toi</Link>
                             </button>
-                            <button className="button">
+                            <button className={theme === "light" ? "button" : "button-green-light"}>
                                 <Link className='link' to={"/register"}>Inscris-toi</Link>
                             </button>
                         </div>
@@ -96,7 +99,7 @@ const Home = () => {
                     <h2>Rejoindre notre communauté sur Discord</h2>
                     <p>Rejoignez notre groupe Discord pour discuter avec d'autres utilisateurs de notre application, partager des conseils et des astuces, et participer à des défis amusants. 
                         Nous espérons vous y voir bientôt !</p>
-                    <button className="button">Rejoindre Discord</button>
+                    <button className={theme === "light" ? "button" : "button-green-light"}>Rejoindre Discord</button>
                 </div>
             </div>
         </Layout>

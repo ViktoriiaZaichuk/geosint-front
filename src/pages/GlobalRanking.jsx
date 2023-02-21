@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import LayoutDashboard from "../pages/LayoutDashboard"
 import FooterDashboard from "../components/navigation/footer_dashboard"
 import { FixedSizeList as List } from 'react-window'
@@ -7,16 +7,17 @@ import { useQuery } from "react-query"
 import { getUsersRanking } from "../api/user"
 import { ReactComponent as Trophy } from '../assets/icons/trophy.svg'
 import Loader from "../components/loader"
+import { ThemeContext } from "../context/ThemeContext"
 
-const Row = ({ user, style, index }) => (
-    <div className="row" style={{ backgroundColor: style }}>
-        <div className="row--number">
+const Row = ({ user, bg, index, color }) => (
+    <div className="row" style={{ backgroundColor: bg }}>
+        <div className="row--number" style={{ color: color }}>
             {index + 1}
         </div>
-        <div>
+        <div style={{ color: color }}>
             {user.username}
         </div>
-        <div>
+        <div style={{ color: color }}>
             {user.global_score}
         </div>
         <div className="row--trophy">
@@ -28,6 +29,8 @@ const Row = ({ user, style, index }) => (
 )
 
 const GeneralRanking = () => {
+    const { theme } = useContext(ThemeContext)
+
     const { data, isLoading } = useQuery("usersRanking", getUsersRanking)
 
     return (
@@ -55,8 +58,10 @@ const GeneralRanking = () => {
                         >
                             {({ index }) => {
                                 const user = data[index]
-                                const bg = index % 2 ? "#CDB4FF" : "#BFFFD6"
-                                return <Row user={user} style={bg} index={index} />
+                                const bg = index % 2 ? "#3E3E3E" : "#000000"
+                                const bgLight = index % 2 ? "#f6f6f6" : "#ebebeb"
+                                const color = index % 2 ? "#CDB4FF" : "#BFFFD6"
+                                return <Row user={user} bg={theme === "light" ? bgLight : bg} index={index} color={theme === "light" ? "#3E3E3E" : color} />
                             }}
                         </List>
                     </>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
 import Button from '../button'
@@ -6,15 +6,18 @@ import { ReactComponent as Insta } from '../../assets/icons/insta_shadow_light.s
 import { ReactComponent as Discord } from '../../assets/icons/discord_shadow_light.svg'
 import { ReactComponent as Twitter } from '../../assets/icons/twitter_shadow_light.svg'
 import { ReactComponent as Logo } from '../../assets/icons/logo-purple-bckgnd.svg'
+import { ThemeContext } from '../../context/ThemeContext'
 
 const FooterHome = () => {
+    const { theme } = useContext(ThemeContext)
+
     return (
-        <footer className='footer'>
+        <footer className={theme === "light" ? 'footer' : "footer footer-dark"}>
             <div className='footer--top'>
                 <div className='footer--top__left'>
                     <Logo />
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur obcaecati perferendis temporibus odit aut amet, provident veniam adipisci iste nobis vel iure molestiae!</p>
-                    <Button className={'button'}><Link className='link'>Jouer maintenant</Link></Button>
+                    <Button className={'button'}><Link className='link' to={"/login"}>Jouer maintenant</Link></Button>
                 </div>   
                 <div className='footer--top__right'>  
                     <div className='footer--links'>

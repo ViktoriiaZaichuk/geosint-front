@@ -29,11 +29,13 @@ const TextInput = ({ control, name, type, label, placeholder, error }) => {
                             <GiBleedingEye
                                 onClick={() => setShowPassword(!showPassword)}
                                 size={23}
+                                fill={"#3E3E3E"}
                             />
                         ) : (type === "password" && !showPassword) && (
                             <GiBoltEye
                                 onClick={() => setShowPassword(!showPassword)}
                                 size={23}
+                                fill={"#3E3E3E"}
                             />
                         )}
                     </>
