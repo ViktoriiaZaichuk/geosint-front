@@ -12,6 +12,7 @@ export const createChallenge = async (formData) => {
 export const getChallenges = async () => {
     const response = await request({ method: "get", url: `/challenges` })
     if (response.status === 200) {
+        console.log(response.data)
         return response.data
     } else {
         return false
@@ -35,17 +36,22 @@ export const checkAnswer = async (id, answer) => {
 
 
 export const updateChallenge = async (formData) => {
+    console.log(formData)
     const response = await request({ method: "patch", url: `/challenge/edit`, data: formData })
+
     if (response.status === 200) {
+        console.log(response.data)
+        console.log('yesssssssssss')
         return true
     } else {
         return false
     }
 }
 
-export const deleteChallenge = async (id, formData) => {
-    const response = await request({ method: "delete", url: `/challenge/challenge_id/delete`, data: formData })
+export const deleteChallenge = async (challengeId) => {
+    const response = await request({ method: "delete", url: `/challenge/delete`, data: {challenge_id: challengeId} })
     if (response.status === 200) {
+        console.log(response.data)
         return true
     } else {
         return false

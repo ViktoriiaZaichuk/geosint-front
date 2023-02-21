@@ -1,32 +1,31 @@
-import React from "react"
+import React, { useState } from "react"
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import moment from "moment";
 import "moment/locale/fr";
 
 import { getChallenge } from "../api/challenge";
-<<<<<<< HEAD
-import LayoutDashboard from "../pages/LayoutDashboard";
-import FooterDashboard from "../components/navigation/footer_dashboard";
-=======
 import LayoutDashboard from "../pages/LayoutDashboard"
 import FooterDashboard from "../components/navigation/footer_dashboard"
->>>>>>> dev
 import ChallengeAnswer from "../components/form/challenge_answer";
 import EditChallenge from "../components/form/edit_challenge";
+import DeleteChallenge from "../components/form/delete_challenge";
 import Loader from "../components/loader";
+
+import { ReactComponent as Arrow } from '../assets/icons/arrow-right.svg'
  
 const Challenge = () => {
     const { id } = useParams();
 
     const { data: challenge, isFetching: isChallengeFetching } = useQuery(["challenge", id], () => getChallenge(id));
 
-<<<<<<< HEAD
-    const isCreator = challenge?.isCreator;
-    const creatorData = challenge?.creator; 
+    const [parentChallengeInfo, setParentChallengeInfo] = useState(null);
+    const handleChallengeInfoUpdate = (challengeInfo) => {
+        setParentChallengeInfo(challengeInfo);
+    };
 
-=======
->>>>>>> dev
+    const [showImageModal, setShowImageModal] = useState(false);
+
     return (
         <LayoutDashboard className="challenge-page">
             {isChallengeFetching ? <Loader /> : (
@@ -39,11 +38,7 @@ const Challenge = () => {
                                     <tbody>
                                         <tr>
                                             <td>Auteur : </td> 
-<<<<<<< HEAD
-                                            <td>{creatorData.username}</td> 
-=======
                                             <td>{challenge.creator.username}</td> 
->>>>>>> dev
                                         </tr>   
                                         <tr>
                                             <td>Niveau : </td> 
@@ -66,18 +61,68 @@ const Challenge = () => {
                                 </table>
                             </div>
                             <div className="img-info">
-                                <div>
-                                    <img src={`http://la-tote-server.eddi.cloud:8080/${challenge.challenge.image}`} alt="Challenge"/>
+                                <div className="img-info--wrapper">
+                                    <img 
+                                        src={`http://la-tote-server.eddi.cloud:8080/${challenge.challenge.image_small}`} 
+                                        alt="Challenge"
+                                        onClick={() => setShowImageModal(true)}
+                                        className="img-info--wrapper__img"
+                                    />
                                 </div>
+                                <div className="img-info--button">
+                                    <div>
+                                        <p>L'image ne s'affiche pas dans son entièreté. Pour l'agrandir</p>
+                                        <Arrow/>
+                                    </div>
+                                    <button 
+                                        onClick={() => setShowImageModal(true)}
+                                        className="button-purple"
+                                        >
+                                        Agrandir image
+                                    </button>
+                                </div>
+                                {showImageModal && (
+                                    <div className="modal-overlay-img">
+                                        <div>
+                                            <img
+                                                src={`http://la-tote-server.eddi.cloud:8080/${challenge.challenge.image}`}
+                                                alt="Challenge"
+                                            />
+                                            <button 
+                                                onClick={() => setShowImageModal(false)}
+                                                className="button-purple"
+                                            >
+                                                Fermer
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         </div>
-                        <div className="challenge-page--infos__answer"> 
-                            {!challenge.isCreator ? (
-                                <ChallengeAnswer challengeId={challenge.challenge.id} />
-                            ) : (
-                                <EditChallenge />
-                            )}
-                        </div>
+
+                        {!challenge?.isCompleted ? (
+                            <div className="challenge-page--infos__answer"> 
+                                {!challenge.isCreator ? (
+                                    <ChallengeAnswer challengeId={challenge.challenge.id} challengeInfoUpdateCallback={handleChallengeInfoUpdate}  />
+                                ) : (
+                                    <div className="challenge-crud">
+                                        <EditChallenge challengeId={challenge.challenge.id} />
+                                        <DeleteChallenge challenge={challenge.challenge}/>
+                                    </div>
+                                )}
+                            </div>
+                        ) : (
+                            <div className="challenge-page--infos__completed">
+                                <h3>Tu as réussi à trouver la bonne réponse !</h3>
+                                {parentChallengeInfo && (
+                                    <div>
+                                        <p>Nombre de tentatives : {parentChallengeInfo.attempt}</p>
+                                        <p>Challenge score : {parentChallengeInfo.challenge_score}</p>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+
                     </div>
 
                     <div className="challenge-page--forum">
@@ -113,5 +158,5 @@ const Challenge = () => {
         </LayoutDashboard>
     )
 }
-
+ 
 export default Challenge
