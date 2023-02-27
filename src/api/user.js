@@ -59,3 +59,16 @@ export const forgotPassword = async (email) => {
         return false
     }
 }
+
+export const resetUserPassword = async (data) => {
+    const response = await request({
+        method: 'patch',
+        url: `/reset_password`,
+        data
+    })
+    if (response.status === 200) {
+        return true
+    } else {
+        return false
+    }
+}

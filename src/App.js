@@ -16,6 +16,7 @@ import GlobalRanking from './pages/GlobalRanking'
 import useGetCurrentUser from './hooks/useGetCurrentUser'
 import Loader from './components/loader'
 import NotFound from './pages/404Page'
+import ResetPassword from './pages/ResetPassword'
 
 
 function App() {
@@ -66,6 +67,10 @@ function App() {
             path: '/create_challenge',
             element: <CreateChallenge />,
         },
+        {
+            path: '/reset_password/:token',
+            element: <ResetPassword />,
+        }
     ])
 
     return (
