@@ -12,7 +12,6 @@ const EditChallenge = ({ challenge }) => {
       getValues,
       control,
       handleSubmit, 
-      setValue,
       formState: { errors },
       reset
     } = useForm({
@@ -33,10 +32,8 @@ const EditChallenge = ({ challenge }) => {
       const answerExampleValue = getValues("answer_example")
       const descriptionValue = getValues("description")
 
-      const challengeId = challenge.id
-
       const updatedChallenge = {
-        challenge_id: challengeId,
+        challenge_id: challenge.id,
         name: nameValue,
         level: levelValue,
         answer_example: answerExampleValue,
@@ -78,6 +75,7 @@ const EditChallenge = ({ challenge }) => {
                       name="name"
                       control={control}
                       error={errors.name?.message}
+                      defaultValue
                     />
 
                     <Controller 

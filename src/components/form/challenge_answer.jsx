@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import { useForm } from 'react-hook-form'
 import Confetti from 'react-confetti'
 
@@ -94,8 +94,8 @@ const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback }) => {
                         {isCorrect && (
                         <div>
                             <Confetti     
-                                numberOfPieces={450}
-                                /* recycle={3} */
+                                numberOfPieces={550}
+                                recycle={false}
                                 colors={['#CDB4FF', '#BFFFD6']} 
                             />
                             {challengeInfo && (

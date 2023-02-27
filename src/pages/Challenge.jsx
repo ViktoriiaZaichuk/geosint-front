@@ -57,6 +57,10 @@ const Challenge = () => {
                                             <td>Type de réponse attendue : </td> 
                                             <td>{challenge.challenge.answer_example}</td> 
                                         </tr>
+                                        <tr>
+                                            <td>Description : </td> 
+                                            <td>{challenge.challenge.description}</td> 
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -106,8 +110,8 @@ const Challenge = () => {
                                     <ChallengeAnswer challengeId={challenge.challenge.id} challengeInfoUpdateCallback={handleChallengeInfoUpdate}  />
                                 ) : (
                                     <div className="challenge-crud">
-                                        <EditChallenge challengeId={challenge.challenge.id} />
-                                        <DeleteChallenge challenge={challenge.challenge}/>
+                                        <EditChallenge challenge={challenge.challenge} />
+                                        <DeleteChallenge challengeId={challenge.challenge.id}/>
                                     </div>
                                 )}
                             </div>
@@ -145,11 +149,18 @@ const Challenge = () => {
                             <h2>CLASSEMENT</h2>
                             <p>Nombre de personnes ayant trouvé la bonne réponse : XXX</p>
                             <span>TOP 10</span>
+
+                            {challenge.ranking.length === 0 ? (
+                            <p>Aucun joueur n'a encore joué ce challenge.</p>
+                            ) : (
                             <ol>
-                                <li>John Doe</li>
-                                <li>Nice guy</li>
-                                <li>Great</li>
+                                {challenge.ranking.map((ranking) => (
+                                    <li key={ranking.ranking_id}>
+                                    {ranking.username} (challenge score: {ranking.challenge_score} )
+                                    </li>
+                                ))}
                             </ol>
+                            )}
                         </div>
                     </div>
                 </>

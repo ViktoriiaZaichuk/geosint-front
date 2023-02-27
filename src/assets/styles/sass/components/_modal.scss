@@ -80,8 +80,11 @@
         & img {
             border: 3px solid $black;
             border-radius: 10px;
-            min-height: 80vh;
-            max-height: 80vh;
+            min-height: 75vh;
+            max-height: 75vh;
+            @include screen1300 {
+                min-height: auto;
+            }
         }
     }
 
