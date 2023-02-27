@@ -1,6 +1,21 @@
+$screen1550: 1550px;
+$screen1300: 1300px;
 $screen1024: 1024px;
 $screen768: 768px;
 $screen550: 550px;
+
+@mixin screen1550 {
+    @media (max-width: #{$screen1550}) {
+      @content;
+    }
+}
+
+
+@mixin screen1300 {
+    @media (max-width: #{$screen1300}) {
+      @content;
+    }
+}
 
 @mixin screen1024 {
     @media (max-width: #{$screen1024}) {
