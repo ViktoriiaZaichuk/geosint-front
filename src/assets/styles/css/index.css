@@ -66,7 +66,8 @@ body {
   position: relative;
   font-size: 1.6rem;
   color: #3E3E3E;
-  background-color: #F6F6F6; }
+  background-color: whitesmoke;
+  overflow-x: hidden; }
 
 ol, ul {
   list-style: none; }
@@ -132,7 +133,7 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #F6F6F6;
+  background-color: whitesmoke;
   z-index: 9999;
   display: flex;
   justify-content: center;
@@ -140,30 +141,30 @@ a {
 
 .dark {
   background-color: #3E3E3E !important;
-  color: #F6F6F6 !important; }
+  color: whitesmoke !important; }
   .dark ul a {
-    color: #F6F6F6; }
+    color: whitesmoke; }
   .dark .card {
-    background-color: #F6F6F6;
+    background-color: whitesmoke;
     border: 1px solid #3E3E3E; }
     .dark .card--title {
       color: #3E3E3E; }
     .dark .card--txt {
       color: #3E3E3E; }
   .dark .home--challenge__content .link a {
-    color: #F6F6F6; }
+    color: whitesmoke; }
   .dark .footer {
-    border-top: #F6F6F6 5px solid; }
+    border-top: whitesmoke 5px solid; }
   .dark .home--intro {
     color: #3E3E3E; }
   .dark .about--banner__img {
-    box-shadow: #F6F6F6 -2px -2px 0px 1px; }
+    box-shadow: whitesmoke -2px -2px 0px 1px; }
   .dark .about--intro {
     color: #3E3E3E; }
   .dark .login--header a {
-    color: #F6F6F6; }
+    color: whitesmoke; }
   .dark .login--form {
-    background-color: #F6F6F6; }
+    background-color: whitesmoke; }
     .dark .login--form label {
       color: #3E3E3E; }
     .dark .login--form p {
@@ -171,35 +172,35 @@ a {
     .dark .login--form h2 {
       color: #3E3E3E; }
   .dark .forgotten-password--header a {
-    color: #F6F6F6; }
+    color: whitesmoke; }
   .dark .login--form__error {
     color: #FF6060 !important; }
   .dark .profile-menu--btn__avatar {
-    background-color: #F6F6F6; }
+    background-color: whitesmoke; }
   .dark .profilebar-overlay {
     background-color: #ebebeb; }
   .dark .dashboard-home--profile {
-    border-bottom: 2px solid #F6F6F6; }
+    border-bottom: 2px solid whitesmoke; }
   .dark .dashboard-content {
-    border-top: 4px solid #F6F6F6;
-    border-left: 4px solid #F6F6F6; }
+    border-top: 4px solid whitesmoke;
+    border-left: 4px solid whitesmoke; }
     .dark .dashboard-content .link a {
-      color: #F6F6F6; }
+      color: whitesmoke; }
   .dark .ranking {
-    border: 2px solid #F6F6F6; }
+    border: 2px solid whitesmoke; }
   .dark .ranking-stats {
-    border: 2px solid #F6F6F6; }
+    border: 2px solid whitesmoke; }
   .dark .create-chlng {
-    border: 2px solid #F6F6F6; }
+    border: 2px solid whitesmoke; }
   .dark .dashboard-home--stats__challenge {
-    border: 2px solid #F6F6F6; }
+    border: 2px solid whitesmoke; }
   .dark .dashboard-footer {
-    border-top: 1px solid #F6F6F6; }
+    border-top: 1px solid whitesmoke; }
   .dark .dashboard-menu-overlay {
     background-color: #3E3E3E;
-    border-right: 4px solid #F6F6F6; }
+    border-right: 4px solid whitesmoke; }
     .dark .dashboard-menu-overlay li a {
-      color: #F6F6F6 !important; }
+      color: whitesmoke !important; }
     .dark .dashboard-menu-overlay li button a {
       color: #3E3E3E !important; }
   .dark .button-green {
@@ -208,7 +209,7 @@ a {
     letter-spacing: .1rem;
     border: 1px solid #3E3E3E;
     border-radius: 5px;
-    box-shadow: #F6F6F6 -2px -2px 0px 1px;
+    box-shadow: whitesmoke -2px -2px 0px 1px;
     padding: .5rem 2rem;
     margin: 0 1rem;
     display: flex;
@@ -221,12 +222,12 @@ a {
       color: #3E3E3E !important;
       text-align: center; }
   .dark .button-purple {
-    background-color: #CDB4FF;
+    background-color: #ccb3ff;
     font-family: "millimetre_bold";
     letter-spacing: .1rem;
     border: 1px solid #3E3E3E;
     border-radius: 5px;
-    box-shadow: #F6F6F6 -2px -2px 0px 1px;
+    box-shadow: whitesmoke -2px -2px 0px 1px;
     padding: .5rem 2rem;
     margin: 0 1rem;
     display: flex;
@@ -245,25 +246,25 @@ a {
   .dark .row {
     color: #3E3E3E; }
   .dark .challenge-page--infos {
-    border-color: #F6F6F6; }
+    border-color: whitesmoke; }
   .dark .challenge-page--forum__messages {
-    border-color: #F6F6F6; }
+    border-color: whitesmoke; }
     .dark .challenge-page--forum__messages p {
-      box-shadow: #CDB4FF -2px -2px 0px 1px, -3px -3px 0 1px #3E3E3E;
-      border-color: #F6F6F6; }
+      box-shadow: #ccb3ff -2px -2px 0px 1px, -3px -3px 0 1px #3E3E3E;
+      border-color: whitesmoke; }
   .dark .challenge-page--forum__ranking {
-    border-color: #F6F6F6; }
+    border-color: whitesmoke; }
   .dark .challenge-answer--form input {
     background-color: #3E3E3E;
-    box-shadow: #F6F6F6 -2px -2px 0px 1px !important;
-    border: 2px solid #F6F6F6 !important;
-    color: #F6F6F6 !important; }
+    box-shadow: whitesmoke -2px -2px 0px 1px !important;
+    border: 2px solid whitesmoke !important;
+    color: whitesmoke !important; }
   .dark .challenge-answer--form button {
-    box-shadow: #F6F6F6 -2px -2px 0px 1px !important;
-    border: 2px solid #F6F6F6 !important; }
+    box-shadow: whitesmoke -2px -2px 0px 1px !important;
+    border: 2px solid whitesmoke !important; }
   .dark .about--intro {
-    border-top: 4px solid #F6F6F6;
-    border-bottom: 4px solid #F6F6F6; }
+    border-top: 4px solid whitesmoke;
+    border-bottom: 4px solid whitesmoke; }
 
 .expanded {
   color: #3E3E3E; }
@@ -312,7 +313,7 @@ a {
     text-align: center; }
 
 .button-purple {
-  background-color: #CDB4FF;
+  background-color: #ccb3ff;
   font-family: "millimetre_bold";
   letter-spacing: .1rem;
   border: 1px solid #3E3E3E;
@@ -331,7 +332,7 @@ a {
     text-align: center; }
 
 .button-gray {
-  background-color: #F6F6F6;
+  background-color: whitesmoke;
   font-family: "millimetre_bold";
   letter-spacing: .1rem;
   border: 1px solid #3E3E3E;
@@ -355,7 +356,7 @@ a {
   letter-spacing: .1rem;
   border: 1px solid #3E3E3E;
   border-radius: 5px;
-  box-shadow: #F6F6F6 -2px -2px 0px 1px;
+  box-shadow: whitesmoke -2px -2px 0px 1px;
   padding: .5rem 2rem;
   margin: 0 1rem;
   display: flex;
@@ -369,12 +370,12 @@ a {
     text-align: center; }
 
 .button-purple-light {
-  background-color: #CDB4FF;
+  background-color: #ccb3ff;
   font-family: "millimetre_bold";
   letter-spacing: .1rem;
   border: 1px solid #3E3E3E;
   border-radius: 5px;
-  box-shadow: #F6F6F6 -2px -2px 0px 1px;
+  box-shadow: whitesmoke -2px -2px 0px 1px;
   padding: .5rem 2rem;
   margin: 0 1rem;
   display: flex;
@@ -393,7 +394,7 @@ a {
   width: 100%;
   max-width: 360px;
   padding: 1.5rem;
-  background-color: #F6F6F6;
+  background-color: whitesmoke;
   border: 2px solid #3E3E3E;
   border-radius: 20px;
   box-shadow: #BFFFD6 -6px -6px 0px 1px, -7px -7px 0 1px #3E3E3E; }
@@ -431,7 +432,7 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #F6F6F6;
+  background-color: whitesmoke;
   z-index: 1000;
   padding: 20px;
   border-radius: 5px;
@@ -471,6 +472,94 @@ a {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 100; }
+
+.modal-overlay-img {
+  position: fixed;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  z-index: 100; }
+  .modal-overlay-img > div {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #3E3E3E;
+    border-radius: 20px;
+    box-shadow: #BFFFD6 -6px -6px 0px 1px, -7px -7px 0 1px #3E3E3E;
+    padding: 5rem; }
+    .modal-overlay-img > div button {
+      display: inline-block;
+      margin-top: 2rem; }
+    .modal-overlay-img > div img {
+      border: 3px solid #3E3E3E;
+      border-radius: 10px;
+      min-height: 75vh;
+      max-height: 75vh; }
+      @media (max-width: 1300px) {
+        .modal-overlay-img > div img {
+          min-height: auto; } }
+
+.modal--delete {
+  position: fixed;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  z-index: 300; }
+  .modal--delete > div {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #3E3E3E;
+    border-radius: 20px;
+    box-shadow: #BFFFD6 -6px -6px 0px 1px, -7px -7px 0 1px #3E3E3E;
+    padding: 5rem; }
+    .modal--delete > div > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      margin-top: 3rem; }
+    .modal--delete > div .delete-error {
+      color: #FF6060;
+      text-align: center; }
+
+.modal-edit--open {
+  position: fixed;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  z-index: 300; }
+  .modal-edit--open > div {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #3E3E3E;
+    border-radius: 20px;
+    box-shadow: #BFFFD6 -6px -6px 0px 1px, -7px -7px 0 1px #3E3E3E;
+    padding: 5rem; }
+    .modal-edit--open > div form {
+      margin: 2rem 0; }
+      .modal-edit--open > div form label {
+        display: block;
+        margin-bottom: .5rem; }
+      .modal-edit--open > div form select {
+        width: 100%; }
 
 input {
   color: #3E3E3E;
@@ -518,7 +607,7 @@ select {
   align-items: center;
   position: fixed;
   padding: 1rem 2rem;
-  background-color: #F6F6F6;
+  background-color: whitesmoke;
   z-index: 2; }
   @media (max-width: 768px) {
     .header {
@@ -550,7 +639,7 @@ select {
   transition: .2s;
   text-transform: uppercase; }
   .l-txt:hover {
-    text-shadow: #CDB4FF 1.5px 1.5px; }
+    text-shadow: #ccb3ff 1.5px 1.5px; }
 
 .icon {
   margin: 0 0.5rem; }
@@ -568,9 +657,9 @@ select {
     height: 40px;
     width: 40px;
     border: 2px solid #3E3E3E;
-    background-color: #F6F6F6;
+    background-color: whitesmoke;
     border-radius: 50%;
-    box-shadow: #CDB4FF 1px 1px 0px 1px, 2px 2px 0 1px #3E3E3E;
+    box-shadow: #ccb3ff 1px 1px 0px 1px, 2px 2px 0 1px #3E3E3E;
     user-select: none;
     z-index: 10;
     right: 0; }
@@ -617,7 +706,7 @@ select {
   visibility: hidden;
   min-height: 100vh;
   width: 100vw;
-  background-color: #F6F6F6;
+  background-color: whitesmoke;
   position: fixed;
   top: 0;
   left: 0;
@@ -637,15 +726,15 @@ select {
       font-size: 2rem;
       transition: .2s; }
     .mobile-menu-overlay ul li:hover a {
-      text-shadow: #CDB4FF 2px 2px; }
+      text-shadow: #ccb3ff 2px 2px; }
 
 .footer {
-  background-color: #CDB4FF;
+  background-color: #ccb3ff;
   color: #3E3E3E;
   width: 100%;
   border-top: #3E3E3E 5px solid; }
   .footer-dark {
-    border-top: #F6F6F6 5px solid; }
+    border-top: whitesmoke 5px solid; }
   .footer--top {
     margin: 2rem 2rem;
     padding: 2rem 0;
@@ -740,9 +829,9 @@ select {
       height: 40px;
       width: 40px;
       border: 2px solid #3E3E3E;
-      background-color: #F6F6F6;
+      background-color: whitesmoke;
       border-radius: 50%;
-      box-shadow: #CDB4FF 1px 1px 0px 1px, 2px 2px 0 1px #3E3E3E;
+      box-shadow: #ccb3ff 1px 1px 0px 1px, 2px 2px 0 1px #3E3E3E;
       user-select: none;
       z-index: 10; }
       .header-dashboard--nav__btn > span {
@@ -783,7 +872,7 @@ select {
   width: 25vw;
   top: 0;
   left: 100%;
-  background-color: #F6F6F6;
+  background-color: whitesmoke;
   position: fixed;
   display: flex;
   align-items: baseline;
@@ -809,7 +898,7 @@ select {
       font-size: 2.5rem;
       transition: .2s; }
     .dashboard-menu-overlay ul li:hover a {
-      text-shadow: #CDB4FF 2px 2px; }
+      text-shadow: #ccb3ff 2px 2px; }
   .dashboard-menu-overlay.expanded {
     visibility: visible;
     left: 0; }
@@ -865,7 +954,7 @@ select {
       align-items: center;
       justify-content: center;
       border: 2px solid #3E3E3E;
-      box-shadow: #CDB4FF 1px 1px 0px 1px, 2px 2px 0 1px #3E3E3E; }
+      box-shadow: #ccb3ff 1px 1px 0px 1px, 2px 2px 0 1px #3E3E3E; }
       .profile-menu--btn__avatar svg {
         height: 32px;
         width: 32px; }
@@ -881,7 +970,7 @@ select {
       letter-spacing: .1rem;
       border: 1px solid #3E3E3E;
       border-radius: 5px;
-      box-shadow: #F6F6F6 -2px -2px 0px 1px;
+      box-shadow: whitesmoke -2px -2px 0px 1px;
       padding: .5rem 2rem;
       margin: 0 1rem;
       display: flex;
@@ -905,13 +994,13 @@ select {
   top: 0;
   right: 0;
   position: absolute;
-  background-color: #F6F6F6;
+  background-color: whitesmoke;
   padding: 0 2rem;
   margin-right: 5rem;
   margin-top: 1rem;
   border-radius: 10px;
   z-index: 5;
-  box-shadow: #CDB4FF 1px 1px 0px 1px, 2px 2px 0 1px #3E3E3E; }
+  box-shadow: #ccb3ff 1px 1px 0px 1px, 2px 2px 0 1px #3E3E3E; }
   @media (max-width: 768px) {
     .profilebar-overlay {
       margin-right: .5rem; } }
@@ -984,7 +1073,7 @@ select {
       padding-top: 5rem; } }
 
 .home--intro {
-  background-color: #CDB4FF;
+  background-color: #ccb3ff;
   display: flex;
   flex-direction: column;
   margin: 10rem 0;
@@ -1125,7 +1214,7 @@ select {
   .login--header__underline {
     width: 100%;
     height: 0.3rem;
-    background-color: #CDB4FF;
+    background-color: #ccb3ff;
     margin-top: 0.5rem; }
   .login--header a {
     color: #3E3E3E;
@@ -1190,7 +1279,7 @@ select {
       font-size: 1.6rem; }
     .login--form__register a {
       margin-left: 1.5rem;
-      color: #CDB4FF;
+      color: #ccb3ff;
       text-decoration: none;
       font-size: 1.6rem; }
   .login--form__avatar {
@@ -1221,7 +1310,7 @@ select {
   .forgotten-password--header__underline {
     width: 100%;
     height: 0.2rem;
-    background-color: #CDB4FF;
+    background-color: #ccb3ff;
     margin-top: 0.5rem; }
   .forgotten-password--header a {
     color: #3E3E3E;
@@ -1278,7 +1367,7 @@ select {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #CDB4FF;
+  background-color: #ccb3ff;
   justify-content: space-around;
   padding: 5rem 0;
   border-top: 4px solid #3E3E3E;
@@ -1381,7 +1470,7 @@ select {
       height: 110px;
       width: 110px;
       border-radius: 50%;
-      background-color: #F6F6F6;
+      background-color: whitesmoke;
       border: solid #3E3E3E 2px;
       position: absolute;
       bottom: -55px;
@@ -1718,29 +1807,57 @@ select {
       flex: 1 1 0px;
       display: flex;
       align-items: center;
-      justify-content: center; }
+      justify-content: center;
+      flex-direction: column; }
       @media (max-width: 1024px) {
         .challenge-page--infos__details .img-info {
           margin: 3rem 0; } }
-      .challenge-page--infos__details .img-info > div {
+      .challenge-page--infos__details .img-info--button {
+        align-self: flex-end;
+        margin-top: 1.5rem;
+        display: flex;
+        align-items: center; }
+        .challenge-page--infos__details .img-info--button > div {
+          display: flex;
+          align-items: center; }
+          .challenge-page--infos__details .img-info--button > div p {
+            margin-right: .5rem;
+            color: #ccb3ff; }
+          .challenge-page--infos__details .img-info--button > div svg {
+            height: 25px; }
+      .challenge-page--infos__details .img-info--wrapper {
+        align-self: flex-end;
         overflow: hidden;
         border: 2px solid #3E3E3E;
         border-radius: 10px;
         box-shadow: #BFFFD6 -6px -6px 0px 1px, -7px -7px 0 1px #3E3E3E;
-        min-width: 600px; }
+        min-width: 1000px;
+        max-height: 500px; }
+        @media (max-width: 1550px) {
+          .challenge-page--infos__details .img-info--wrapper {
+            min-width: 800px; } }
+        @media (max-width: 1300px) {
+          .challenge-page--infos__details .img-info--wrapper {
+            min-width: 600px; } }
         @media (max-width: 768px) {
-          .challenge-page--infos__details .img-info > div {
+          .challenge-page--infos__details .img-info--wrapper {
             min-width: 100%;
             margin: 1.5rem; } }
-        .challenge-page--infos__details .img-info > div img {
+        .challenge-page--infos__details .img-info--wrapper__img {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          display: block; }
+          display: block;
+          cursor: pointer; }
+  .challenge-page--infos__completed {
+    background-color: white;
+    display: inline-block;
+    padding: 2rem;
+    border: solid #3E3E3E 2px;
+    border-radius: 5px; }
   .challenge-page--infos__answer .challenge-answer {
     display: flex;
-    align-items: center;
-    justify-content: space-between; }
+    align-items: flex-end; }
     @media (max-width: 768px) {
       .challenge-page--infos__answer .challenge-answer {
         flex-direction: column;
@@ -1772,7 +1889,7 @@ select {
         border: 1px #3E3E3E solid;
         font-size: 1.5rem;
         border-radius: 0px 10px 10px 0px;
-        background-color: #CDB4FF;
+        background-color: #ccb3ff;
         box-shadow: #3E3E3E -1px -2px 0px 1px; }
     .challenge-page--infos__answer .challenge-answer--validation {
       padding: 1rem 2rem;
@@ -1794,6 +1911,24 @@ select {
         height: 26px;
         width: 25px;
         margin-right: 1rem; }
+  .challenge-page--infos__answer .challenge-stats {
+    margin-top: 2rem; }
+    .challenge-page--infos__answer .challenge-stats > div {
+      background-color: white;
+      display: inline-block;
+      padding: 2rem;
+      border: solid #3E3E3E 2px;
+      border-radius: 5px;
+      font-size: 1.8rem; }
+      .challenge-page--infos__answer .challenge-stats > div .cold-hot {
+        margin-top: 1rem;
+        text-align: center; }
+      .challenge-page--infos__answer .challenge-stats > div .span {
+        font-family: "millimetre_bold"; }
+    .challenge-page--infos__answer .challenge-stats h3 {
+      margin-bottom: 1rem; }
+  .challenge-page--infos__answer .challenge-crud {
+    display: flex; }
 
 .challenge-page--forum {
   margin: 4rem 5rem;
@@ -1833,7 +1968,7 @@ select {
       margin-bottom: 1.5rem; }
     .challenge-page--forum__ranking span {
       display: block;
-      margin: 1rem 0;
+      margin: 2rem 0 1.5rem 0;
       font-family: "millimetre_bold"; }
     .challenge-page--forum__ranking ol {
       list-style: decimal;
@@ -1874,7 +2009,7 @@ select {
       text-align: left;
       font-size: 1.8rem;
       border-style: solid none solid none;
-      background-color: #CDB4FF; }
+      background-color: #ccb3ff; }
       @media (max-width: 550px) {
         .general-ranking-page--content__table thead tr th {
           padding: 2rem 1rem; } }
@@ -1919,12 +2054,12 @@ select {
   justify-content: space-between;
   padding: 20px 20px;
   font-size: 3rem;
-  background-color: #CDB4FF; }
+  background-color: #ccb3ff; }
   .global-ranking--header div {
     width: 25%;
     text-align: center;
     flex: 2;
-    color: #F6F6F6; }
+    color: whitesmoke; }
   .global-ranking--header__number {
     flex: 1 !important; }
   .global-ranking--header__trophy {
@@ -1935,7 +2070,7 @@ select {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #CDB4FF; }
+  background-color: #ccb3ff; }
   .notfound-page svg {
     margin: 2rem; }
   .notfound-page p {
