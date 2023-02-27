@@ -265,6 +265,12 @@ a {
   .dark .about--intro {
     border-top: 4px solid whitesmoke;
     border-bottom: 4px solid whitesmoke; }
+  .dark .challenge-page--infos__completed {
+    background-color: #3E3E3E; }
+  .dark .challenge-answer--validation {
+    background-color: #3E3E3E !important; }
+  .dark .challenge-stats div {
+    background-color: #3E3E3E; }
 
 .expanded {
   color: #3E3E3E; }

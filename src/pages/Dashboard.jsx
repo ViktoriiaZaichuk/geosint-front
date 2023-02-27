@@ -6,7 +6,7 @@ import FooterDashboard from "../components/navigation/footer_dashboard";
 import LayoutDashboard from "./LayoutDashboard";
 import Card from "../components/card";
 import Loader from "../components/loader";
-import { getLastCreatedChallenge, getRandomChallenges } from "../api/challenge";
+import { getLastCreatedChallenge, getRandomChallenges, getChallenges } from "../api/challenge";
 import { getUser, getChallengesDone } from "../api/user";
 import { UserContext } from "../context/UserContext";
 import { ReactComponent as Avatar1 } from "../assets/icons/avatar1.svg";
@@ -30,6 +30,11 @@ const Dashboard = () => {
     const { isFetching, data } = useQuery("randomChallenges", getRandomChallenges);
 
     const { isFetching: lastChallengeFetching, data: lastChallenge } = useQuery("lastChallenge", getLastCreatedChallenge);
+
+    const { data: allChallenges } = useQuery("allChallenges", async () => {
+        const challenges = await getChallenges();
+        return challenges.slice(-3);
+    });
 
     const { data: userData } = useQuery("user", getUser);
 
@@ -127,13 +132,13 @@ const Dashboard = () => {
 
                     <div className="dashboard-home--stats__challenge">
                         <p>Ton challenge quotidien est disponible :</p>
-                        {lastChallengeFetching ? <Loader /> : data.length > 0 && <Card key={lastChallenge.id} challenge={lastChallenge} />}
+                        {lastChallengeFetching ? <Loader /> : <Card key={lastChallenge.id} challenge={lastChallenge} />}
                     </div>
                 </div>
                 <div className="dashboard-home--challenges">
                     <h2>Notre sélection pour toi :</h2>
                     <div className="card-list">
-                        {isFetching ? <Loader /> : data.length > 0 && data.map((challenge) => <Card key={challenge.id} challenge={challenge} />)}
+                        {isFetching ? <Loader /> : data.length > 0 ? data.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : allChallenges?.length > 0 ? allChallenges.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : <p>Aucun challenge disponible</p>}
                     </div>
                     <div className="link">
                         <Link to={"/challenges_list"}>Voir d’autres challenges <ArrowRight className="arrow-right"></ArrowRight></Link>
@@ -142,7 +147,7 @@ const Dashboard = () => {
                 <div className="dashboard-home--groupe">
                     <h2>CHALLENGE DE GROUPE :</h2>
                     <div className="card-list">
-                        {isFetching ? <Loader /> : data.length > 0 && data.map((challenge) => <Card key={challenge.id} challenge={challenge} />)}
+                        {isFetching ? <Loader /> : data.length > 0 ? data.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : allChallenges?.length > 0 ? allChallenges.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : <p>Aucun challenge disponible</p>}
                     </div>
                     <div className="link">
                         <Link to={"/challenges_list"}>Voir d’autres challenges <ArrowRight className="arrow-right"></ArrowRight></Link>

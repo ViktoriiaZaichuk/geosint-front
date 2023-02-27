@@ -114,7 +114,7 @@ const Register = () => {
                         placeholder=""
                         error={errors.passwordConfirm?.message}
                     />
-                    <button onClick={handleSubmit(onSubmit)} className="button-purple">Inscription</button>
+                    <button onClick={handleSubmit(onSubmit)} className={theme === "light" ? "button-purple" : "button"}>Inscription</button>
                     <div className="login--form__register">
                         <p>Déjà un compte ?</p>
                         <Link to={"/login"}>Connecte-toi</Link>

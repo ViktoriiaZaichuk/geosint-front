@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import FooterDashboard from "../components/navigation/footer_dashboard";
 import LayoutDashboard from "./LayoutDashboard";
@@ -10,9 +10,12 @@ import { createChallenge } from "../api/challenge";
 
 import { ReactComponent as GlobeImg } from '../assets/img/challenge-create.svg'
 import { ReactComponent as Lightening } from '../assets/icons/lightening.svg'
+import { ThemeContext } from "../context/ThemeContext";
 
 const CreateChallenge = () => {
     const navigate = useNavigate()
+
+    const { theme } = useContext(ThemeContext)
 
     const { 
         getValues,
@@ -145,14 +148,14 @@ const CreateChallenge = () => {
                             onImageChange={handleImageChange}
                         />             
 
-                        <button className="button-purple" onClick={handleSubmit(onSubmit)}>Créer</button>
+                        <button className={theme === "light" ? "button-purple" : "button"} onClick={handleSubmit(onSubmit)}>Créer</button>
                     </form>
                 </div>
                 <div className="create-challenge--content__img">
                     {   
                         image ? 
                         <div className="chosen-image">
-                            <img src={getValues("image")} alt="Uploaded Image"/> 
+                            <img src={getValues("image")} alt="Uploaded_Image"/> 
                         </div>
                         : <GlobeImg></GlobeImg> 
                     }

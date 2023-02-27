@@ -159,6 +159,17 @@
         border-top: 4px solid $white;
         border-bottom: 4px solid $white;
     }
+    & .challenge-page--infos__completed {
+        background-color: $black;
+    }
+    & .challenge-answer--validation {
+        background-color: $black !important;
+    }
+    & .challenge-stats {
+        & div {
+            background-color: $black;
+        }
+    }
 }
 
 .expanded {

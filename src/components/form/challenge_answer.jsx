@@ -5,6 +5,7 @@ import Confetti from 'react-confetti'
 import { checkAnswer } from '../../api/challenge'
 import { ReactComponent as Minus } from '../../assets/icons/minus.svg'
 import { ReactComponent as Check } from '../../assets/icons/check.svg'
+import wait from '../../utils/wait'
 
 const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback }) => {
     const [answer, setAnswer] = React.useState(null)
@@ -24,21 +25,21 @@ const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback }) => {
     
         setAnswer(data.challengeAnswer)
         const response = await checkAnswer(challengeId, data.challengeAnswer)
-        if (response.message === 'Right answer') {
-          setIsCorrect(true)
-          setChallengeInfo(response.userChallenge)
-        } else if (response.message === 'Wrong answer') {
-          setIsCorrect(false)
-          setHelpInfo(response.help)
-          setChallengeInfo(response.userChallenge)
-        }
         setHasAnswered(true)
+        if (response.message === 'Right answer') {
+            setIsCorrect(true)
+            setChallengeInfo(response.userChallenge)
+        } else if (response.message === 'Wrong answer') {
+            setIsCorrect(false)
+            setHelpInfo(response.help)
+            setChallengeInfo(response.userChallenge)
+            // Reset hasAnswered state to allow the user to submit another answer
+            await wait(3000)
+            setHasAnswered(false);
+        }
 
         // Pass the updated challengeInfo to the parent component
         challengeInfoUpdateCallback(response.userChallenge);
-
-        // Reset hasAnswered state to allow the user to submit another answer
-        setHasAnswered(false);
     }
  
     return (
@@ -64,24 +65,23 @@ const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback }) => {
                     {answer && (
                         <div className="challenge-answer--validation">
                             <div>
-                            {hasAnswered ? (
-                                isCorrect ? (
-                                <div>
-                                    <Check></Check>
-                                    Reponse juste !
-                                </div>
+                                {hasAnswered ? (
+                                    isCorrect ? (
+                                        <div className="dark">
+                                            <Check></Check>
+                                            Reponse juste !
+                                        </div>
+                                    ) : (
+                                        <div className="dark">
+                                            <Minus></Minus>
+                                            Reponse fausse
+                                        </div>
+                                    )
                                 ) : (
-                                <div>
-                                    <Minus></Minus>
-                                    Reponse fausse
-                                </div>
-                                
-                                )
-                            ) : (
-                                <div>
-                                En attente de réponse...
-                                </div>
-                            )}
+                                    <div className="dark">
+                                    En attente de réponse...
+                                    </div>
+                                )}
                             </div>
                         </div>
                     )}
@@ -90,7 +90,7 @@ const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback }) => {
 
             <div className='challenge-stats'>
                 {answer && (
-                    <div>
+                    <div className="dark">
                         {isCorrect && (
                         <div>
                             <Confetti     

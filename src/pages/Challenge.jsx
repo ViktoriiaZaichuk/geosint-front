@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import moment from "moment";
@@ -11,15 +11,19 @@ import ChallengeAnswer from "../components/form/challenge_answer";
 import EditChallenge from "../components/form/edit_challenge";
 import DeleteChallenge from "../components/form/delete_challenge";
 import Loader from "../components/loader";
+import { ThemeContext } from "../context/ThemeContext";
 
 import { ReactComponent as Arrow } from '../assets/icons/arrow-right.svg'
  
 const Challenge = () => {
     const { id } = useParams();
 
+    const { theme } = useContext(ThemeContext)
+
     const { data: challenge, isFetching: isChallengeFetching } = useQuery(["challenge", id], () => getChallenge(id));
 
     const [parentChallengeInfo, setParentChallengeInfo] = useState(null);
+
     const handleChallengeInfoUpdate = (challengeInfo) => {
         setParentChallengeInfo(challengeInfo);
     };
@@ -94,7 +98,7 @@ const Challenge = () => {
                                             />
                                             <button 
                                                 onClick={() => setShowImageModal(false)}
-                                                className="button-purple"
+                                                className={theme === "light" ? "button-purple" : "button"}
                                             >
                                                 Fermer
                                             </button>

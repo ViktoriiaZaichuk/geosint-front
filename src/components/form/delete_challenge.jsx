@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal';
 import { deleteChallenge } from "../../api/challenge";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const DeleteChallenge = ({ challengeId }) => {
     const [modalIsOpen, setIsOpen] = useState(false);
