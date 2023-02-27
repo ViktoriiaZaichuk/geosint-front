@@ -1848,7 +1848,7 @@ select {
     width: 25%;
     text-align: center;
     flex: 2;
-    color: #F6F6F6; }
+    color: whitesmoke; }
   .global-ranking--header__number {
     flex: 1 !important; }
   .global-ranking--header__trophy {
