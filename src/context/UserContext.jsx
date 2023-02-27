@@ -1,5 +1,5 @@
 import React from 'react'
-import { storeData } from '../utils/secureStore'
+import { storeData, removeData } from '../utils/secureStore'
 
 export const UserContext = React.createContext()
 
@@ -76,12 +76,14 @@ const userReducer = (state, action) => {
                 errorMessage: null,
             }
         case 'LOGOUT':
-            return {
+            const logoutState =  {
                 ...state,
                 login: false,
                 token: '',
                 errorMessage: null,
             }
+            removeData('currentUser')
+            return logoutState
         case 'LOGIN_ERROR':
             return {
                 ...state,

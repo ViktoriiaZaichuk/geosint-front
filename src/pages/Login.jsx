@@ -80,7 +80,7 @@ const Login = () => {
                         error={errors.password?.message}
                     />
                     <Link to={"/forgotten_password"} className="login--form__link">Mot de passe oublié ?</Link>
-                    <button onClick={handleSubmit(onSubmit)} className={"button-purple"}>Connexion</button>
+                    <button onClick={handleSubmit(onSubmit)} className={theme === "light" ? "button-purple" : "button"}>Connexion</button>
                     {loginError && <p className="login--form__error">Email ou mot de passe incorrect</p>}
                     <div className="login--form__register">
                         <p>Tu n'as pas de compte ?</p>

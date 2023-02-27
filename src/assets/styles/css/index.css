@@ -270,6 +270,9 @@ a {
   .expanded a {
     color: #3E3E3E !important; }
 
+.error {
+  color: #FF6060 !important; }
+
 .button {
   background-color: #BFFFD6;
   font-family: "millimetre_bold";

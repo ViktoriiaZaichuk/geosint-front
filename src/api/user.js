@@ -50,3 +50,12 @@ export const getUsersRanking = async () => {
         return false
     }
 }
+
+export const forgotPassword = async (email) => {
+    const response = await request({ method: 'post', url: `/forgot_password`, data: { email } })
+    if (response.status === 200) {
+        return true
+    } else {
+        return false
+    }
+}

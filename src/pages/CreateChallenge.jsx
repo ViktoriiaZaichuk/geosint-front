@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import FooterDashboard from "../components/navigation/footer_dashboard";
 import LayoutDashboard from "./LayoutDashboard";
 import { useForm, Controller } from "react-hook-form";
@@ -19,7 +19,6 @@ const CreateChallenge = () => {
         control,
         handleSubmit, 
         setValue,
-        triggerValidation,
         formState: { errors },
         reset
     } = useForm({
@@ -43,8 +42,6 @@ const CreateChallenge = () => {
         const group_id = null
 
         data.image = imageValue
-
-        console.log(data)
 
         const isChallengeCreated = await createChallenge({
             ...data,

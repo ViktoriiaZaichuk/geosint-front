@@ -119,7 +119,9 @@ const Dashboard = () => {
                             </div>
                         </div>
                         <div className="create-chlng">
-                            <button className={theme === "light" ? "button" : "button-green-light"}>Créer un challenge</button>
+                            <button className={theme === "light" ? "button" : "button-green-light"}>
+                                <Link to={"/create_challenge"}>Créer un challenge</Link>
+                            </button>
                         </div>
                     </div>
 
