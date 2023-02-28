@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 import Layout from "./LayoutHome";
 import Card from '../components/card';
@@ -15,10 +16,12 @@ import { ThemeContext } from '../context/ThemeContext'
 const Home = () => {
     const { theme } = useContext(ThemeContext)
 
+    const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
+
     return (
         <Layout> 
             <div className={theme === "light" ? "home--page" : "home--page dark"}>
-                <div className="home--hero">
+                <div className="home--hero" style={{ paddingTop: !isMobile ? "10%" : 0}}>
                     <div className="home--hero__txt">
                         <h1>Rejoignez notre communauté de joueurs passionnés maintenant et relevez le défi !</h1>
                         <p>Téléchargez des photos de différents endroits à travers le monde et mettez vos connaissances géographiques à l'épreuve en devinant où elles ont été prises.</p>

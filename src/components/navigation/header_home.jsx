@@ -22,7 +22,7 @@ const HeaderHome = () => {
         <nav className='nav'>  
             <div className={theme === "light" ? 'header' : 'header dark'}>
                 <Link to={"/"}>{
-                    theme === "light" ? <Logo /> : <WhiteLogo />
+                    theme === "light" ? <Logo width={150} height={47} /> : <WhiteLogo width={150} height={47} />
                 }</Link>
                 <div className='header--right'>
                     <ul className='header--right__links'>

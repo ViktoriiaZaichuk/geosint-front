@@ -17,7 +17,7 @@ import useGetCurrentUser from './hooks/useGetCurrentUser'
 import Loader from './components/loader'
 import NotFound from './pages/404Page'
 import ResetPassword from './pages/ResetPassword'
-
+import ValidationMessage from './pages/ValidationMessage'
 
 function App() {
     const user = useGetCurrentUser()
@@ -70,6 +70,10 @@ function App() {
         {
             path: '/reset_password/:token',
             element: <ResetPassword />,
+        },
+        {
+            path: '/validate/:token',
+            element: <ValidationMessage />,
         }
     ])
 

@@ -87,6 +87,29 @@ $screen550: 550px;
         font-family: $primaryFontBold;
         color: $black;
         text-align: center;
+        font-weight: bold;
+    }
+}
+
+@mixin big-button {
+    font-family: $primaryFontBold;
+    letter-spacing: .1rem;
+    border: 1px solid $black;
+    border-radius: 5px;
+    box-shadow: $black -4px -4px 0px 1px;
+    padding: .5rem 2rem;
+    margin: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        animation: 0.25s infinite alternate shadowButton;
+    }
+    & a {
+        font-family: $primaryFontBold;
+        color: $black;
+        text-align: center;
+        font-size: 4rem;
     }
 }
 
@@ -108,6 +131,28 @@ $screen550: 550px;
         font-family: $primaryFontBold;
         color: $black !important;
         text-align: center;
+    }
+}
+
+@mixin big-button-light {
+    font-family: $primaryFontBold;
+    letter-spacing: .1rem;
+    border: 1px solid $black;
+    border-radius: 5px;
+    box-shadow: $white -4px -4px 0px 1px;
+    padding: .5rem 2rem;
+    margin: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        animation: 0.25s infinite alternate shadowButton;
+    }
+    & a {
+        font-family: $primaryFontBold;
+        color: $black !important;
+        text-align: center;
+        font-size: 4rem;
     }
 }
 

@@ -34,3 +34,16 @@ export const registerUser = async (formData) => {
 export const logoutUser = async (dispatch) => {
     return dispatch({ type: 'LOGOUT' })
 }
+
+export const validateUser = async (token) => {
+    const response = await request({
+        method: 'post',
+        url: 'auth/validate',
+        data: { token },
+    })
+    if (response.status === 200) {
+        return true
+    } else {
+        return false
+    }
+}

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import moment from "moment";
 import "moment/locale/fr";
+import { FixedSizeList as List } from 'react-window'
 
 import { getChallenge } from "../api/challenge";
 import LayoutDashboard from "../pages/LayoutDashboard"
@@ -12,8 +13,27 @@ import EditChallenge from "../components/form/edit_challenge";
 import DeleteChallenge from "../components/form/delete_challenge";
 import Loader from "../components/loader";
 import { ThemeContext } from "../context/ThemeContext";
-
 import { ReactComponent as Arrow } from '../assets/icons/arrow-right.svg'
+import { ReactComponent as Trophy } from '../assets/icons/trophy_small.svg'
+
+const Row = ({ user, bg, index, color }) => (
+    <div className="row-small" style={{ backgroundColor: bg }}>
+        <div className="row-small--number" style={{ color: color }}>
+            {index + 1}
+        </div>
+        <div style={{ color: color }}>
+            {user?.username}
+        </div>
+        <div style={{ color: color }}>
+            {user?.challenge_score}
+        </div>
+        <div className="row-small--trophy">
+            {index === 0 && <Trophy fill="#e8b923" />}
+            {index === 1 && <Trophy fill="#c0c0c0" />}
+            {index === 2 && <Trophy fill="#cd7f32" />}
+        </div>
+    </div>
+)
  
 const Challenge = () => {
     const { id } = useParams();
@@ -84,7 +104,7 @@ const Challenge = () => {
                                     </div>
                                     <button 
                                         onClick={() => setShowImageModal(true)}
-                                        className="button-purple"
+                                        className="button-purple-light"
                                         >
                                         Agrandir image
                                     </button>
@@ -151,20 +171,22 @@ const Challenge = () => {
                         </div>
                         <div className="challenge-page--forum__ranking">
                             <h2>CLASSEMENT</h2>
-                            <p>Nombre de personnes ayant trouvé la bonne réponse : XXX</p>
+                            <p>Nombre de personnes ayant trouvé la bonne réponse : {challenge.ranking.length}</p>
                             <span>TOP 10</span>
-
-                            {challenge.ranking.length === 0 ? (
-                            <p>Aucun joueur n'a encore joué ce challenge.</p>
-                            ) : (
-                            <ol>
-                                {challenge.ranking.map((ranking) => (
-                                    <li key={ranking.ranking_id}>
-                                    {ranking.username} (challenge score: {ranking.challenge_score} )
-                                    </li>
-                                ))}
-                            </ol>
-                            )}
+                            <List
+                                height={300}
+                                itemCount={challenge.ranking.length <= 10 ? challenge.ranking.length : 10}
+                                itemSize={60}
+                                width={"100%"}
+                            >
+                                {({ index }) => {
+                                    const user = challenge.ranking[index]
+                                    const bg = index % 2 ? "#3E3E3E" : "#000000"
+                                    const bgLight = index % 2 ? "#f6f6f6" : "#ebebeb"
+                                    const color = index % 2 ? "#CDB4FF" : "#BFFFD6"
+                                    return <Row user={user} bg={theme === "light" ? bgLight : bg} index={index} color={theme === "light" ? "#3E3E3E" : color} />
+                                }}
+                            </List>
                         </div>
                     </div>
                 </>

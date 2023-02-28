@@ -47,7 +47,7 @@ const ForgottenPassword = () => {
                     <a href={"/forgotten_password"}>Réinitialiser le mot de passe <div className="forgotten-password--header__underline" /></a>
                 </div>
                 <form className="login--form">
-                    <p>Renseigne l'adresse email associée à ton compte afin de recevoir les instructions pour changer de mot de passe.</p>
+                    <p>Renseigne l'adresse email associée à ton <br/> compte afin de recevoir les instructions pour <br/> changer de mot de passe.</p>
                     <Input 
                         control={control}
                         name="email"

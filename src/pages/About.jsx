@@ -4,7 +4,8 @@ import Card from '../components/team_card';
 
 import { ReactComponent as Search } from '../assets/img/search.svg'
 import { ReactComponent as Globe } from '../assets/img/globe.svg'
-import bannerImg from '../assets/img/Shovel-Knight.jpg'
+import { ReactComponent as Logo } from '../assets/icons/logo_purple_shadow.svg'
+import { ReactComponent as WhiteLogo } from '../assets/icons/logo_white_shadow.svg'
 import Celine from '../assets/img/team/Celine.png'
 import Clement from '../assets/img/team/Clement.png'
 import Thomas from '../assets/img/team/Thomas.png'
@@ -18,7 +19,7 @@ const About = () => {
         <Layout>
             <div className={theme === "light" ? "about--page" : "about--page dark"}>
                 <div className="about--banner">
-                    <img src={bannerImg} alt="background" className="about--banner__img" />
+                    {theme === "light" ? <Logo width={1000} height={500} /> : <WhiteLogo width={1000} height={500} />}
                     <div className="about--banner__txt">
                         <h1>Rejoignez notre communauté de joueurs passionnés maintenant et relevez le défi !</h1>
                         <p>Téléchargez des photos de différents endroits à travers le monde et mettez vos connaissances géographiques à l'épreuve en devinant où elles ont été prises.</p>

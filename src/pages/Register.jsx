@@ -126,6 +126,7 @@ const Register = () => {
                 onRequestClose={() => setModalIsOpen(false)}
                 className="modal"
                 overlayClassName="overlay"
+                appElement={document.getElementById("root")}
             >
                 <div className="modal--content">
                     <h2 className="modal--title">Compte créé avec succès</h2>

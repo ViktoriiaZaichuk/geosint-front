@@ -7,7 +7,7 @@ import LayoutDashboard from "./LayoutDashboard";
 import Card from "../components/card";
 import Loader from "../components/loader";
 import { getLastCreatedChallenge, getRandomChallenges, getChallenges } from "../api/challenge";
-import { getUser, getChallengesDone } from "../api/user";
+import { getUser, getChallengesDone, getUsersRanking } from "../api/user";
 import { UserContext } from "../context/UserContext";
 import { ReactComponent as Avatar1 } from "../assets/icons/avatar1.svg";
 import { ReactComponent as Avatar2 } from "../assets/icons/avatar2.svg";
@@ -21,9 +21,12 @@ import { ReactComponent as StarStsLight } from "../assets/icons/star-stats-light
 import { ReactComponent as Calendar } from "../assets/icons/calendar.svg";
 import { ReactComponent as CalendarLight } from "../assets/icons/calendar-light.svg";
 import { ReactComponent as ArrowRight } from '../assets/icons/arrow-right.svg';
+import { ReactComponent as ArrowRightWhite } from '../assets/icons/arrow-right-white.svg';
 import { ThemeContext } from "../context/ThemeContext";
 
 const Dashboard = () => {
+    const [globalPosition, setGlobalPosition] = React.useState(0);
+
     const { user, dispatch } = useContext(UserContext)
     const { theme } = useContext(ThemeContext)
 
@@ -39,6 +42,8 @@ const Dashboard = () => {
     const { data: userData } = useQuery("user", getUser);
 
     const { data: challengesDone } = useQuery("challengesDone", getChallengesDone);
+
+    const { data: usersRanking } = useQuery("usersRanking", getUsersRanking)
 
     function calculateMonthlyScore(objects, year, month) {
         const firstDayOfMonth = new Date(year, month, 1);
@@ -64,6 +69,17 @@ const Dashboard = () => {
         }
     }, [dispatch, userData]);
 
+    useEffect(() => {
+        if (usersRanking) {
+            const userRanking = usersRanking.find(user => user.username === userData?.username)
+            // récupérer l'index de l'utilisateur dans le tableau
+            const userIndex = usersRanking.indexOf(userRanking)
+            // ajouter 1 pour avoir le classement
+            const userRankingPosition = userIndex + 1
+            setGlobalPosition(userRankingPosition)
+        }
+    }, [usersRanking]);
+
     return (
         <LayoutDashboard className="dashboard-home">
             
@@ -86,7 +102,7 @@ const Dashboard = () => {
                         <div className="ranking">
                             <div>
                                <p>Ton classement général</p>
-                               <span>{user.global_score}</span>
+                               <span>{globalPosition}</span>
                             </div>
                             <div>
                                 {theme === "light" ? <Trophy /> : <Trophy fill="#fff" />}
@@ -104,10 +120,8 @@ const Dashboard = () => {
                             </div>
                             <div>
                                 <div>
-                                    <p>Meilleur score</p>
-                                    <span>{
-                                        challengesDone?.length > 0 ? challengesDone.reduce((prev, current) => (prev.challenge_score > current.challenge_score) ? prev : current).challenge_score : 0    
-                                    }</span>
+                                    <p>Score global</p>
+                                    <span>{userData?.global_score}</span>
                                 </div>
                                 <div>
                                     {theme === "light" ? <StarSts /> : <StarStsLight />}
@@ -123,11 +137,9 @@ const Dashboard = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="create-chlng">
-                            <button className={theme === "light" ? "button" : "button-green-light"}>
-                                <Link to={"/create_challenge"}>Créer un challenge</Link>
-                            </button>
-                        </div>
+                        <button className={theme === "light" ? "big-button" : "big-button-green-light"}>
+                            <Link to={"/create_challenge"}>Créer un challenge</Link>
+                        </button>
                     </div>
 
                     <div className="dashboard-home--stats__challenge">
@@ -141,7 +153,7 @@ const Dashboard = () => {
                         {isFetching ? <Loader /> : data.length > 0 ? data.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : allChallenges?.length > 0 ? allChallenges.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : <p>Aucun challenge disponible</p>}
                     </div>
                     <div className="link">
-                        <Link to={"/challenges_list"}>Voir d’autres challenges <ArrowRight className="arrow-right"></ArrowRight></Link>
+                        <Link to={"/challenges_list"}>Voir d’autres challenges {theme === "light" ? <ArrowRight className="arrow-right" /> : <ArrowRightWhite className="arrow-right" />}</Link>
                     </div>
                 </div>
                 <div className="dashboard-home--groupe">
@@ -150,7 +162,7 @@ const Dashboard = () => {
                         {isFetching ? <Loader /> : data.length > 0 ? data.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : allChallenges?.length > 0 ? allChallenges.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : <p>Aucun challenge disponible</p>}
                     </div>
                     <div className="link">
-                        <Link to={"/challenges_list"}>Voir d’autres challenges <ArrowRight className="arrow-right"></ArrowRight></Link>
+                        <Link to={"/challenges_list"}>Voir d’autres challenges {theme === "light" ? <ArrowRight className="arrow-right" /> : <ArrowRightWhite className="arrow-right" />}</Link>
                     </div>
                 </div>
             </div>

@@ -28,4 +28,29 @@
     @include button-white-shadow;
 }
 
+.big-button {
+    background-color: $green;
+    @include big-button;
+}
+
+.big-button-green {
+    background-color: $green;
+    @include big-button;
+}
+
+.big-button-purple {
+    background-color: $purple;
+    @include big-button;
+}
+
+.big-button-green-light {
+    background-color: $green;
+    @include big-button-light;
+}
+
+.big-button-purple-light {
+    background-color: $purple;
+    @include big-button-light;
+}
+
 

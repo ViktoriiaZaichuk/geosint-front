@@ -22,6 +22,7 @@
         & button {
             align-self: flex-start;
             width: 50%;
+            @include button;
         }
     }
     &--avatar {

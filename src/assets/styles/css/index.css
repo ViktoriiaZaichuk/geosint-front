@@ -297,7 +297,8 @@ a {
   .button a {
     font-family: "millimetre_bold";
     color: #3E3E3E;
-    text-align: center; }
+    text-align: center;
+    font-weight: bold; }
 
 .button-green {
   background-color: #BFFFD6;
@@ -316,7 +317,8 @@ a {
   .button-green a {
     font-family: "millimetre_bold";
     color: #3E3E3E;
-    text-align: center; }
+    text-align: center;
+    font-weight: bold; }
 
 .button-purple {
   background-color: #ccb3ff;
@@ -335,7 +337,8 @@ a {
   .button-purple a {
     font-family: "millimetre_bold";
     color: #3E3E3E;
-    text-align: center; }
+    text-align: center;
+    font-weight: bold; }
 
 .button-gray {
   background-color: whitesmoke;
@@ -354,7 +357,8 @@ a {
   .button-gray a {
     font-family: "millimetre_bold";
     color: #3E3E3E;
-    text-align: center; }
+    text-align: center;
+    font-weight: bold; }
 
 .button-green-light {
   background-color: #BFFFD6;
@@ -393,6 +397,106 @@ a {
     font-family: "millimetre_bold";
     color: #3E3E3E !important;
     text-align: center; }
+
+.big-button {
+  background-color: #BFFFD6;
+  font-family: "millimetre_bold";
+  letter-spacing: .1rem;
+  border: 1px solid #3E3E3E;
+  border-radius: 5px;
+  box-shadow: #3E3E3E -4px -4px 0px 1px;
+  padding: .5rem 2rem;
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .big-button:hover {
+    animation: 0.25s infinite alternate shadowButton; }
+  .big-button a {
+    font-family: "millimetre_bold";
+    color: #3E3E3E;
+    text-align: center;
+    font-size: 4rem; }
+
+.big-button-green {
+  background-color: #BFFFD6;
+  font-family: "millimetre_bold";
+  letter-spacing: .1rem;
+  border: 1px solid #3E3E3E;
+  border-radius: 5px;
+  box-shadow: #3E3E3E -4px -4px 0px 1px;
+  padding: .5rem 2rem;
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .big-button-green:hover {
+    animation: 0.25s infinite alternate shadowButton; }
+  .big-button-green a {
+    font-family: "millimetre_bold";
+    color: #3E3E3E;
+    text-align: center;
+    font-size: 4rem; }
+
+.big-button-purple {
+  background-color: #ccb3ff;
+  font-family: "millimetre_bold";
+  letter-spacing: .1rem;
+  border: 1px solid #3E3E3E;
+  border-radius: 5px;
+  box-shadow: #3E3E3E -4px -4px 0px 1px;
+  padding: .5rem 2rem;
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .big-button-purple:hover {
+    animation: 0.25s infinite alternate shadowButton; }
+  .big-button-purple a {
+    font-family: "millimetre_bold";
+    color: #3E3E3E;
+    text-align: center;
+    font-size: 4rem; }
+
+.big-button-green-light {
+  background-color: #BFFFD6;
+  font-family: "millimetre_bold";
+  letter-spacing: .1rem;
+  border: 1px solid #3E3E3E;
+  border-radius: 5px;
+  box-shadow: whitesmoke -4px -4px 0px 1px;
+  padding: .5rem 2rem;
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .big-button-green-light:hover {
+    animation: 0.25s infinite alternate shadowButton; }
+  .big-button-green-light a {
+    font-family: "millimetre_bold";
+    color: #3E3E3E !important;
+    text-align: center;
+    font-size: 4rem; }
+
+.big-button-purple-light {
+  background-color: #ccb3ff;
+  font-family: "millimetre_bold";
+  letter-spacing: .1rem;
+  border: 1px solid #3E3E3E;
+  border-radius: 5px;
+  box-shadow: whitesmoke -4px -4px 0px 1px;
+  padding: .5rem 2rem;
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .big-button-purple-light:hover {
+    animation: 0.25s infinite alternate shadowButton; }
+  .big-button-purple-light a {
+    font-family: "millimetre_bold";
+    color: #3E3E3E !important;
+    text-align: center;
+    font-size: 4rem; }
 
 .card {
   display: flex;
@@ -1458,6 +1562,8 @@ select {
         margin: 5rem 1rem; } }
     .about--team__cards p {
       width: auto; }
+    .about--team__cards .card {
+      margin-top: 2rem; }
 
 .dashboard-home {
   overflow: hidden; }
@@ -1616,6 +1722,11 @@ select {
         .dashboard-home--groupe .link a .arrow-right {
           margin-left: 1rem; }
 
+.arrow-right {
+  transition: all 0.3s ease; }
+  .arrow-right:hover {
+    transform: translateX(15px); }
+
 .profile-settings {
   display: flex;
   justify-content: space-between;
@@ -1638,7 +1749,24 @@ select {
         width: 90%; } }
     .profile-settings .login--form button {
       align-self: flex-start;
-      width: 50%; }
+      width: 50%;
+      font-family: "millimetre_bold";
+      letter-spacing: .1rem;
+      border: 1px solid #3E3E3E;
+      border-radius: 5px;
+      box-shadow: #3E3E3E -2px -2px 0px 1px;
+      padding: .5rem 2rem;
+      margin: 0 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .profile-settings .login--form button:hover {
+        animation: 0.25s infinite alternate shadowButton; }
+      .profile-settings .login--form button a {
+        font-family: "millimetre_bold";
+        color: #3E3E3E;
+        text-align: center;
+        font-weight: bold; }
   .profile-settings--avatar svg:hover {
     cursor: pointer;
     animation: 0.4s scaling ease-in-out; }
@@ -2054,6 +2182,22 @@ select {
   .row--trophy {
     flex: 1 !important; }
 
+.row-small {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 20px;
+  font-size: 1.6rem; }
+  .row-small div {
+    width: 25%;
+    text-align: center;
+    flex: 2; }
+  .row-small--number {
+    flex: 1 !important; }
+  .row-small--trophy {
+    flex: 1 !important; }
+
 .global-ranking--header {
   width: 100%;
   display: flex;
@@ -2086,3 +2230,30 @@ select {
     font-size: 2.5rem; }
   .notfound-page button {
     margin: 2rem auto; }
+
+.validation-page {
+  height: 100vh;
+  background-color: #BFFFD6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .validation-page p {
+    font-size: 2rem;
+    margin-top: 2rem; }
+  .validation-page h1 {
+    display: flex; }
+  .validation-page button {
+    margin-top: 2rem;
+    font-size: 2rem; }
+  .validation-page--globe {
+    position: absolute;
+    bottom: 100px;
+    right: 100px; }
+  @media (max-width: 768px) {
+    .validation-page {
+      padding: 0 10%; }
+      .validation-page h1 {
+        text-align: center; }
+      .validation-page p {
+        text-align: center; } }

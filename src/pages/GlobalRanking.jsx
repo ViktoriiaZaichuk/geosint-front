@@ -9,29 +9,29 @@ import { ReactComponent as Trophy } from '../assets/icons/trophy.svg'
 import Loader from "../components/loader"
 import { ThemeContext } from "../context/ThemeContext"
 
-const Row = ({ user, bg, index, color }) => (
-    <div className="row" style={{ backgroundColor: bg }}>
-        <div className="row--number" style={{ color: color }}>
-            {index + 1}
-        </div>
-        <div style={{ color: color }}>
-            {user.username}
-        </div>
-        <div style={{ color: color }}>
-            {user.global_score}
-        </div>
-        <div className="row--trophy">
-            {index === 0 && <Trophy fill="#e8b923" />}
-            {index === 1 && <Trophy fill="#c0c0c0" />}
-            {index === 2 && <Trophy fill="#cd7f32" />}
-        </div>
-    </div>
-)
-
 const GeneralRanking = () => {
     const { theme } = useContext(ThemeContext)
 
     const { data, isLoading } = useQuery("usersRanking", getUsersRanking)
+
+    const Row = ({ index, style }) => (
+        <div className="row" style={{ backgroundColor: style.bg }}>
+            <div className="row--number" style={{ color: style.color }}>
+                {index + 1}
+            </div>
+            <div style={{ color: style.color }}>
+                {data[index]?.username}
+            </div>
+            <div style={{ color: style.color }}>
+                {data[index]?.global_score}
+            </div>
+            <div className="row--trophy">
+                {index === 0 && <Trophy fill="#e8b923" />}
+                {index === 1 && <Trophy fill="#c0c0c0" />}
+                {index === 2 && <Trophy fill="#cd7f32" />}
+            </div>
+        </div>
+    )
 
     return (
         <LayoutDashboard>
@@ -52,16 +52,15 @@ const GeneralRanking = () => {
                         </div>
                         <List
                             height={600}
-                            itemCount={data?.length}
+                            itemCount={data.length}
                             itemSize={60}
                             width={"100%"}
                         >
                             {({ index }) => {
-                                const user = data[index]
                                 const bg = index % 2 ? "#3E3E3E" : "#000000"
                                 const bgLight = index % 2 ? "#f6f6f6" : "#ebebeb"
                                 const color = index % 2 ? "#CDB4FF" : "#BFFFD6"
-                                return <Row user={user} bg={theme === "light" ? bgLight : bg} index={index} color={theme === "light" ? "#3E3E3E" : color} />
+                                return <Row index={index} style={{ bg: theme === "light" ? bgLight : bg, color: theme === "light" ? "#3E3E3E" : color}} />
                             }}
                         </List>
                     </>

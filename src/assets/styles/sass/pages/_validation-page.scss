@@ -1,0 +1,33 @@
+.validation-page {
+    height: 100vh;
+    background-color: $green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & p {
+        font-size: 2rem;
+        margin-top: 2rem;
+    }
+    & h1 {
+        display: flex;
+    }
+    & button {
+        margin-top: 2rem;
+        font-size: 2rem;
+    }
+    &--globe {
+        position: absolute;
+        bottom: 100px;
+        right: 100px;
+    }
+    @include screen768 {
+        padding: 0 10%;
+        & h1 {
+            text-align: center;
+        }
+        & p {
+            text-align: center;
+        }
+    } 
+}

@@ -189,3 +189,10 @@
     }
 }
 
+.arrow-right {
+    transition: all 0.3s ease;
+    &:hover {
+        transform: translateX(15px);
+    }
+}
+
