@@ -5,14 +5,18 @@ import { render, fireEvent, waitFor } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { createChallenge } from '../src/api/challenge.js';
 import UserProvider from '../src/context/UserContext';
-import {CreateChallenge} from '../src/pages/CreateChallenge';
+import CreateChallenge from '../src/pages/CreateChallenge';
 
 jest.mock('../src/api/challenge.js', () => ({
     createChallenge: jest.fn(),
 }));
 
 describe('CreateChallenge', () => {
-    it('submits the form and creates a challenge', async () => {
+  it('should render without errors', () => {
+    render(<CreateChallenge />, {wrapper: BrowserRouter});
+  });
+
+  it('submits the form and creates a challenge', async () => {
 
       const mockContextValue = {
             user: {     
@@ -58,7 +62,7 @@ describe('CreateChallenge', () => {
         image: imageFile,
         group_id: null,
       });
-    });
+  });
   
 /*     it('displays an error message if the form is submitted with invalid data', async () => {
       const { getByLabelText, getByText, queryByText } = render(<CreateChallenge />, {wrapper: BrowserRouter});

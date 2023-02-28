@@ -81,13 +81,15 @@ const EditChallenge = ({ challenge }) => {
                     <Controller 
                       name="level"
                       control={control}
+                      htmlFor="level"
                       // defaultValue={challenge.level}
-                      defaultValue={1}
+                      /* defaultValue={1} */
                       render={({ field: { value, onChange } }) => (
                         <SelectLevel 
                           label="Niveau du challenge"
                           name="level"
                           type="number"
+                          id="level"
                           onChange={onChange}
                           value={value || 1}
                         />
@@ -111,6 +113,7 @@ const EditChallenge = ({ challenge }) => {
                           defaultValue = ''
                           render={({ field: { onChange, onBlur, value } }) => (
                             <textarea
+                              id="description"
                               autoComplete="off"
                               placeholder="Ex."
                               value={value}
