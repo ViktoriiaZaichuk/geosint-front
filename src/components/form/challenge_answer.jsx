@@ -52,6 +52,7 @@ const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback }) => {
                             Valider une réponse :
                         </label>
                         <input
+                        id="challenge-answer"
                             type="text"
                             name="challengeAnswer"
                             {...register('challengeAnswer')}

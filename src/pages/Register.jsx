@@ -8,6 +8,7 @@ import Layout from "./LayoutHome";
 import Input from "../components/form/text_input";
 import { registerUser } from "../api/auth";
 import schema from "../resolvers/register"
+/* import { Avatar1, Avatar2, Avatar3, Avatar4 } from "../components/icons"; */
 import { ReactComponent as Avatar1 } from "../assets/icons/avatar1.svg";
 import { ReactComponent as Avatar2 } from "../assets/icons/avatar2.svg";
 import { ReactComponent as Avatar3 } from "../assets/icons/avatar3.svg";

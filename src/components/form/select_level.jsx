@@ -11,8 +11,9 @@ const SelectLevel = ({ onChange, onBlur, name, label, defaultValue }) => {
 
     return (
       <div className="form-select">
-        <label>{label}</label>
+        <label for="level">{label}</label>
         <select 
+          id='level'
           name={name} 
           ref={selectRef} 
           onChange={handleChange} 
