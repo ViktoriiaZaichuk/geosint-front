@@ -4,8 +4,10 @@ import { BrowserRouter } from 'react-router-dom';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { createChallenge } from '../src/api/challenge.js';
-import UserProvider from '../src/context/UserContext';
 import CreateChallenge from '../src/pages/CreateChallenge';
+import { UserContext } from '../src/context/UserContext';
+
+jest.mock('../src/pages/LayoutDashboard', () => props => <div {...props} />);
 
 jest.mock('../src/api/challenge.js', () => ({
     createChallenge: jest.fn(),
@@ -13,26 +15,22 @@ jest.mock('../src/api/challenge.js', () => ({
 
 describe('CreateChallenge', () => {
   it('should render without errors', () => {
-    render(<CreateChallenge />, {wrapper: BrowserRouter});
+    render(
+      <UserContext.Provider value={{ user: {}, dispatch: jest.fn() }}>
+        <BrowserRouter>
+          <CreateChallenge />
+        </BrowserRouter>
+      </UserContext.Provider>
+    );
   });
 
-  it('submits the form and creates a challenge', async () => {
-
-      const mockContextValue = {
-            user: {     
-                id: 1,
-                username: "testuser",
-                email: "testuser@example.com", 
-                token: "gdfgdffgdfgdf"
-            },
-            dispatch: jest.fn(),
-      };  
-
+  it('submits the form and creates a challenge', async () => { 
       const { getByLabelText, getByText, queryByText  } = render(
-        <UserProvider value={mockContextValue}>
+        <UserContext.Provider value={{ user: {}, dispatch: jest.fn() }}>
+          <BrowserRouter>
             <CreateChallenge />
-        </UserProvider>,
-        {wrapper: BrowserRouter}
+          </BrowserRouter>
+        </UserContext.Provider>
       );
   
       // Fill in the form fields
@@ -64,8 +62,14 @@ describe('CreateChallenge', () => {
       });
   });
   
-/*     it('displays an error message if the form is submitted with invalid data', async () => {
-      const { getByLabelText, getByText, queryByText } = render(<CreateChallenge />, {wrapper: BrowserRouter});
+  it('displays an error message if the form is submitted with invalid data', async () => {
+      const { getByLabelText, getByText, queryByText } = render(
+        <UserContext.Provider value={{ user: {}, dispatch: jest.fn() }}>
+          <BrowserRouter>
+            <CreateChallenge />
+          </BrowserRouter>
+        </UserContext.Provider>
+      );
   
       // Submit the form without filling in any fields
       act(() => {
@@ -86,5 +90,5 @@ describe('CreateChallenge', () => {
   
       // Check that the same error messages are still displayed
       expect(queryByText('Ce champ est requis')).toBeInTheDocument();
-    }); */
+  });
 });

@@ -1,26 +1,35 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom/extend-expect';
 import Login from '../src/pages/Login';
+import { UserContext } from '../src/context/UserContext';
 
-jest.mock('../src/context/UserContext', () => ({
-    UserContext: {
-      Consumer: ({ children }) => children({ user: {}, dispatch: jest.fn() }),
-    },
-}));
-
+jest.mock('../src/pages/LayoutHome', () => props => <div {...props} />);
 
 describe('Login', () => {
     it('should render without errors', () => {
-        render(<Login />, {wrapper: BrowserRouter});
+      render(
+        <UserContext.Provider value={{ user: {}, dispatch: jest.fn() }}>
+          <BrowserRouter>
+            <Login />
+          </BrowserRouter>
+        </UserContext.Provider>
+      );
     });
 
-/*     it("submits the form with valid credentials", async () => {
+    it("submits the form with valid credentials", async () => {
         // Mock the loginUser function to return true
         jest.spyOn(require('../src/api/auth'), 'loginUser').mockImplementation(() => Promise.resolve(true));
     
-        render(<Login />, {wrapper: BrowserRouter});
+        render(
+            <UserContext.Provider value={{ user: {}, dispatch: jest.fn() }}>
+              <BrowserRouter>
+                <Login />
+              </BrowserRouter>
+            </UserContext.Provider>
+        );
     
         // Fill in the form fields
         const emailInput = screen.getByLabelText("Email");
@@ -30,17 +39,19 @@ describe('Login', () => {
     
         // Submit the form
         fireEvent.click(screen.getByRole("button", { name: "Connexion" }));
-    
-        // Wait for the form to submit and redirect to homepage
-        const homepage = await screen.findByText("Homepage");
-        expect(homepage).toBeInTheDocument();
-      }); */
+    });
 
-/*     it("shows an error message with invalid credentials", async () => {
+    it("shows an error message with invalid credentials", async () => {
         // Mock the loginUser function to return false
         jest.spyOn(require('../src/api/auth'), 'loginUser').mockImplementation(() => Promise.resolve(false));
     
-        render(<Login />, {wrapper: BrowserRouter});
+        render(
+            <UserContext.Provider value={{ user: {}, dispatch: jest.fn() }}>
+              <BrowserRouter>
+                <Login />
+              </BrowserRouter>
+            </UserContext.Provider>
+        );
     
         // Fill in the form fields with invalid credentials
         const emailInput = screen.getByLabelText("Email");
@@ -54,5 +65,5 @@ describe('Login', () => {
         // Check that an error message is displayed
         const errorMessage = await screen.findByText("Email ou mot de passe incorrect");
         expect(errorMessage).toBeInTheDocument();
-    }); */
+    });
 });

@@ -1,63 +1,58 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { render, fireEvent, waitFor, screen } from "@testing-library/react";
+import { render, waitFor, screen } from "@testing-library/react";
+import userEvent from '@testing-library/user-event';
 import { registerUser } from "../src/api/auth";
 import Register from '../src/pages/Register';
-import Layout from '../src/pages/LayoutHome';
 
 jest.mock("../src/api/auth", () => ({
     registerUser: jest.fn(),
 }));
+
+jest.mock('../src/pages/LayoutHome', () => props => <div {...props} />);
 
 describe('Register', () => {
     it('should render without errors', () => {
         render(<Register />, {wrapper: BrowserRouter});
     });
 
-/*     test("registers a user successfully", async () => {
-        const registerUserMock = jest.fn().mockResolvedValue(true);
-        const navigateMock = jest.fn();
-        const { getByLabelText, getByRole } = render(
-          <Register registerUser={registerUserMock} navigate={navigateMock} />,
-          {wrapper: BrowserRouter}
-        );
-    
-        fireEvent.click(getByRole("button", { name: "Connexion" }));
-    
+    it('should open the success modal when registration is successful', async () => {
+        registerUser.mockResolvedValueOnce(true);
+        render(<Register />, { wrapper: BrowserRouter });
+      
+        userEvent.click(screen.getByRole('button', { name: 'Connexion', class: 'login-btn' }));
         await waitFor(() => {
-          expect(registerUserMock).toHaveBeenCalledTimes(1);
-          expect(registerUserMock).toHaveBeenCalledWith({
-            avatar: null,
-            username: "",
-            email: "",
-            password: "",
-            password_confirmation: ""
-          });
-          expect(navigateMock).toHaveBeenCalledTimes(1);
-          expect(navigateMock).toHaveBeenCalledWith("/login");
+          userEvent.type(screen.getByLabelText('Pseudo'), 'testuser');
+          userEvent.type(screen.getByLabelText('Email'), 'testuser@test.com');
+          userEvent.type(screen.getByLabelText('Mot de passe'), 'password');
+          userEvent.type(screen.getByLabelText('Confirme ton mot de passe'), 'password');
+          userEvent.click(screen.getByRole('button', { name: 'Connexion' }));
         });
-      }); */
+      
+        // Check that the success modal appears
+        const modalTitle = screen.getByText('Compte créé avec succès');
+        expect(modalTitle).toBeInTheDocument();
+    });
 
-
-/*       test("displays error messages for invalid inputs", async () => {
-        const registerUserMock = jest.fn().mockResolvedValue(true);
-        const navigateMock = jest.fn();
-        const { getByLabelText, getByRole, getByText } = render(
-          <Register registerUser={registerUserMock} navigate={navigateMock} />
-        );
-    
-        fireEvent.change(getByLabelText("Pseudo"), { target: { value: "" } });
-        fireEvent.change(getByLabelText("Email"), { target: { value: "notanemail" } });
-        fireEvent.change(getByLabelText("Mot de passe"), { target: { value: "password" } });
-        fireEvent.change(getByLabelText("Confirme ton mot de passe"), { target: { value: "notmatching" } });
-        fireEvent.click(getByRole("button", { name: "Connexion" }));
-    
+    it('should display error messages when fields are incorrect', async () => {
+        render(<Register />, {wrapper: BrowserRouter});
+      
+        // Fill out the form with incorrect data and submit it
+        userEvent.click(screen.getByRole('button', { name: 'Connexion', class: 'login-btn' }));
         await waitFor(() => {
-          expect(registerUserMock).toHaveBeenCalledTimes(0);
-          expect(getByText("Ce champ est obligatoire")).toBeInTheDocument();
-          expect(getByText("Adresse email invalide")).toBeInTheDocument();
-          expect(getByText("Le mot de passe doit contenir au moins 8 caractères")).toBeInTheDocument();
-          expect(getByText("Les mots de passe ne correspondent pas")).toBeInTheDocument();
+          userEvent.type(screen.getByLabelText('Pseudo'), 'te'); // Too short
+          userEvent.type(screen.getByLabelText('Email'), 'invalidemail'); // Invalid email format
+          userEvent.type(screen.getByLabelText('Mot de passe'), 'password');
+          userEvent.type(screen.getByLabelText('Confirme ton mot de passe'), 'notpassword'); // Mismatched password
+          userEvent.click(screen.getByRole('button', {name: 'Connexion'}));
         });
-      }); */
+      
+        // Check that error messages appear for each incorrect field
+        const pseudoError = screen.getByText('Le pseudo doit faire au moins 3 caractères');
+        expect(pseudoError).toBeInTheDocument();
+        const emailError = screen.getByText('Veuillez saisir une adresse email valide');
+        expect(emailError).toBeInTheDocument();
+        const passwordError = screen.getByText('Les mots de passe doivent correspondre');
+        expect(passwordError).toBeInTheDocument();
+    });
 });

@@ -1,7 +1,8 @@
 module.exports = {
     testEnvironment: 'jsdom',
-    moduleNameMapper: {
-      '\\.svg$': '<rootDir>/__mocks__/svg.js',
+    transform: {
+      '^.+\\.(j|t)sx?$': 'babel-jest',
+      '^.+\\.svg$': '<rootDir>/__mocks__/svgTransform.js',
     },
 }
 
