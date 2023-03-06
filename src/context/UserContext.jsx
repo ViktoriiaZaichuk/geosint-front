@@ -27,13 +27,15 @@ const initialState = {
 const userReducer = (state, action) => {
     switch (action.type) {
         case 'LOGIN_SUCCESS':
-           return {
+           const loginSuccessState =  {
                 ...state,
                 id: action.payload,
                 login: true,
                 loading: false,
                 errorMessage: null,
             }
+            storeData('currentUser', loginSuccessState)
+            return loginSuccessState
         case 'GET_USER':
             const newState = {
                 ...state,

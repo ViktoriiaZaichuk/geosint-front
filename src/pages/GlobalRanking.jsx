@@ -14,24 +14,30 @@ const GeneralRanking = () => {
 
     const { data, isLoading } = useQuery("usersRanking", getUsersRanking)
 
-    const Row = ({ index, style }) => (
-        <div className="row" style={{ backgroundColor: style.bg }}>
-            <div className="row--number" style={{ color: style.color }}>
-                {index + 1}
+    const Row = ({ index, style }) => {
+        const bg = index % 2 ? "#3E3E3E" : "#000000"
+        const bgLight = index % 2 ? "#f6f6f6" : "#ebebeb"
+        const color = index % 2 ? "#CDB4FF" : "#BFFFD6"
+
+        return (
+            <div className="row" style={{...style, backgroundColor: theme === "light" ? bgLight : bg, color: theme === "light" ? "#3E3E3E" : color }}>
+                <div className="row--number">
+                    {index + 1}
+                </div>
+                <div>
+                    {data[index]?.username}
+                </div>
+                <div>
+                    {data[index]?.global_score}
+                </div>
+                <div className="row--trophy">
+                    {index === 0 && <Trophy fill="#e8b923" />}
+                    {index === 1 && <Trophy fill="#c0c0c0" />}
+                    {index === 2 && <Trophy fill="#cd7f32" />}
+                </div>
             </div>
-            <div style={{ color: style.color }}>
-                {data[index]?.username}
-            </div>
-            <div style={{ color: style.color }}>
-                {data[index]?.global_score}
-            </div>
-            <div className="row--trophy">
-                {index === 0 && <Trophy fill="#e8b923" />}
-                {index === 1 && <Trophy fill="#c0c0c0" />}
-                {index === 2 && <Trophy fill="#cd7f32" />}
-            </div>
-        </div>
-    )
+        )
+    }
 
     return (
         <LayoutDashboard>
@@ -56,12 +62,7 @@ const GeneralRanking = () => {
                             itemSize={60}
                             width={"100%"}
                         >
-                            {({ index }) => {
-                                const bg = index % 2 ? "#3E3E3E" : "#000000"
-                                const bgLight = index % 2 ? "#f6f6f6" : "#ebebeb"
-                                const color = index % 2 ? "#CDB4FF" : "#BFFFD6"
-                                return <Row index={index} style={{ bg: theme === "light" ? bgLight : bg, color: theme === "light" ? "#3E3E3E" : color}} />
-                            }}
+                            {Row}
                         </List>
                     </>
                 )}

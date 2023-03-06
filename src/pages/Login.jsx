@@ -100,7 +100,7 @@ const Login = () => {
                 >
                     <div className="modal--content">
                         <h2 className="modal--title">Erreur</h2>
-                        <p className="modal--text">{user.errorMessage}</p>
+                        <p className="modal--text">&#128165; Oups ! On dirait que tes identifiants sont incorrects &#128165;</p>
                         <button className="button-purple" onClick={toggleModal}>Fermer</button>
                     </div>
                 </ReactModal>

@@ -1,0 +1,46 @@
+#form {
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+#input {
+    flex: 1;
+    border: 1px solid $black;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    box-shadow: $purple -2px -2px 0px 1px;
+    &:focus {
+        outline: none;
+    }
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    & li {
+        list-style: none;
+        margin: 1rem 0;
+        padding: 1rem;
+        border-radius: 5px;
+        border: 1px solid $green;
+        max-width: fit-content;
+        box-shadow: $green -2px -2px 0px 1px;
+    }
+}
+
+.messages-light {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    & li {
+        list-style: none;
+        margin: 1rem 0;
+        padding: 1rem;
+        border-radius: 5px;
+        border: 1px solid $purple;
+        max-width: fit-content;
+        box-shadow: $purple -2px -2px 0px 1px;
+    }
+}

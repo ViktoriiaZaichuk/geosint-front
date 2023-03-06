@@ -5,7 +5,6 @@ import { useQuery } from "react-query";
 import FooterDashboard from "../components/navigation/footer_dashboard";
 import LayoutDashboard from "./LayoutDashboard";
 import Card from "../components/card";
-import Loader from "../components/loader";
 import { getLastCreatedChallenge, getRandomChallenges, getChallenges } from "../api/challenge";
 import { getUser, getChallengesDone, getUsersRanking } from "../api/user";
 import { UserContext } from "../context/UserContext";
@@ -30,9 +29,9 @@ const Dashboard = () => {
     const { user, dispatch } = useContext(UserContext)
     const { theme } = useContext(ThemeContext)
 
-    const { isFetching, data } = useQuery("randomChallenges", getRandomChallenges);
+    const { data } = useQuery("randomChallenges", getRandomChallenges);
 
-    const { isFetching: lastChallengeFetching, data: lastChallenge } = useQuery("lastChallenge", getLastCreatedChallenge);
+    const { data: lastChallenge } = useQuery("lastChallenge", getLastCreatedChallenge);
 
     const { data: allChallenges } = useQuery("allChallenges", async () => {
         const challenges = await getChallenges();
@@ -67,7 +66,7 @@ const Dashboard = () => {
         if (userData) {
             dispatch({ type: "GET_USER", payload: { username: userData.username, avatar: userData.avatar, global_score: userData.global_score } })
         }
-    }, [dispatch, userData]);
+    }, [userData]);
 
     useEffect(() => {
         if (usersRanking) {
@@ -144,13 +143,13 @@ const Dashboard = () => {
 
                     <div className="dashboard-home--stats__challenge">
                         <p>Ton challenge quotidien est disponible :</p>
-                        {lastChallengeFetching ? <Loader /> : <Card key={lastChallenge.id} challenge={lastChallenge} />}
+                        {lastChallenge && <Card key={lastChallenge.id} challenge={lastChallenge} />}
                     </div>
                 </div>
                 <div className="dashboard-home--challenges">
                     <h2>Notre sélection pour toi :</h2>
                     <div className="card-list">
-                        {isFetching ? <Loader /> : data.length > 0 ? data.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : allChallenges?.length > 0 ? allChallenges.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : <p>Aucun challenge disponible</p>}
+                        {data?.length > 0 ? data.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : allChallenges?.length > 0 ? allChallenges.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : <p>Aucun challenge disponible</p>}
                     </div>
                     <div className="link">
                         <Link to={"/challenges_list"}>Voir d’autres challenges {theme === "light" ? <ArrowRight className="arrow-right" /> : <ArrowRightWhite className="arrow-right" />}</Link>
@@ -159,7 +158,7 @@ const Dashboard = () => {
                 <div className="dashboard-home--groupe">
                     <h2>CHALLENGE DE GROUPE :</h2>
                     <div className="card-list">
-                        {isFetching ? <Loader /> : data.length > 0 ? data.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : allChallenges?.length > 0 ? allChallenges.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : <p>Aucun challenge disponible</p>}
+                        {data?.length > 0 ? data.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : allChallenges?.length > 0 ? allChallenges.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : <p>Aucun challenge disponible</p>}
                     </div>
                     <div className="link">
                         <Link to={"/challenges_list"}>Voir d’autres challenges {theme === "light" ? <ArrowRight className="arrow-right" /> : <ArrowRightWhite className="arrow-right" />}</Link>

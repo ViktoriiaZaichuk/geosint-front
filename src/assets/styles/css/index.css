@@ -709,6 +709,46 @@ select {
   font-size: 1.4rem !important;
   margin: 0 !important; }
 
+#form {
+  display: flex;
+  margin-bottom: 2rem; }
+
+#input {
+  flex: 1;
+  border: 1px solid #3E3E3E;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  box-shadow: #ccb3ff -2px -2px 0px 1px; }
+  #input:focus {
+    outline: none; }
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem; }
+  .messages li {
+    list-style: none;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #BFFFD6;
+    max-width: fit-content;
+    box-shadow: #BFFFD6 -2px -2px 0px 1px; }
+
+.messages-light {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem; }
+  .messages-light li {
+    list-style: none;
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccb3ff;
+    max-width: fit-content;
+    box-shadow: #ccb3ff -2px -2px 0px 1px; }
+
 .header {
   width: 100%;
   display: flex;

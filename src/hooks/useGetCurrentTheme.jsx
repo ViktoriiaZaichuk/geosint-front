@@ -9,7 +9,6 @@ export const useGetCurrentTheme = () => {
     
     useEffect(() => {
         const storedTheme = getData("currentTheme")
-        console.log(storedTheme)
         storedTheme && setCurrentTheme(storedTheme)
     }, [])
 
