@@ -80,17 +80,21 @@ const Home = () => {
                         <h2>Crée ton propre challenge et invite tes amis !</h2>
                         <div className="card-list">
                             <Card challenge={{
-                                name: 'La Tour', 
-                                description: 'Dans quelle ville se trouve cette tour ?', 
-                                level: 1,
-                                challengeImg: ChallengeImg
-                            }}/>
+                                    name: 'La Tour', 
+                                    description: 'Dans quelle ville se trouve cette tour ?', 
+                                    level: 1,
+                                    challengeImg: ChallengeImg
+                                }}
+                                demo 
+                            />
                             <Card challenge={{
-                                name: 'Le temple', 
-                                description: 'Dans quel pays se trouve ce temple ?', 
-                                level: 1,
-                                challengeImg: ChallengeImg2
-                            }}/>
+                                    name: 'Le temple', 
+                                    description: 'Dans quel pays se trouve ce temple ?', 
+                                    level: 1,
+                                    challengeImg: ChallengeImg2
+                                }}
+                                demo
+                            />
                         </div>
                         <div className="link">
                             <Link to={"/login"}>Voir d’autres challenges <ArrowRight className="arrow-right"></ArrowRight></Link>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Card = ({ challenge }) => {
+const Card = ({ challenge, demo }) => {
     return (
         <div className="card">
             <div className="card--img">
@@ -12,7 +12,7 @@ const Card = ({ challenge }) => {
                 {challenge.level === 1 ? <p>Facile</p> : challenge.level === 2 ? <p>Intermédiaire</p> : <p>Expert</p>}
             </div>
             <p className="card--txt">{challenge.description}</p>
-            <button className="button card--btn"><Link to={`/challenge/${challenge.id}`}>Jouer</Link></button>
+            <button className="button card--btn"><Link to={demo ? "/login" : `/challenge/${challenge.id}`}>Jouer</Link></button>
         </div>
     )
 }

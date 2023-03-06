@@ -74,7 +74,7 @@ const ForgottenPassword = () => {
                 <div className="modal--content">
                     <h2 className="modal--title">&#10024; Succès &#10024;</h2>
                     <p className="modal--text">Un email de réinitialisation a été envoyé ! &#128236;</p>
-                    <button className="button-purple" onClick={toggleModal}>Fermer</button>
+                    <Link to={"/login"} className="button-purple" onClick={toggleModal}>Fermer</Link>
                 </div>
             </ReactModal>
         </Layout>

@@ -49,23 +49,23 @@ function App() {
         },
         {
             path: '/profile_settings',
-            element: <ProfileSettings />,
+            element: user.login ? <ProfileSettings /> : <NotFound />,
         },
         {
             path: '/challenges_list',
-            element: <ChallengesList />,
+            element: user.login ? <ChallengesList /> : <NotFound />,
         },
         {
             path: '/challenge/:id',
-            element: <Challenge />,
+            element: user.login ? <Challenge /> : <NotFound />,
         },
         {
             path: '/general_ranking',
-            element: <GlobalRanking />,
+            element: user.login ? <GlobalRanking /> : <NotFound />,
         },
         {
             path: '/create_challenge',
-            element: <CreateChallenge />,
+            element: user.login ? <CreateChallenge /> : <NotFound />,
         },
         {
             path: '/reset_password/:token',
