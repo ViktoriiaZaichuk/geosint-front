@@ -16,7 +16,10 @@ const FooterHome = () => {
             <div className='footer--top'>
                 <div className='footer--top__left'>
                     <Logo />
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur obcaecati perferendis temporibus odit aut amet, provident veniam adipisci iste nobis vel iure molestiae!</p>
+                    <p>Tu cherches une appli type Osint ? Essaie GEO'SINT ! 
+                        C'est super facile à utiliser et ça te permettra de mettre tes amis au défi en testant leurs connaissances géographiques.  
+                        Alors n'attends plus !
+                        Crée ton challenge dès maintenant et amuse-toi bien !</p>
                     <Button className={'button'}><Link className='link' to={"/login"}>Jouer maintenant</Link></Button>
                 </div>   
                 <div className='footer--top__right'>  

@@ -19,7 +19,7 @@ const ChallengesList = () => {
     }
 
     const { isFetching, data } = useQuery("challenges", getChallenges)
-
+    
     return (
         <LayoutDashboard>
             <div className="challenges-list--page">
@@ -70,6 +70,7 @@ const ChallengesList = () => {
                 )}
 
                 <div className="challenges-list--list">
+                    <div>
                     {isFetching ? <Loader /> : data && (
                         data.map((challenge) => {
                             if (difficulty === 0) {
@@ -79,6 +80,7 @@ const ChallengesList = () => {
                             }
                         })
                     )}
+                    </div>
                 </div>
             </div>
         </LayoutDashboard>

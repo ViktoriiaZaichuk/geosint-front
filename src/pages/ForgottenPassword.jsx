@@ -38,11 +38,11 @@ const ForgottenPassword = () => {
             const posted = await forgotPassword(data.email)
             posted && toggleModal()
         }
-    }
+    } 
 
     return (
         <Layout>
-            <div className={theme === "light" ? "login--page" : "login--page dark"} style={{ height: "74vh"}}>
+            <div className={theme === "light" ? "login--page forgotten-password" : "login--page forgotten-password dark"}>
                 <div className="forgotten-password--header">
                     <a href={"/forgotten_password"}>Réinitialiser le mot de passe <div className="forgotten-password--header__underline" /></a>
                 </div>

@@ -7,7 +7,6 @@ import Card from '../components/card';
 import ChallengeImg from '../assets/img/tour-eiffel.jpg'
 import ChallengeImg2 from '../assets/img/taj-mahal.jpg'
 import { ReactComponent as Logo } from '../assets/icons/logo-purple-bckgnd.svg'
-import { ReactComponent as ArrowRight } from '../assets/icons/arrow-right.svg'
 import { ReactComponent as CreateChallenge } from '../assets/img/pensil-create.svg'
 import { ReactComponent as HeroImg } from '../assets/img/hero-img.svg'
 import { ReactComponent as Eye } from '../assets/img/eye-home.svg'
@@ -49,24 +48,24 @@ const Home = () => {
                         <div>
                             <div>
                                 <h3>Crée ton challenge</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p className="func-p">Créé ton propre challenge sur l'application et partage le ensuite.</p>
                             </div>
                             <div>
-                                <h3>Crée ton challenge</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <h3>Participe à un challenge</h3>
+                                <p className="func-p">Rejoigns un défi captivant en participant à un challenge.</p>
                             </div>
                         </div>
                         <div>
                             <Eye></Eye>
-                        </div>
+                        </div> 
                         <div>
                             <div>
                                 <h3>Invite tes amis</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p className="func-p">Invite tes amis à participer aux mêmes challenges.</p>
                             </div>
                             <div>
-                                <h3>Invite tes amis</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <h3>Améliore-toi sur Osint</h3>
+                                <p className="func-p">Améliore ton niveau sur Osint et entraîne-toi avec notre application.</p>
                             </div>
                         </div>
                     </div>
@@ -91,9 +90,6 @@ const Home = () => {
                                 level: 1,
                                 challengeImg: ChallengeImg2
                             }}/>
-                        </div>
-                        <div className="link">
-                            <Link to={"/login"}>Voir d’autres challenges <ArrowRight className="arrow-right"></ArrowRight></Link>
                         </div>
                     </div>
                 </div>

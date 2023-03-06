@@ -75,11 +75,11 @@ $screen550: 550px;
     border: 1px solid $black;
     border-radius: 5px;
     box-shadow: $black -2px -2px 0px 1px;
-    padding: .5rem 2rem;
     margin: 0 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: .5rem 3rem;
     &:hover {
         animation: 0.4s infinite alternate shadowButton;
     }
