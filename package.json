@@ -35,7 +35,7 @@
     "yup": "^1.0.0"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"nodemon -e scss -x yarn run build-sass\"",
+    "start": "PORT=8443 concurrently \"react-scripts start\" \"nodemon -e scss -x yarn run build-sass\"",
     "build": "react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject",

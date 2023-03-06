@@ -21,8 +21,7 @@ const About = () => {
                 <div className="about--banner">
                     {theme === "light" ? <Logo width={1000} height={500} /> : <WhiteLogo width={1000} height={500} />}
                     <div className="about--banner__txt">
-                        <h1>Rejoignez notre communauté de joueurs passionnés maintenant et relevez le défi !</h1>
-                        <p>Téléchargez des photos de différents endroits à travers le monde et mettez vos connaissances géographiques à l'épreuve en devinant où elles ont été prises.</p>
+                        <h1>Une communauté de geo'sinteurs passionné.e.s !</h1>
                     </div>
                     <div className="about--banner__scores">
                         <div className="score">
@@ -46,15 +45,15 @@ const About = () => {
 
                 <div className="about--intro">
                     <div className="about--intro__title">
-                        <h1>GEOS'INT</h1>
-                        <p>Geo'sint vous propose une expérience de jeu unique qui vous emmène à deviner où se trouvent les différents endroits du monde à partir de photos panoramiques. Les utilisateurs peuvent défier leurs amis et se mesurer à d'autres joueurs à travers des scores en ligne. Geo'sint apporte une nouvelle dimension au jeu classique de deviner où se trouve une image en utilisant des photos haute résolution et en ajoutant des fonctionnalités sociales telles que la possibilité de défier des amis et de partager vos scores sur les réseaux sociaux. Rejoignez dès maintenant la communauté de Geo'sint et découvrez de nouveaux endroits à travers le monde en jouant.</p>
+                        {/* <h1>GEOS'INT</h1>
+                        <p>Geo'sint vous propose une expérience de jeu unique qui vous emmène à deviner où se trouvent les différents endroits du monde à partir de photos panoramiques. Les utilisateurs peuvent défier leurs amis et se mesurer à d'autres joueurs à travers des scores en ligne. Geo'sint apporte une nouvelle dimension au jeu classique de deviner où se trouve une image en utilisant des photos haute résolution et en ajoutant des fonctionnalités sociales telles que la possibilité de défier des amis et de partager vos scores sur les réseaux sociaux. Rejoignez dès maintenant la communauté de Geo'sint et découvrez de nouveaux endroits à travers le monde en jouant.</p> */}
                         <Polaroid />
                     </div>
                     <div className="about--intro__content">
                         <Globe className="globe" />
                         <div className="about--intro__content__txt">
-                            <h2>Le concept du jeu</h2>
-                            <p>GEOS'INT est une application mobile qui vous permet de relever des défis géographiques en répondant à des questions sur des photos prises dans des endroits du monde entier. Vous pouvez jouer seul ou avec vos amis et vous pouvez même créer vos propres défis !</p>
+                            <h2>L'OSINT kesako ?</h2>
+                            <p>Salut toi ! Tu te demandes peut-être ce que c'est que l'OSINT ? Eh bien, c'est une technique de recherche qui consiste à collecter des infos disponibles librement sur internet à propos d'une personne, d'une entreprise ou même d'un lieu ! Et chez Geo'sint, on a décidé de rendre ça fun avec des challenges basés sur des photos ! Tu pourras jouer avec tes amis, tester vos compétences en OSINT et peut-être même découvrir des choses surprenantes ! Alors, prêt à relever le défi ? !</p>
                             <button className="button">Jouer maintenant</button>
                         </div>
                     </div>
@@ -62,7 +61,7 @@ const About = () => {
 
                 <div className="about--team">
                     <h2>Notre team</h2>
-                    <p>Notre équipe de développement est composée de professionnels talentueux et déterminés. Céline est notre SCRUM Master, responsable de la planification et de la coordination du développement du projet. Clément est notre Lead Développeur, chargé de diriger les développeurs pour garantir la qualité du produit final. Thomas est notre Product Owner, responsable de définir les objectifs et la vision du projet. Enfin, Viktoriia est notre référente design, travaillant en étroite collaboration avec l'équipe pour garantir que le site ait une apparence attrayante et cohérente. Ensemble, cette équipe talentueuse travaille sans relâche pour vous offrir la meilleure expérience de jeu possible.</p>
+                    <p>Chez Geo'sint, on a une équipe de choc ! On a réuni les meilleurs professionnels pour développer notre site. Tout d'abord, il y a Céline, notre SCRUM Master, qui planifie et coordonne le projet avec brio. Puis il y a Clément, notre Lead Développeur, qui dirige nos développeurs avec détermination pour que le produit final soit de qualité. Thomas, notre Product Owner, est en charge de définir la vision du projet et de fixer les objectifs à atteindre. Enfin, Viktoriia, notre référente design, collabore étroitement avec l'équipe pour que le site soit aussi beau que cool ! Ensemble, cette équipe ultra-talentueuse travaille d'arrache-pied pour vous offrir la meilleure expérience de jeu qui soit.</p>
                     <div className="about--team__cards">
                         <Card
                             name={"Céline"}
