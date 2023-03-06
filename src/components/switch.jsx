@@ -24,7 +24,7 @@ const ThemeSwitch = ({ style }) => {
             }
             height={30}
             width={80}
-            handleDiameter={40}
+            handleDiameter={32}
             offColor="#3E3E3E"
             onColor="#FFFFFF"
             onHandleColor="#BFFFD6"

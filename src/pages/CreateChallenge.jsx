@@ -7,16 +7,19 @@ import TextInput from '../components/form/text_input';
 import SelectLevel from "../components/form/select_level";
 import UploadImage from "../components/form/upload_image";
 import { createChallenge } from "../api/challenge";
+import ReactModal from "react-modal";
 
 import { ReactComponent as GlobeImg } from '../assets/img/challenge-create.svg'
 import { ReactComponent as Lightening } from '../assets/icons/lightening.svg'
 import { ThemeContext } from "../context/ThemeContext";
 
 const CreateChallenge = () => {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    
     const navigate = useNavigate()
 
     const { theme } = useContext(ThemeContext)
-
+ 
     const { 
         getValues,
         control,
@@ -52,8 +55,8 @@ const CreateChallenge = () => {
             group_id,
         })
 
-        if(isChallengeCreated) {
-            return navigate("/challenges_list")
+        if (isChallengeCreated) {
+            setModalIsOpen(true)
         } else {
 
         }
@@ -161,6 +164,19 @@ const CreateChallenge = () => {
                     }
                 </div>
             </div>
+            <ReactModal
+                isOpen={modalIsOpen}
+                onRequestClose={() => setModalIsOpen(false)}
+                className="modal"
+                overlayClassName="overlay"
+                appElement={document.getElementById("root")}
+            >
+                <div className="modal--content">
+                    <h2 className="modal--title">Challenge créé avec succès</h2>
+                    <button onClick={() => navigate("/challenges_list")} className="button-purple">Fermer</button>
+                </div>
+            </ReactModal>
+
             <FooterDashboard></FooterDashboard>
         </LayoutDashboard>
     )  

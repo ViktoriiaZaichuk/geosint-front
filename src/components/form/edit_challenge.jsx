@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import { useForm, Controller } from 'react-hook-form';
+import ReactModal from "react-modal";
 import Modal from 'react-modal';
 import { updateChallenge } from "../../api/challenge";
 import TextInput from '../../components/form/text_input';
@@ -7,6 +9,9 @@ import SelectLevel from "../../components/form/select_level";
 
 const EditChallenge = ({ challenge }) => {
     const [showModal, setShowModal] = useState(false);
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+    const navigate = useNavigate();
 
     const { 
       getValues,
@@ -40,16 +45,14 @@ const EditChallenge = ({ challenge }) => {
         description: descriptionValue,
       };
 
-      console.log(data)
-
       const response = await updateChallenge(updatedChallenge);
 
       if (response) {
+        setShowSuccessModal(true);
         setShowModal(false);
       } else {
         console.error('Failed to update challenge.');
       }
-
       reset(updatedChallenge)
     };
 
@@ -82,8 +85,6 @@ const EditChallenge = ({ challenge }) => {
                       name="level"
                       control={control}
                       htmlFor="level"
-                      // defaultValue={challenge.level}
-                      /* defaultValue={1} */
                       render={({ field: { value, onChange } }) => (
                         <SelectLevel 
                           label="Niveau du challenge"
@@ -143,6 +144,19 @@ const EditChallenge = ({ challenge }) => {
                   </button>
                 </div>
             </Modal>
+
+            <ReactModal
+                isOpen={showSuccessModal}
+                onRequestClose={() => setShowSuccessModal(false)}
+                className="modal"
+                overlayClassName="overlay"
+                appElement={document.getElementById("root")}
+            >
+                <div className="modal--content">
+                    <h2 className="modal--title">Le challenge a été modifié avec succès</h2>
+                    <button onClick={() => navigate("/challenges_list")} type="button" className="button-purple">Fermer</button>
+                </div>
+            </ReactModal>
         </div>
     )
 }
