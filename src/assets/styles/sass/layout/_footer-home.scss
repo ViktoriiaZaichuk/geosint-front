@@ -19,6 +19,9 @@
             @include screen768 {
                 margin-bottom: 2rem;
             }
+            button {
+                background-color: $white;
+            }
         }
         &__right {
             display: flex;
@@ -40,11 +43,18 @@
     }
     &--links {
         @include flex-column;
+        h2 {
+            font-family: $primaryFontBold;
+            transition: .2s;
+            &:hover {
+                text-shadow: $white 1.5px 1.5px;
+            }
+        }
     }
     &--link {
         margin: 1rem 1rem;
         text-decoration: none;
-        color: #3E3E3E;
+        color: $black;
     }
     &--socials {
         margin: 1rem 1rem;

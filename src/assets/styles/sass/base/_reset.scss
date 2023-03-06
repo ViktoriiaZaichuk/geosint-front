@@ -58,6 +58,7 @@ input{
 button {
     font-family: $primaryFontRegular;
     font-size: $fontSize;
+    cursor: pointer;
 }
 
 a {
@@ -79,6 +80,9 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    background-image: radial-gradient($purple 2px, transparent 0);
+    background-size: 25px 25px;
 }
 .dashboard-content {
     width: 90vw;
@@ -92,6 +96,7 @@ a {
     height: 100%;
     min-height: 100%;
     overflow: hidden;
+    background-color: $white;
     @include screen768 {
         width: 100%;
         border-top: none;

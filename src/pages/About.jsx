@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Layout from "./LayoutHome";
 import Card from '../components/team_card';
 
-import { ReactComponent as Search } from '../assets/img/search.svg'
+import { ReactComponent as Polaroid } from '../assets/img/about-polaroid.svg'
 import { ReactComponent as Globe } from '../assets/img/globe.svg'
 import { ReactComponent as Logo } from '../assets/icons/logo_purple_shadow.svg'
 import { ReactComponent as WhiteLogo } from '../assets/icons/logo_white_shadow.svg'
@@ -48,7 +48,7 @@ const About = () => {
                     <div className="about--intro__title">
                         <h1>GEOS'INT</h1>
                         <p>Geo'sint vous propose une expérience de jeu unique qui vous emmène à deviner où se trouvent les différents endroits du monde à partir de photos panoramiques. Les utilisateurs peuvent défier leurs amis et se mesurer à d'autres joueurs à travers des scores en ligne. Geo'sint apporte une nouvelle dimension au jeu classique de deviner où se trouve une image en utilisant des photos haute résolution et en ajoutant des fonctionnalités sociales telles que la possibilité de défier des amis et de partager vos scores sur les réseaux sociaux. Rejoignez dès maintenant la communauté de Geo'sint et découvrez de nouveaux endroits à travers le monde en jouant.</p>
-                        <Search />
+                        <Polaroid />
                     </div>
                     <div className="about--intro__content">
                         <Globe className="globe" />
@@ -87,7 +87,7 @@ const About = () => {
                     </div>    
                 </div>
 
-                <div className="home--discord">
+                <div className="about--discord">
                     <h2>Rejoindre notre communauté sur Discord</h2>
                     <p>Rejoignez notre groupe Discord pour discuter avec d'autres utilisateurs de notre application, partager des conseils et des astuces, et participer à des défis amusants. 
                         Nous espérons vous y voir bientôt !</p>

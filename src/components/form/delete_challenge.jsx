@@ -2,28 +2,22 @@ import React, { useState } from 'react'
 import Modal from 'react-modal';
 import { deleteChallenge } from "../../api/challenge";
 import { useNavigate } from "react-router-dom";
+import ReactModal from "react-modal";
 
 const DeleteChallenge = ({ challengeId }) => {
     const [modalIsOpen, setIsOpen] = useState(false);
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
     const [alreadyPlayed, setAlreadyPlayed] = useState(false);
-    const navigate = useNavigate()
     
-    function openModal() {
-      setIsOpen(true);
-    }
-  
-    function closeModal() {
-      setIsOpen(false);
-    }
+    const navigate = useNavigate();
   
     const handleDelete = async (data) => {
-      console.log(data)
-      if (typeof data === 'string') {
-        console.log('geell')
-      }
+
       const deleted = await deleteChallenge(challengeId);
+
       if (deleted) {
-        return navigate("/challenges_list")
+        setShowSuccessModal(true);
+        modalIsOpen(false);
       } else {
         setAlreadyPlayed(true)
       }
@@ -32,14 +26,13 @@ const DeleteChallenge = ({ challengeId }) => {
     return (
         <div className='delete-modal'>
           <button 
-            onClick={openModal}
+            onClick={() => setIsOpen(true)}
             className="button-green"
           >
             Supprimer le challenge
           </button>
           <Modal
               isOpen={modalIsOpen}
-              onRequestClose={closeModal}
               className="modal--delete"
               contentLabel="Modal de confirmation de suppression de challenge"
           >
@@ -57,7 +50,7 @@ const DeleteChallenge = ({ challengeId }) => {
                 >
                   Oui, le supprimer</button>
                 <button 
-                  onClick={closeModal}
+                  onClick={() => setIsOpen(false)}
                   className="button-purple"
                 >
                   Annuler
@@ -65,6 +58,19 @@ const DeleteChallenge = ({ challengeId }) => {
               </div>
             </div>
           </Modal>
+
+          <ReactModal
+                isOpen={showSuccessModal}
+                onRequestClose={() => setShowSuccessModal(false)}
+                className="modal"
+                overlayClassName="overlay"
+                appElement={document.getElementById("root")}
+            >
+                <div className="modal--content">
+                    <h2 className="modal--title">Le challenge a été supprimé avec succès</h2>
+                    <button onClick={() => navigate("/challenges_list")} type="button" className="button-purple">Fermer</button>
+                </div>
+          </ReactModal>
         </div>
     )
 }

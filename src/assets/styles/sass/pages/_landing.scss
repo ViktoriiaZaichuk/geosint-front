@@ -1,7 +1,7 @@
 .home {
     &--page {
         h1, h2, p {
-            max-width: 500px;
+            max-width: 550px;
         }
         p {
             display: inline-block;
@@ -9,6 +9,10 @@
         h1, h2 {
             text-transform: uppercase;
             font-size: 3rem;
+        }
+        &-dark {
+            border-top: 10px solid $white;
+            border-bottom: 10px solid $white;
         }
     }
     &--hero {
@@ -18,12 +22,12 @@
         align-items: center;
         justify-content: space-between;
         @include screen768 {
+            margin-top: 75px;
             flex-direction: column;
         }
         &__txt {
             @include screen768 {
                 margin-top: 5rem;
-
             }
             & p {
                 margin: 1.5rem 0;
@@ -43,6 +47,9 @@
         &__img {
             @include screen768 {
                padding-top: 5rem;
+               & svg {
+                width: 100%;
+               }
             }
         }
 
@@ -105,6 +112,9 @@
         &__img {
             flex: 1 1 0px;
             margin: 0 2rem 0 2rem;
+            & svg {
+                overflow: visible;
+            }
             & img {
                 object-fit: cover;
             }
@@ -151,16 +161,69 @@
         margin: 10rem 0;
         align-items: center;
         & h2 {
-            font-size: 5rem;
+            font-size: 4rem;
             text-align: center;
+            max-width: 900px;
         }
         & p {
             text-align: center;
             margin: 2rem 0;
             width: 70vw;
-            font-size: 2rem;
+            font-size: 1.6rem;
             line-height: 3rem;
+            max-width: 650px;
         }
     }
 
+}
+.dark {
+    .home--intro {
+        border-top: 10px solid $white;
+        border-bottom: 10px solid $white;
+    }
+}
+
+
+/* Animation */
+
+#star-blck {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-animation: spin 40s infinite linear;
+}
+
+#star-prpl {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-animation: spin 40s infinite linear;
+}
+
+#x-create {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-animation: spin 25s infinite linear;
+}
+
+#star-abt {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-animation: spin 40s infinite linear;
+}
+#star-abt-b {
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-animation: spin 40s infinite linear;
+}
+
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
 }

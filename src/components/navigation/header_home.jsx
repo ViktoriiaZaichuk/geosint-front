@@ -20,7 +20,7 @@ const HeaderHome = () => {
 
     return (
         <nav className='nav'>  
-            <div className={theme === "light" ? 'header' : 'header dark'}>
+            <div className={theme === "light" ? 'header' : 'header header-dark'}>
                 <Link to={"/"}>{
                     theme === "light" ? <Logo width={150} height={47} /> : <WhiteLogo width={150} height={47} />
                 }</Link>
@@ -40,7 +40,7 @@ const HeaderHome = () => {
             </div>
             
             <div className='mobile-menu-home' >
-                <Logo />
+                <Logo className='header-logo' />
                 <div 
                     onClick={() => {setIsNavExpanded(!isNavExpanded)}}
                     className='mobile-menu-home--btn'>
