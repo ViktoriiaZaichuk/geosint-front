@@ -62,7 +62,6 @@ const Chat = ({ challengeId }) => {
                 username: user.username,
             }
             socket.emit('chat message', message)
-            setMessages((prevMessages) => [...prevMessages, message])
             setInputValue('')
         }
     }

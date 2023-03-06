@@ -753,7 +753,11 @@ select {
     max-width: fit-content;
     box-shadow: #ccb3ff -2px -2px 0px 1px; }
 
-.header {
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
   width: 100%;
   z-index: 10; }
 
