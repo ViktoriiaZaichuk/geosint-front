@@ -713,7 +713,6 @@ select {
   font-size: 1.4rem !important;
   margin: 0 !important; }
 
-<<<<<<< HEAD
 #form {
   display: flex;
   margin-bottom: 2rem; }
@@ -755,13 +754,6 @@ select {
     box-shadow: #ccb3ff -2px -2px 0px 1px; }
 
 .header {
-=======
-.nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
->>>>>>> 65705f5f128f934bcc2d6de0b6bef6c48c787945
   width: 100%;
   z-index: 10; }
 
