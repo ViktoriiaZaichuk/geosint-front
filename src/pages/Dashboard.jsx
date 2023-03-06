@@ -22,6 +22,8 @@ import { ReactComponent as Calendar } from "../assets/icons/calendar.svg";
 import { ReactComponent as CalendarLight } from "../assets/icons/calendar-light.svg";
 import { ReactComponent as ArrowRight } from '../assets/icons/arrow-right.svg';
 import { ReactComponent as ArrowRightWhite } from '../assets/icons/arrow-right-white.svg';
+import { ReactComponent as PencilLight } from '../assets/icons/pencil-light.svg';
+import { ReactComponent as PencilDark } from '../assets/icons/pencil-dark.svg';
 import { ThemeContext } from "../context/ThemeContext";
 
 const Dashboard = () => {
@@ -65,7 +67,13 @@ const Dashboard = () => {
 
     useEffect(() => {
         if (userData) {
-            dispatch({ type: "GET_USER", payload: { username: userData.username, avatar: userData.avatar, global_score: userData.global_score } })
+            dispatch({ type: "GET_USER", 
+                payload: { 
+                    username: userData.username, 
+                    avatar: userData.avatar, 
+                    global_score: userData.global_score, 
+                    created_challenges: userData.created_challenges 
+                } })
         }
     }, [dispatch, userData]);
 
@@ -116,6 +124,15 @@ const Dashboard = () => {
                                 </div>
                                 <div>
                                     {theme === "light" ? <Compass /> : <CompassLight />}
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <p>Challenges créés</p>
+                                    <span>{userData?.created_challenges?.length || 0}</span>
+                                </div>
+                                <div>
+                                    {theme === "light" ? <PencilLight /> : <PencilDark />}
                                 </div>
                             </div>
                             <div>
