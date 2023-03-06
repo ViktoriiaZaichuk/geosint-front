@@ -78,7 +78,7 @@ const ProfileMenu = () => {
                             <li className="profile-menu--list__link expanded">
                                 <Link to={"/profile_settings"}>
                                     <Settings></Settings>
-                                    Profile
+                                    Profil
                                 </Link>
                             </li>
                             <li className="profile-menu--list__link">

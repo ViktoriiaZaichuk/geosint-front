@@ -60,6 +60,16 @@
                     text-shadow: $purple 2px 2px;
                 }
             }
+            & button {
+                min-width: 310px;
+                padding: 0;
+                a {
+                    flex: 0 0 100%;
+                    display: block;
+                    width: 100%;
+                    padding: .5rem 2rem;
+                }
+            }
         }
     }
     &.expanded {

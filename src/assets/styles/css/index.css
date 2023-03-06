@@ -291,11 +291,11 @@ a {
   border: 1px solid #3E3E3E;
   border-radius: 5px;
   box-shadow: #3E3E3E -2px -2px 0px 1px;
-  padding: .5rem 2rem;
   margin: 0 1rem;
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  padding: .5rem 3rem; }
   .button:hover {
     animation: 0.4s infinite alternate shadowButton; }
   .button a {
@@ -311,11 +311,11 @@ a {
   border: 1px solid #3E3E3E;
   border-radius: 5px;
   box-shadow: #3E3E3E -2px -2px 0px 1px;
-  padding: .5rem 2rem;
   margin: 0 1rem;
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  padding: .5rem 3rem; }
   .button-green:hover {
     animation: 0.4s infinite alternate shadowButton; }
   .button-green a {
@@ -331,11 +331,11 @@ a {
   border: 1px solid #3E3E3E;
   border-radius: 5px;
   box-shadow: #3E3E3E -2px -2px 0px 1px;
-  padding: .5rem 2rem;
   margin: 0 1rem;
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  padding: .5rem 3rem; }
   .button-purple:hover {
     animation: 0.4s infinite alternate shadowButton; }
   .button-purple a {
@@ -351,11 +351,11 @@ a {
   border: 1px solid #3E3E3E;
   border-radius: 5px;
   box-shadow: #3E3E3E -2px -2px 0px 1px;
-  padding: .5rem 2rem;
   margin: 0 1rem;
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  padding: .5rem 3rem; }
   .button-gray:hover {
     animation: 0.4s infinite alternate shadowButton; }
   .button-gray a {
@@ -539,7 +539,7 @@ a {
     align-self: flex-start !important; }
   .card--btn {
     align-self: center;
-    padding: .5rem 3rem; }
+    /* padding: .5rem 3rem; */ }
 
 .modal--content {
   position: fixed;
@@ -1086,6 +1086,14 @@ select {
       transition: .2s; }
     .dashboard-menu-overlay ul li:hover a {
       text-shadow: #ccb3ff 2px 2px; }
+    .dashboard-menu-overlay ul li button {
+      min-width: 310px;
+      padding: 0; }
+      .dashboard-menu-overlay ul li button a {
+        flex: 0 0 100%;
+        display: block;
+        width: 100%;
+        padding: .5rem 2rem; }
   .dashboard-menu-overlay.expanded {
     visibility: visible;
     left: 0; }
@@ -1317,12 +1325,16 @@ select {
           text-align: center;
           margin-top: 1.5rem; } }
     .home--intro__func p {
-      max-width: 300px;
+      max-width: 325px;
       text-align: left; }
       @media (max-width: 768px) {
         .home--intro__func p {
           text-align: center;
           margin-top: .5rem; } }
+    .home--intro__func .func-p {
+      margin-top: .5rem; }
+    .home--intro__func > div > div {
+      margin: 1.5rem 0; }
 
 .home--challenge {
   padding: 0 20%;
@@ -1548,21 +1560,25 @@ select {
     margin: 0 !important;
     align-self: flex-start; }
 
-.forgotten-password--header {
-  display: flex;
-  flex-direction: column;
-  width: 25vw;
-  align-items: center;
-  margin: 2rem 0 4rem 0; }
-  .forgotten-password--header__underline {
-    width: 100%;
-    height: 0.2rem;
-    background-color: #ccb3ff;
-    margin-top: 0.5rem; }
-  .forgotten-password--header a {
-    color: #3E3E3E;
-    text-decoration: none;
-    font-size: 2.5rem; }
+.forgotten-password {
+  padding-top: 10rem;
+  padding-bottom: 4rem;
+  min-height: 75vh; }
+  .forgotten-password--header {
+    display: flex;
+    flex-direction: column;
+    width: 25vw;
+    align-items: center;
+    margin: 2rem 0 4rem 0; }
+    .forgotten-password--header__underline {
+      width: 100%;
+      height: 0.2rem;
+      background-color: #ccb3ff;
+      margin-top: 0.5rem; }
+    .forgotten-password--header a {
+      color: #3E3E3E;
+      text-decoration: none;
+      font-size: 2.5rem; }
 
 .login--form p {
   font-size: 1.6rem;
@@ -1928,11 +1944,11 @@ select {
       border: 1px solid #3E3E3E;
       border-radius: 5px;
       box-shadow: #3E3E3E -2px -2px 0px 1px;
-      padding: .5rem 2rem;
       margin: 0 1rem;
       display: flex;
       align-items: center;
-      justify-content: center; }
+      justify-content: center;
+      padding: .5rem 3rem; }
       .profile-settings .login--form button:hover {
         animation: 0.4s infinite alternate shadowButton; }
       .profile-settings .login--form button a {
@@ -1973,16 +1989,26 @@ select {
 
 .challenges-list--list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 5rem; }
-  .challenges-list--list .card {
-    width: 30%;
-    margin: 5rem; }
-    @media (max-width: 768px) {
-      .challenges-list--list .card {
-        width: 100%;
-        margin: 2rem; } }
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5rem auto; }
+  .challenges-list--list > div {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    /*             display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-gap: 20px;
+            align-items: stretch; */ }
+    .challenges-list--list > div .card {
+      min-width: 350px;
+      margin: 5rem 2rem; }
+      @media (max-width: 768px) {
+        .challenges-list--list > div .card {
+          width: 100%;
+          margin: 2rem; } }
 
 .create-challenge {
   overflow: hidden; }
@@ -2282,6 +2308,31 @@ select {
       padding: 0 2rem; }
       .challenge-page--forum__ranking ol li {
         margin: .5rem 0; }
+
+.dark .challenge-answer--validation {
+  background-color: whitesmoke !important;
+  color: #3E3E3E !important;
+  box-shadow: #ccb3ff -2px -2px 0px 1px; }
+
+.dark .challenge-page--infos__answer .challenge-stats > div {
+  background-color: whitesmoke !important;
+  color: #3E3E3E !important; }
+  .dark .challenge-page--infos__answer .challenge-stats > div > div {
+    background-color: whitesmoke !important;
+    color: #3E3E3E !important; }
+  .dark .challenge-page--infos__answer .challenge-stats > div p {
+    background-color: whitesmoke !important;
+    color: #3E3E3E !important; }
+  .dark .challenge-page--infos__answer .challenge-stats > div h3 {
+    background-color: whitesmoke !important;
+    color: #3E3E3E !important; }
+  .dark .challenge-page--infos__answer .challenge-stats > div div {
+    background-color: whitesmoke !important;
+    color: #3E3E3E !important; }
+
+.dark .challenge-page--infos__completed {
+  background-color: whitesmoke;
+  color: #3E3E3E; }
 
 .general-ranking-page--content {
   margin: 5rem; }

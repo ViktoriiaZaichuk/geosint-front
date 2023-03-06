@@ -44,7 +44,6 @@ const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback }) => {
  
     return (
         <div>
-
             <form className="challenge-answer" onSubmit={handleSubmit(onSubmit)}>
                 <div className="challenge-answer--form">
                     <div>
@@ -58,7 +57,7 @@ const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback }) => {
                             {...register('challengeAnswer')}
                             placeholder="Ex."
                         />
-                        <button type="submit">Submit</button>
+                        <button type="submit">OK</button>
                     </div>
                 </div>
 
@@ -68,19 +67,19 @@ const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback }) => {
                             <div>
                                 {hasAnswered ? (
                                     isCorrect ? (
-                                        <div className="dark">
+                                        <div >
                                             <Check></Check>
                                             Reponse juste !
                                         </div>
                                     ) : (
-                                        <div className="dark">
+                                        <div >
                                             <Minus></Minus>
                                             Reponse fausse
                                         </div>
                                     )
                                 ) : (
-                                    <div className="dark">
-                                    En attente de réponse...
+                                    <div >
+                                    Retente ta chance...
                                     </div>
                                 )}
                             </div>
