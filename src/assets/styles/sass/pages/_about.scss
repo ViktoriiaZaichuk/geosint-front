@@ -6,15 +6,15 @@
         }
     }
     &--banner {
-        height: 90vh;
         text-align: center;
+        padding-bottom: 10rem;
         @include screen768 {
             height: auto;
             padding: 0 2rem;
         }
         & svg {
             margin-top: 6rem;
-            height: 360px;
+            height: 250px;
             width: 100%;
         }
         &__img {

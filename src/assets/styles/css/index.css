@@ -1535,15 +1535,15 @@ select {
       padding: 2rem 0; } }
 
 .about--banner {
-  height: 90vh;
-  text-align: center; }
+  text-align: center;
+  padding-bottom: 10rem; }
   @media (max-width: 768px) {
     .about--banner {
       height: auto;
       padding: 0 2rem; } }
   .about--banner svg {
     margin-top: 6rem;
-    height: 360px;
+    height: 250px;
     width: 100%; }
   .about--banner__img {
     border-radius: 20px;
