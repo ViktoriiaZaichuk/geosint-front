@@ -1,15 +1,13 @@
-import React from "react";
+import React from "react"
 import { useForm } from 'react-hook-form'
-import Confetti from 'react-confetti'
 
 import { checkAnswer } from '../../api/challenge'
 import { ReactComponent as Minus } from '../../assets/icons/minus.svg'
 import { ReactComponent as Check } from '../../assets/icons/check.svg'
 import wait from '../../utils/wait'
 
-const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback, refetchRanking }) => {
+const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback, isCorrect, setIsCorrect }) => {
     const [answer, setAnswer] = React.useState(null)
-    const [isCorrect, setIsCorrect] = React.useState(null)
     const [hasAnswered, setHasAnswered] = React.useState(false)
     const [helpInfo, setHelpInfo] = React.useState(null)
     const [challengeInfo, setChallengeInfo] = React.useState(null)
@@ -51,13 +49,13 @@ const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback, refetchRank
                             Valider une réponse :
                         </label>
                         <input
-                        id="challenge-answer"
-                            type="text"
-                            name="challengeAnswer"
-                            {...register('challengeAnswer')}
-                            placeholder="Ex."
-                        />
-                        <button type="submit" onClick={() => refetchRanking()}>OK</button>
+                            id="challenge-answer"
+                                type="text"
+                                name="challengeAnswer"
+                                {...register('challengeAnswer')}
+                                placeholder="Ex."
+                            />
+                        <button type="submit">OK</button>
                     </div>
                 </div>
 
@@ -79,7 +77,7 @@ const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback, refetchRank
                                     )
                                 ) : (
                                     <div >
-                                    Retente ta chance...
+                                        Retente ta chance...
                                     </div>
                                 )}
                             </div>
@@ -93,12 +91,6 @@ const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback, refetchRank
                     <div className="dark">
                         {isCorrect && (
                             <div>
-                                <Confetti     
-                                    numberOfPieces={550}
-                                    recycle={false}
-                                    colors={['#CDB4FF', '#BFFFD6']} 
-                                    width={window.innerWidth}
-                                />
                                 {challengeInfo && (
                                     <div>
                                         <h3>Félicitations, tu as trouvé la bonne réponse !</h3>
@@ -110,15 +102,14 @@ const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback, refetchRank
                         )}
 
                         {!isCorrect && (
-                            
-                        <div>
-                            {challengeInfo && (
-                                <p>Nombre de tentatives : <span className='span'>{challengeInfo.attempt}</span></p>
-                            )}
-                            {helpInfo && (
-                                <p className='cold-hot'>{helpInfo.ratio > 35.0 ? 'Tu refroidis 🥶' : 'Tu chauffes 🔥'}</p>
-                            )}
-                        </div>
+                            <div>
+                                {challengeInfo && (
+                                    <p>Nombre de tentatives : <span className='span'>{challengeInfo.attempt}</span></p>
+                                )}
+                                {helpInfo && (
+                                    <p className='cold-hot'>{helpInfo.ratio > 35.0 ? 'Tu refroidis 🥶' : 'Tu chauffes 🔥'}</p>
+                                )}
+                            </div>
                         )}
                     </div>
                 )}

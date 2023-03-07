@@ -1,9 +1,10 @@
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import moment from "moment";
 import "moment/locale/fr";
 import { FixedSizeList as List } from 'react-window';
+import Confetti from 'react-confetti'
 
 import { getChallenge } from "../api/challenge";
 import LayoutDashboard from "../pages/LayoutDashboard";
@@ -18,6 +19,8 @@ import Chat from "../components/chat";
 import ScrollToTop from "../components/scrollToTop";
  
 const Challenge = () => {
+    const [isCorrect, setIsCorrect] = React.useState(null)
+
     const { id } = useParams();
 
     const { theme } = useContext(ThemeContext)
@@ -25,6 +28,10 @@ const Challenge = () => {
     const { data: challenge, refetch } = useQuery(["challenge", id], () => getChallenge(id));
 
     const [parentChallengeInfo, setParentChallengeInfo] = useState(null);
+
+    useEffect(() => {
+        refetch()
+    }, [parentChallengeInfo])
 
     const Row = ({ index, style }) => {
         const bg = index % 2 ? "#3E3E3E" : "#000000"
@@ -60,6 +67,14 @@ const Challenge = () => {
     return (
         <LayoutDashboard className="challenge-page">
             <ScrollToTop>
+                {challenge?.isCompleted && isCorrect && (
+                    <Confetti     
+                        numberOfPieces={550}
+                        recycle={false}
+                        colors={['#CDB4FF', '#BFFFD6']} 
+                        width={window.innerWidth}
+                    />
+                )}
                 <div className="challenge-page--infos">
                     <div className="challenge-page--infos__details">
                         <div className="auteur-data">
@@ -110,7 +125,7 @@ const Challenge = () => {
                                 </div>
                                 <button 
                                     onClick={() => setShowImageModal(true)}
-                                    className="button-purple-light"
+                                    className={theme === "light" ? "button-purple" : "button-purple-light"}
                                     >
                                     Agrandir image
                                 </button>
@@ -137,7 +152,7 @@ const Challenge = () => {
                     {!challenge?.isCompleted ? (
                         <div className="challenge-page--infos__answer"> 
                             {!challenge?.isCreator ? (
-                                <ChallengeAnswer challengeId={challenge?.challenge.id} challengeInfoUpdateCallback={handleChallengeInfoUpdate} refetchRanking={refetch}  />
+                                <ChallengeAnswer challengeId={challenge?.challenge.id} challengeInfoUpdateCallback={handleChallengeInfoUpdate} refetchRanking={refetch} isCorrect={isCorrect} setIsCorrect={setIsCorrect}  />
                             ) : (
                                 <div className="challenge-crud">
                                     <EditChallenge challenge={challenge?.challenge} />
