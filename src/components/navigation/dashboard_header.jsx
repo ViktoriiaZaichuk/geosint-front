@@ -18,7 +18,7 @@ const DashboardHeader = () => {
 
 
                 <div className={ isNavExpanded ? "dashboard-menu-overlay expanded" : "mobile-menu-overlay"}>
-                    <ul>
+                    <div>
                         <li>
                             <Link to={"/challenges_list"}>Liste des challenges</Link>
                         </li>
@@ -34,7 +34,7 @@ const DashboardHeader = () => {
                         <li>
                             <Button className={theme === "light" ? "button" : "button-green-light"}><Link className='link' to={"/"}>Créer un groupe</Link></Button>
                         </li>
-                    </ul>
+                    </div>
                 </div>
 
             </nav>

@@ -22,7 +22,7 @@
 }
 
 .dashboard-menu-overlay {
-    visibility: hidden;
+    display: none;
     min-height: 100vh;
     width: 25vw;
     top: 0;
@@ -36,16 +36,19 @@
     border-right: 4px $black solid;
     padding-top: 10rem;
     transition: left 0.3s;
+    
     @include screen1024 {
-        width: 70vw;
+      width: 70vw;
     }
+    
     @include screen768 {
-        width: 100vw;
+      width: 100vw;
     }
-    & ul {
+    div {
         display: flex;
         flex-direction: column;
         align-items: baseline;
+        list-style-type: none;
         > * {
             margin: 1.5rem;
         }
@@ -53,27 +56,28 @@
             font-family: $primaryFontBold;
             font-size: 2.5rem; 
             transition: .2s;
-        }
-        & li {
+          }
+          
+          & li {
             &:hover {
-                a {
-                    text-shadow: $purple 2px 2px;
-                }
+              a {
+                text-shadow: $purple 2px 2px;
+              }
             }
             & button {
-                min-width: 310px;
-                padding: 0;
-                a {
-                    flex: 0 0 100%;
-                    display: block;
-                    width: 100%;
-                    padding: .5rem 2rem;
-                }
+              min-width: 310px;
+              padding: 0;
+              a {
+                flex: 0 0 100%;
+                display: block;
+                width: 100%;
+                padding: .5rem 2rem;
+              }
             }
         }
-    }
+    } 
     &.expanded {
-        visibility: visible;
-        left: 0;
+      display: flex;
+      left: 0;
     }
 }

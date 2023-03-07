@@ -1,4 +1,5 @@
 .card {
+    position: relative;
     @include card;
     @include screen768 {
         margin-bottom: 2rem;
@@ -34,5 +35,19 @@
     &--btn {
         align-self: center;
         /* padding: .5rem 3rem; */
+    }
+    .created-by-me {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        background-color: $purple;
+        padding: .7rem;
+        font-family: $primaryFontBold;
+        border: $black solid 2px;
+        border-radius: 5px;
+        box-shadow: $black -2px -2px 0px 1px;
+    }
+    .created-by-me-btn {
+        background-color: $purple;
     }
 }
