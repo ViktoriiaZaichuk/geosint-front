@@ -33,22 +33,16 @@ const Dashboard = () => {
 
     const { data } = useQuery('randomChallenges', getRandomChallenges)
 
-    const { data: lastChallenge } = useQuery(
-        'lastChallenge',
-        getLastCreatedChallenge
-    )
+    const { data: lastChallenge } = useQuery('lastChallenge', getLastCreatedChallenge)
 
     const { data: allChallenges } = useQuery('allChallenges', async () => {
         const challenges = await getChallenges()
         return challenges.slice(-3)
     })
-    console.log(allChallenges)
+    
     const { data: userData } = useQuery('user', getUser)
 
-    const { data: challengesDone } = useQuery(
-        'challengesDone',
-        getChallengesDone
-    )
+    const { data: challengesDone } = useQuery('challengesDone', getChallengesDone)
 
     const { data: usersRanking } = useQuery('usersRanking', getUsersRanking)
 
@@ -89,9 +83,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         if (usersRanking) {
-            const userRanking = usersRanking.find(
-                (user) => user.username === userData?.username
-            )
+            const userRanking = usersRanking.find((user) => user.username === userData?.username)
             // récupérer l'index de l'utilisateur dans le tableau
             const userIndex = usersRanking.indexOf(userRanking)
             // ajouter 1 pour avoir le classement
@@ -102,13 +94,7 @@ const Dashboard = () => {
 
     return (
         <LayoutDashboard className="dashboard-home">
-            <div
-                className={
-                    theme === 'light'
-                        ? 'dashboard-home--profile'
-                        : 'dashboard-home--profile dark'
-                }
-            >
+            <div className={theme === 'light' ? 'dashboard-home--profile' : 'dashboard-home--profile dark'}>
                 <div className="dashboard-home--profile__avatar">
                     {user.avatar === '1' && <Avatar1 />}
                     {user.avatar === '2' && <Avatar2 />}
@@ -127,12 +113,7 @@ const Dashboard = () => {
                         <div className="ranking">
                             <div>
                                 <p>Ton classement général</p>
-                                <span>
-                                    {globalPosition !== 0
-                                        ? globalPosition
-                                        : '-'}{' '}
-                                    / {usersRanking?.length}
-                                </span>
+                                <span>{globalPosition} / {usersRanking?.length}</span>
                             </div>
                             <div>
                                 {theme === 'light' ? (
@@ -201,13 +182,7 @@ const Dashboard = () => {
                                 </div>
                             </div>
                         </div>
-                        <button
-                            className={
-                                theme === 'light'
-                                    ? 'big-button'
-                                    : 'big-button-green-light'
-                            }
-                        >
+                        <button className={theme === 'light' ? 'big-button' : 'big-button-green-light'}>
                             <Link to={'/create_challenge'}>
                                 Créer un challenge
                             </Link>
@@ -237,9 +212,7 @@ const Dashboard = () => {
                                         key={challenge.id}
                                         challenge={challenge}
                                         hasPlayedByMe={hasPlayedByMe}
-                                        createdByMe={
-                                            challenge.creator_id === user.id
-                                        }
+                                        createdByMe={challenge.creator_id === user.id}
                                     />
                                 )
                             })
@@ -249,9 +222,7 @@ const Dashboard = () => {
                                     key={challenge.id}
                                     challenge={challenge}
                                     hasPlayedByMe={hasPlayedByMe}
-                                    createdByMe={
-                                        challenge.creator_id === user.id
-                                    }
+                                    createdByMe={challenge.creator_id === user.id}
                                 />
                             ))
                         ) : (
@@ -279,9 +250,7 @@ const Dashboard = () => {
                                         key={challenge.id}
                                         challenge={challenge}
                                         hasPlayedByMe={hasPlayedByMe}
-                                        createdByMe={
-                                            challenge.creator_id === user.id
-                                        }
+                                        createdByMe={challenge.creator_id === user.id}
                                     />
                                 )
                             })
@@ -291,9 +260,7 @@ const Dashboard = () => {
                                     key={challenge.id}
                                     challenge={challenge}
                                     hasPlayedByMe={hasPlayedByMe}
-                                    createdByMe={
-                                        challenge.creator_id === user.id
-                                    }
+                                    createdByMe={challenge.creator_id === user.id}
                                 />
                             ))
                         ) : (
