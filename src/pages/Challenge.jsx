@@ -22,7 +22,7 @@ const Challenge = () => {
 
     const { theme } = useContext(ThemeContext)
 
-    const { data: challenge } = useQuery(["challenge", id], () => getChallenge(id));
+    const { data: challenge, refetch } = useQuery(["challenge", id], () => getChallenge(id));
 
     const [parentChallengeInfo, setParentChallengeInfo] = useState(null);
 
@@ -52,7 +52,7 @@ const Challenge = () => {
     }
 
     const handleChallengeInfoUpdate = (challengeInfo) => {
-        setParentChallengeInfo(challengeInfo);
+        setParentChallengeInfo(challengeInfo)
     };
 
     const [showImageModal, setShowImageModal] = useState(false);
@@ -137,7 +137,7 @@ const Challenge = () => {
                     {!challenge?.isCompleted ? (
                         <div className="challenge-page--infos__answer"> 
                             {!challenge?.isCreator ? (
-                                <ChallengeAnswer challengeId={challenge?.challenge.id} challengeInfoUpdateCallback={handleChallengeInfoUpdate}  />
+                                <ChallengeAnswer challengeId={challenge?.challenge.id} challengeInfoUpdateCallback={handleChallengeInfoUpdate} refetchRanking={refetch}  />
                             ) : (
                                 <div className="challenge-crud">
                                     <EditChallenge challenge={challenge?.challenge} />
@@ -170,6 +170,7 @@ const Challenge = () => {
                             itemCount={challenge?.ranking.length <= 10 ? challenge?.ranking.length : 10}
                             itemSize={35}
                             width={"100%"}
+                            itemData={challenge?.ranking}
                         >
                             {Row}
                         </List>

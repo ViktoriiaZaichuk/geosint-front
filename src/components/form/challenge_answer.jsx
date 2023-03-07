@@ -7,7 +7,7 @@ import { ReactComponent as Minus } from '../../assets/icons/minus.svg'
 import { ReactComponent as Check } from '../../assets/icons/check.svg'
 import wait from '../../utils/wait'
 
-const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback }) => {
+const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback, refetchRanking }) => {
     const [answer, setAnswer] = React.useState(null)
     const [isCorrect, setIsCorrect] = React.useState(null)
     const [hasAnswered, setHasAnswered] = React.useState(false)
@@ -35,11 +35,11 @@ const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback }) => {
             setChallengeInfo(response.userChallenge)
             // Reset hasAnswered state to allow the user to submit another answer
             await wait(3000)
-            setHasAnswered(false);
+            setHasAnswered(false)
         }
 
         // Pass the updated challengeInfo to the parent component
-        challengeInfoUpdateCallback(response.userChallenge);
+        challengeInfoUpdateCallback(response.userChallenge)
     }
  
     return (
@@ -58,7 +58,7 @@ const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback }) => {
                             {...register('challengeAnswer')}
                             placeholder="Ex."
                         />
-                        <button type="submit">Submit</button>
+                        <button type="submit" onClick={() => refetchRanking()}>Submit</button>
                     </div>
                 </div>
 
@@ -80,7 +80,7 @@ const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback }) => {
                                     )
                                 ) : (
                                     <div className="dark">
-                                    En attente de réponse...
+                                        En attente de réponse...
                                     </div>
                                 )}
                             </div>
@@ -93,30 +93,31 @@ const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback }) => {
                 {answer && (
                     <div className="dark">
                         {isCorrect && (
-                        <div>
-                            <Confetti     
-                                numberOfPieces={550}
-                                recycle={false}
-                                colors={['#CDB4FF', '#BFFFD6']} 
-                            />
-                            {challengeInfo && (
                             <div>
-                                <h3>Félicitations, tu as trouvé la bonne réponse !</h3>
-                                <p>Nombre de tentatives : <span className='span'>{challengeInfo.attempt}</span></p>
-                                <p>Challenge score : <span className='span'>{challengeInfo.challenge_score}</span></p>
+                                <Confetti     
+                                    numberOfPieces={550}
+                                    recycle={false}
+                                    colors={['#CDB4FF', '#BFFFD6']} 
+                                    width={window.innerWidth}
+                                />
+                                {challengeInfo && (
+                                    <div>
+                                        <h3>Félicitations, tu as trouvé la bonne réponse !</h3>
+                                        <p>Nombre de tentatives : <span className='span'>{challengeInfo.attempt}</span></p>
+                                        <p>Challenge score : <span className='span'>{challengeInfo.challenge_score}</span></p>
+                                    </div>
+                                )}
                             </div>
-                            )}
-                        </div>
                         )}
 
                         {!isCorrect && (
                             
                         <div>
                             {challengeInfo && (
-                            <p>Nombre de tentatives : <span className='span'>{challengeInfo.attempt}</span></p>
+                                <p>Nombre de tentatives : <span className='span'>{challengeInfo.attempt}</span></p>
                             )}
                             {helpInfo && (
-                            <p className='cold-hot'>{helpInfo.ratio > 35.0 ? 'Tu refroidis 🥶' : 'Tu chauffes 🔥'}</p>
+                                <p className='cold-hot'>{helpInfo.ratio > 35.0 ? 'Tu refroidis 🥶' : 'Tu chauffes 🔥'}</p>
                             )}
                         </div>
                         )}

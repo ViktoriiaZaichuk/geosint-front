@@ -72,7 +72,8 @@ const Dashboard = () => {
                     avatar: userData.avatar, 
                     global_score: userData.global_score, 
                     created_challenges: userData.created_challenges 
-                } })
+                } 
+            })
         }
     }, [userData]);
 
@@ -119,7 +120,7 @@ const Dashboard = () => {
                             <div>
                                 <div>
                                     <p>Challenges résolus</p>
-                                    <span>{challengesDone?.length}</span>
+                                    <span>{challengesDone?.length || 0}</span>
                                 </div>
                                 <div>
                                     {theme === "light" ? <Compass /> : <CompassLight />}
@@ -137,7 +138,7 @@ const Dashboard = () => {
                             <div>
                                 <div>
                                     <p>Score global</p>
-                                    <span>{userData?.global_score}</span>
+                                    <span>{userData?.global_score || 0}</span>
                                 </div>
                                 <div>
                                     {theme === "light" ? <StarSts /> : <StarStsLight />}
@@ -160,7 +161,7 @@ const Dashboard = () => {
 
                     <div className="dashboard-home--stats__challenge">
                         <p>Ton challenge quotidien est disponible :</p>
-                        {lastChallenge && <Card key={lastChallenge.id} challenge={lastChallenge} />}
+                        {lastChallenge ? <Card key={lastChallenge.id} challenge={lastChallenge} /> : <p>Aucun challenge disponible</p>}
                     </div>
                 </div>
                 <div className="dashboard-home--challenges">

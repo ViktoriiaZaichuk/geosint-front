@@ -103,11 +103,12 @@ const Chat = ({ challengeId }) => {
     }
 
     const Row = ({ index, style }) => {
+        const isCurrentUser = messages[index].username === user.username
         return (
             <div style={{...style, padding: "0 2rem" }}>
-                <div style={messages[index].username === user.username ? { marginBottom: '1rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' } : { marginBottom: '1rem' }}>
+                <div style={isCurrentUser ? { marginBottom: '1rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-end' } : { marginBottom: '1rem' }}>
                     <span>{messages[index].username}</span>
-                    <li>{messages[index].text}</li>
+                    <li className={(isCurrentUser && theme === "light") ? "own-message--light" : (isCurrentUser && theme === "dark") && "own-message"}>{messages[index].text}</li>
                     <span style={{ fontSize: '1rem' }}>{afficherTempsEcoule(new Date(messages[index].createdAt))}</span>
                 </div>
             </div>

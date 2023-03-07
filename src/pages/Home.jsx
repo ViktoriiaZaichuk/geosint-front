@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
+import React, { useContext } from "react"
+import { Link } from "react-router-dom"
+import { useMediaQuery } from "react-responsive"
 
-import Layout from "./LayoutHome";
-import Card from '../components/card';
+import Layout from "./LayoutHome"
+import Card from '../components/card'
 import ChallengeImg from '../assets/img/tour-eiffel.jpg'
 import ChallengeImg2 from '../assets/img/taj-mahal.jpg'
 import { ReactComponent as Logo } from '../assets/icons/logo-purple-bckgnd.svg'
@@ -42,7 +42,7 @@ const Home = () => {
                 <div className="home--intro">
                     <div className="home--intro__title">
                         <h2>Welcome to </h2>
-                        <Logo className="logo"></Logo>
+                        <Logo className="logo" />
                     </div>
                     <p>Notre application de devinettes de localisation est le défi ultime pour les amateurs de jeux et de géographie. Téléchargez des photos de différents endroits à travers le monde et mettez vos connaissances à l'épreuve.</p>
                     <div className="home--intro__func">
@@ -57,7 +57,7 @@ const Home = () => {
                             </div>
                         </div>
                         <div>
-                            <Eye></Eye>
+                            <Eye />
                         </div>
                         <div>
                             <div>
@@ -74,7 +74,7 @@ const Home = () => {
 
                 <div className="home--challenge">
                     <div className="home--challenge__img">
-                        <CreateChallenge></CreateChallenge>
+                        <CreateChallenge />
                     </div>
                     <div className="home--challenge__content">
                         <h2>Crée ton propre challenge et invite tes amis !</h2>
@@ -97,7 +97,7 @@ const Home = () => {
                             />
                         </div>
                         <div className="link">
-                            <Link to={"/login"}>Voir d’autres challenges <ArrowRight className="arrow-right"></ArrowRight></Link>
+                            <Link to={"/login"}>{"Voir d’autres challenges"}<ArrowRight className="arrow-right" /></Link>
                         </div>
                     </div>
                 </div>

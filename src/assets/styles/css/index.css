@@ -753,6 +753,18 @@ select {
     max-width: fit-content;
     box-shadow: #ccb3ff -2px -2px 0px 1px; }
 
+.own-message {
+  border: 1px solid #000 !important;
+  box-shadow: #fff -2px -2px 0px 1px !important;
+  background-color: #ccb3ff;
+  color: #3E3E3E; }
+
+.own-message--light {
+  border: 1px solid #000;
+  box-shadow: #000 -2px -2px 0px 1px !important;
+  background-color: #BFFFD6;
+  color: #3E3E3E; }
+
 .nav {
   position: fixed;
   top: 0;

@@ -105,7 +105,8 @@ const AvatarForm = ({ setUpdatedModal, setErrorModal, modalIsOpen, toggleModal, 
                     avatar === "1" ? <Avatar1 height={180} width={180} onClick={toggleModal} /> :
                     avatar === "2" ? <Avatar2 height={180} width={180} onClick={toggleModal} /> :
                     avatar === "3" ? <Avatar3 height={180} width={180} onClick={toggleModal} /> :
-                    avatar === "4" ? <Avatar4 height={180} width={180} onClick={toggleModal} /> : null
+                    avatar === "4" ? <Avatar4 height={180} width={180} onClick={toggleModal} /> : 
+                    <button className="button-purple" onClick={toggleModal} style={{ alignSelf: "center" }}>Choisir un avatar</button>
                 }
                 <Modal
                     isOpen={modalIsOpen}
