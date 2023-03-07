@@ -112,6 +112,7 @@ const CreateChallenge = () => {
                             name="answer"
                             control={control}
                             error={errors.answer?.message}
+                            challengeResponse
                         />
 
                         <TextInput
@@ -121,6 +122,7 @@ const CreateChallenge = () => {
                             name="answer_example"
                             control={control}
                             error={errors.answer_example?.message}
+                            challengeResponse
                         />
                        <div className="login--form__input">
                             <label htmlFor="description">Description</label>

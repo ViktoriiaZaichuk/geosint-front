@@ -1,5 +1,5 @@
 import React from "react"
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 
 import { checkAnswer } from '../../api/challenge'
 import { ReactComponent as Minus } from '../../assets/icons/minus.svg'
@@ -11,9 +11,17 @@ const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback, isCorrect, 
     const [hasAnswered, setHasAnswered] = React.useState(false)
     const [helpInfo, setHelpInfo] = React.useState(null)
     const [challengeInfo, setChallengeInfo] = React.useState(null)
+    const [isSingleQuoteTyped, setIsSingleQuoteTyped] = React.useState(false);
 
-    const { register, handleSubmit } = useForm()
+    const { handleSubmit, control } = useForm()
 
+    const handleKeyPress = (e) => {
+        if (e.key === "'") {
+            setIsSingleQuoteTyped(true);
+        } else {
+            setIsSingleQuoteTyped(false);
+        }
+    }
 
     const onSubmit = async (data) => {
         if (hasAnswered) {
@@ -48,14 +56,24 @@ const ChallengeAnswer = ({ challengeId, challengeInfoUpdateCallback, isCorrect, 
                         <label htmlFor="challenge-answer">
                             Valider une réponse :
                         </label>
-                        <input
-                            id="challenge-answer"
-                                type="text"
-                                name="challengeAnswer"
-                                {...register('challengeAnswer')}
-                                placeholder="Ex."
-                            />
+                        <Controller
+                            name="challengeAnswer"
+                            control={control}
+                            render={({ field: { onChange, onBlur, value } }) => (
+                                <input
+                                    id="challenge-answer"
+                                    type="text"
+                                    name="challengeAnswer"
+                                    placeholder="Ex."
+                                    onChange={(e) => onChange(e.target.value.replace("'", ""))}
+                                    onBlur={onBlur}
+                                    value={value}
+                                    onKeyPress={handleKeyPress}
+                                />
+                            )}
+                        />
                         <button type="submit">OK</button>
+                        {isSingleQuoteTyped && <p className="error">Les apostrophes ne sont pas autorisées</p>}
                     </div>
                 </div>
 

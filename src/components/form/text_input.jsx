@@ -3,18 +3,27 @@ import { Controller } from "react-hook-form";
 import { GiBleedingEye } from "react-icons/gi";
 import { GiBoltEye } from "react-icons/gi";
 
-const TextInput = ({ control, name, type, label, placeholder, error }) => {
+const TextInput = ({ id, control, name, type, label, placeholder, error, challengeResponse, challengeAnswer }) => {
     const [showPassword, setShowPassword] = React.useState(false);
+    const [isSingleQuoteTyped, setIsSingleQuoteTyped] = React.useState(false);
+
+    const handleKeyPress = (e) => {
+        if (challengeResponse && e.key === "'") {
+            setIsSingleQuoteTyped(true);
+        } else {
+            setIsSingleQuoteTyped(false);
+        }
+    }
 
     return (
-        <div className="login--form__input">
+        <div className="login--form__input" id={id}>
             <label htmlFor={name}>{label}</label>
             <Controller 
                 name={name}
                 control={control}
                 defaultValue = ''
                 render={({ field: { onChange, onBlur, value } }) => (
-                    <>
+                    <div style={challengeAnswer && { display: "flex" }}>
                         <input 
                             type={type === "password" && !showPassword ? "password" : "text"}
                             name={name}
@@ -22,8 +31,10 @@ const TextInput = ({ control, name, type, label, placeholder, error }) => {
                             autoComplete="off"
                             placeholder={placeholder}
                             value={value}
-                            onChange={onChange}
+                            onChange={challengeResponse ? (e) => onChange(e.target.value.replace("'", "")) : onChange}
                             onBlur={onBlur}
+                            onKeyPress={challengeResponse ? handleKeyPress : null}
+                            style={challengeAnswer && { height: "100%" }}
                         />
                         {(type === "password" && showPassword) ? (
                             <GiBleedingEye
@@ -38,10 +49,12 @@ const TextInput = ({ control, name, type, label, placeholder, error }) => {
                                 fill={"#3E3E3E"}
                             />
                         )}
-                    </>
+                        {challengeAnswer && <button type="submit">OK</button>}
+                    </div>
                 )}
             />
             {error && <p className="error">{error}</p>}
+            {(isSingleQuoteTyped && challengeResponse) && <p className="error">Les apostrophes ne sont pas autorisées</p>}
         </div>
     );
 }

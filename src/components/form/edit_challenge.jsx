@@ -104,6 +104,7 @@ const EditChallenge = ({ challenge }) => {
                       name="answer_example"
                       control={control}
                       error={errors.answer_example?.message}
+                      challengeResponse
                     />
 
                     <div className="login--form__input">
