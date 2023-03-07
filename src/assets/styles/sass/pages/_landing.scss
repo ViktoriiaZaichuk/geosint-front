@@ -89,14 +89,19 @@
                 }
             }
             & p {
-                max-width: 300px;
+                max-width: 325px;
                 text-align: left;
                 @include screen768 {
                     text-align: center;
                     margin-top: .5rem;
                 }
             }
-
+            .func-p {
+                margin-top: .5rem;
+            }
+            > div > div {
+                margin: 1.5rem 0;
+            }
         }
 
     }

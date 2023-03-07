@@ -110,7 +110,7 @@ const Dashboard = () => {
                         <div className="ranking">
                             <div>
                                <p>Ton classement général</p>
-                               <span>{globalPosition}</span>
+                               <span>{globalPosition} / {usersRanking?.length}</span>
                             </div>
                             <div>
                                 {theme === "light" ? <Trophy /> : <Trophy fill="#fff" />}

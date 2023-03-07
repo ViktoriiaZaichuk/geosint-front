@@ -240,3 +240,36 @@
         }
     }
 }
+
+
+.dark {
+    .challenge-answer--validation {
+        background-color: $white !important;
+        color: $black !important;
+        box-shadow: $purple -2px -2px 0px 1px;
+    }
+    .challenge-page--infos__answer .challenge-stats > div {
+        background-color: $white !important;
+        color: $black !important;
+        > div {
+            background-color: $white !important;
+            color: $black !important;
+        }
+        p {
+            background-color: $white !important;
+            color: $black !important;
+        }
+        h3 {
+            background-color: $white !important;
+            color: $black !important;
+        }
+        div {
+            background-color: $white !important;
+            color: $black !important;
+        }
+    }
+    .challenge-page--infos__completed {
+        background-color: $white;
+        color: $black;
+    }
+}

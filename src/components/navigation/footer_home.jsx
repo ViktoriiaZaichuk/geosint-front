@@ -16,7 +16,7 @@ const FooterHome = () => {
             <div className='footer--top'>
                 <div className='footer--top__left'>
                     <Logo />
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur obcaecati perferendis temporibus odit aut amet, provident veniam adipisci iste nobis vel iure molestiae!</p>
+                      <p>Tu aimes la géographie ? Tu es amateur d'OSINT ? Essaye GEO'SINT !</p>
                     <Button className={'button'}><Link className='link' to={"/login"}>Jouer maintenant</Link></Button>
                 </div>   
                 <div className='footer--top__right'>  
