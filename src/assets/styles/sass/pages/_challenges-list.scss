@@ -17,20 +17,12 @@
         }
     }
     &--list {
-        display: flex;
         margin-top: 5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         margin: 5rem auto;
         > div {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             flex-wrap: wrap;
-/*             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            grid-gap: 20px;
-            align-items: stretch; */
             & .card {
                 min-width: 350px;
                 margin: 5rem 2rem;
@@ -39,7 +31,6 @@
                     margin: 2rem;
                 }
             }
-
         }
     }
 }
