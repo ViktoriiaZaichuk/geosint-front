@@ -23,7 +23,7 @@ const TextInput = ({ id, control, name, type, label, placeholder, error, challen
                 control={control}
                 defaultValue = ''
                 render={({ field: { onChange, onBlur, value } }) => (
-                    <div style={challengeAnswer && { display: "flex" }}>
+                    <>
                         <input 
                             type={type === "password" && !showPassword ? "password" : "text"}
                             name={name}
@@ -34,7 +34,6 @@ const TextInput = ({ id, control, name, type, label, placeholder, error, challen
                             onChange={challengeResponse ? (e) => onChange(e.target.value.replace("'", "")) : onChange}
                             onBlur={onBlur}
                             onKeyPress={challengeResponse ? handleKeyPress : null}
-                            style={challengeAnswer && { height: "100%" }}
                         />
                         {(type === "password" && showPassword) ? (
                             <GiBleedingEye
@@ -50,7 +49,7 @@ const TextInput = ({ id, control, name, type, label, placeholder, error, challen
                             />
                         )}
                         {challengeAnswer && <button type="submit">OK</button>}
-                    </div>
+                    </>
                 )}
             />
             {error && <p className="error">{error}</p>}
