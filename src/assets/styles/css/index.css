@@ -503,6 +503,7 @@ a {
     font-size: 4rem; }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -540,6 +541,18 @@ a {
   .card--btn {
     align-self: center;
     /* padding: .5rem 3rem; */ }
+  .card .created-by-me {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    background-color: #ccb3ff;
+    padding: .7rem;
+    font-family: "millimetre_bold";
+    border: #3E3E3E solid 2px;
+    border-radius: 5px;
+    box-shadow: #3E3E3E -2px -2px 0px 1px; }
+  .card .created-by-me-btn {
+    background-color: #ccb3ff; }
 
 .modal--content {
   position: fixed;
@@ -1054,7 +1067,7 @@ select {
           transform: rotate(-45deg) translate(5px, -2px); }
 
 .dashboard-menu-overlay {
-  visibility: hidden;
+  display: none;
   min-height: 100vh;
   width: 25vw;
   top: 0;
@@ -1074,28 +1087,29 @@ select {
   @media (max-width: 768px) {
     .dashboard-menu-overlay {
       width: 100vw; } }
-  .dashboard-menu-overlay ul {
+  .dashboard-menu-overlay div {
     display: flex;
     flex-direction: column;
-    align-items: baseline; }
-    .dashboard-menu-overlay ul > * {
+    align-items: baseline;
+    list-style-type: none; }
+    .dashboard-menu-overlay div > * {
       margin: 1.5rem; }
-    .dashboard-menu-overlay ul a {
+    .dashboard-menu-overlay div a {
       font-family: "millimetre_bold";
       font-size: 2.5rem;
       transition: .2s; }
-    .dashboard-menu-overlay ul li:hover a {
+    .dashboard-menu-overlay div li:hover a {
       text-shadow: #ccb3ff 2px 2px; }
-    .dashboard-menu-overlay ul li button {
+    .dashboard-menu-overlay div li button {
       min-width: 310px;
       padding: 0; }
-      .dashboard-menu-overlay ul li button a {
+      .dashboard-menu-overlay div li button a {
         flex: 0 0 100%;
         display: block;
         width: 100%;
         padding: .5rem 2rem; }
   .dashboard-menu-overlay.expanded {
-    visibility: visible;
+    display: flex;
     left: 0; }
 
 .dashboard-footer {
