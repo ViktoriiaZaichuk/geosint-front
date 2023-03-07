@@ -45,8 +45,6 @@ const About = () => {
 
                 <div className="about--intro">
                     <div className="about--intro__title">
-                        {/* <h1>GEOS'INT</h1>
-                        <p>Geo'sint vous propose une expérience de jeu unique qui vous emmène à deviner où se trouvent les différents endroits du monde à partir de photos panoramiques. Les utilisateurs peuvent défier leurs amis et se mesurer à d'autres joueurs à travers des scores en ligne. Geo'sint apporte une nouvelle dimension au jeu classique de deviner où se trouve une image en utilisant des photos haute résolution et en ajoutant des fonctionnalités sociales telles que la possibilité de défier des amis et de partager vos scores sur les réseaux sociaux. Rejoignez dès maintenant la communauté de Geo'sint et découvrez de nouveaux endroits à travers le monde en jouant.</p> */}
                         <Polaroid />
                     </div>
                     <div className="about--intro__content">

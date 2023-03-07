@@ -78,7 +78,7 @@ const Home = () => {
                     </div>
                     <div className="home--challenge__content">
                         <h2>QUELQUES EXEMPLES DE CHALLENGES...</h2>
-                        <p>(On commence facile 😉)</p>
+                        <p>(On commence tranquillement 😉)</p>
                         <div className="card-list">
                             <Card challenge={{
                                     name: 'La Tour', 
