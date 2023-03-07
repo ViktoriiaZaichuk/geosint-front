@@ -18,6 +18,7 @@ import { ReactComponent as Arrow } from '../assets/icons/arrow-right.svg';
 import { ReactComponent as Trophy } from '../assets/icons/trophy_small.svg';
 import Chat from "../components/chat";
 import ScrollToTop from "../components/scrollToTop";
+import Loader from "../components/loader";
  
 const Challenge = () => {
     const [isCorrect, setIsCorrect] = React.useState(null)
@@ -26,7 +27,7 @@ const Challenge = () => {
 
     const { theme } = useContext(ThemeContext)
 
-    const { data: challenge, refetch } = useQuery(["challenge", id], () => getChallenge(id));
+    const { data: challenge, refetch, isLoading } = useQuery(["challenge", id], () => getChallenge(id));
 
     const [parentChallengeInfo, setParentChallengeInfo] = useState(null);
 
@@ -64,6 +65,10 @@ const Challenge = () => {
     };
 
     const [showImageModal, setShowImageModal] = useState(false);
+
+    if (isLoading) {
+        return <Loader />
+    }
 
     if (!challenge) {
         return <NotFound />
