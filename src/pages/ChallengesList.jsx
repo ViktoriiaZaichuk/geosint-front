@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { useMediaQuery } from 'react-responsive'
 import Modal from 'react-modal'
 import { useQuery } from "react-query"
-
+import { UserContext } from "../context/UserContext";
 import Card from "../components/card"
 import LayoutDashboard from "../pages/LayoutDashboard"
 import { getChallenges } from "../api/challenge"
@@ -12,6 +12,8 @@ const ChallengesList = () => {
     const [difficulty, setDifficulty] = useState(0)
     const [modalIsOpen, setModalIsOpen] = useState(false)
 
+    const { user, dispatch } = useContext(UserContext)
+
     const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
 
     const toggleModal = () => {
@@ -19,7 +21,7 @@ const ChallengesList = () => {
     }
 
     const { isFetching, data } = useQuery("challenges", getChallenges)
-    
+
     return (
         <LayoutDashboard>
             <div className="challenges-list--page">
@@ -73,10 +75,12 @@ const ChallengesList = () => {
                     <div>
                     {isFetching ? <Loader /> : data && (
                         data.map((challenge) => {
+                            const createdByMe = challenge.creator_id === user.id;
+                            const hasPlayedByMe = challenge.given_user_has_succeeded;
                             if (difficulty === 0) {
-                                return <Card key={challenge.id} challenge={challenge} />
+                                return <Card key={challenge.id} challenge={challenge} createdByMe={createdByMe} hasPlayedByMe={hasPlayedByMe} />
                             } else if (difficulty === challenge.level) {
-                                return <Card key={challenge.id} challenge={challenge} />
+                                return <Card key={challenge.id} challenge={challenge} createdByMe={createdByMe} />
                             }
                         })
                     )}
