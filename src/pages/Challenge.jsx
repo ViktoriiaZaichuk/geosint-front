@@ -5,6 +5,7 @@ import moment from "moment";
 import "moment/locale/fr";
 import { FixedSizeList as List } from 'react-window';
 import Confetti from 'react-confetti'
+import NotFound from './404Page'
 
 import { getChallenge } from "../api/challenge";
 import LayoutDashboard from "../pages/LayoutDashboard";
@@ -63,6 +64,10 @@ const Challenge = () => {
     };
 
     const [showImageModal, setShowImageModal] = useState(false);
+
+    if (!challenge) {
+        return <NotFound />
+    }
 
     return (
         <LayoutDashboard className="challenge-page">
