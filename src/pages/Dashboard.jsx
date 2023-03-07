@@ -39,7 +39,7 @@ const Dashboard = () => {
         const challenges = await getChallenges();
         return challenges.slice(-3);
     });
-
+console.log(allChallenges)
     const { data: userData } = useQuery("user", getUser);
 
     const { data: challengesDone } = useQuery("challengesDone", getChallengesDone);
@@ -63,6 +63,9 @@ const Dashboard = () => {
 
     const year = new Date().getFullYear();
     const month = new Date().getMonth();
+
+    const createdByMe = lastChallenge?.creator_id === user.id;
+    const hasPlayedByMe = allChallenges?.given_user_has_succeeded;
 
     useEffect(() => {
         if (userData) {
@@ -144,7 +147,7 @@ const Dashboard = () => {
                                     {theme === "light" ? <StarSts /> : <StarStsLight />}
                                 </div>
                             </div>
-                            <div>
+                            <div> 
                                 <div>
                                     <p>Score mensuel</p>
                                     <span>{challengesDone?.length > 0 ? calculateMonthlyScore(challengesDone, year, month) : 0}</span>
@@ -161,13 +164,20 @@ const Dashboard = () => {
 
                     <div className="dashboard-home--stats__challenge">
                         <p>Ton challenge quotidien est disponible :</p>
-                        {lastChallenge ? <Card key={lastChallenge.id} challenge={lastChallenge} /> : <p>Aucun challenge disponible</p>}
+                        {lastChallenge ? <Card key={lastChallenge.id} challenge={lastChallenge} createdByMe={createdByMe}/> : <p>Aucun challenge disponible</p>}
                     </div>
                 </div>
                 <div className="dashboard-home--challenges">
                     <h2>Notre sélection pour toi :</h2>
                     <div className="card-list">
-                        {data?.length > 0 ? data.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : allChallenges?.length > 0 ? allChallenges.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : <p>Aucun challenge disponible</p>}
+                        {data?.length > 0 ? data.map((challenge) =>  {
+                            return <Card key={challenge.id} challenge={challenge} hasPlayedByMe={hasPlayedByMe} createdByMe={challenge.creator_id === user.id}/>}) 
+                            
+                            : allChallenges?.length > 0 ? 
+                            allChallenges.map((challenge) => 
+                            <Card key={challenge.id} challenge={challenge} hasPlayedByMe={hasPlayedByMe} createdByMe={challenge.creator_id === user.id}/>) 
+                            : <p>Aucun challenge disponible</p>
+                        }
                     </div>
                     <div className="link">
                         <Link to={"/challenges_list"}>Voir d’autres challenges {theme === "light" ? <ArrowRight className="arrow-right" /> : <ArrowRightWhite className="arrow-right" />}</Link>
@@ -176,7 +186,26 @@ const Dashboard = () => {
                 <div className="dashboard-home--groupe">
                     <h2>CHALLENGE DE GROUPE :</h2>
                     <div className="card-list">
-                        {data?.length > 0 ? data.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : allChallenges?.length > 0 ? allChallenges.map((challenge) => <Card key={challenge.id} challenge={challenge} />) : <p>Aucun challenge disponible</p>}
+                    {
+                        data?.length > 0 ? 
+                        data.map((challenge) => {
+                        return <Card key={challenge.id} 
+                                    challenge={challenge} 
+                                    hasPlayedByMe={hasPlayedByMe} 
+                                    createdByMe={challenge.creator_id === user.id}
+                                    
+                            /> }
+                            ) 
+                            : allChallenges?.length > 0 ? 
+                            allChallenges.map((challenge) => 
+                                <Card key={challenge.id} 
+                                    challenge={challenge} 
+                                    hasPlayedByMe={hasPlayedByMe} 
+                                    createdByMe={challenge.creator_id === user.id}
+                                />
+                            ) 
+                            : <p>Aucun challenge disponible</p>
+                        }
                     </div>
                     <div className="link">
                         <Link to={"/challenges_list"}>Voir d’autres challenges {theme === "light" ? <ArrowRight className="arrow-right" /> : <ArrowRightWhite className="arrow-right" />}</Link>
